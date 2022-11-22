@@ -1,0 +1,11 @@
+C:\Users\Andréanne\source\repos\FeuilleDeTemps\FeuilleDeTemps\bin\Debug\FeuilleDeTemps.exe.config
+C:\Users\Andréanne\source\repos\FeuilleDeTemps\FeuilleDeTemps\bin\Debug\FeuilleDeTemps.exe
+C:\Users\Andréanne\source\repos\FeuilleDeTemps\FeuilleDeTemps\bin\Debug\FeuilleDeTemps.pdb
+C:\Users\Andréanne\source\repos\FeuilleDeTemps\FeuilleDeTemps\obj\Debug\FeuilleDeTemps.csproj.AssemblyReference.cache
+C:\Users\Andréanne\source\repos\FeuilleDeTemps\FeuilleDeTemps\obj\Debug\FeuilleDeTemps.csproj.SuggestedBindingRedirects.cache
+C:\Users\Andréanne\source\repos\FeuilleDeTemps\FeuilleDeTemps\obj\Debug\FeuilleDeTemps.LoginForm.resources
+C:\Users\Andréanne\source\repos\FeuilleDeTemps\FeuilleDeTemps\obj\Debug\FeuilleDeTemps.Properties.Resources.resources
+C:\Users\Andréanne\source\repos\FeuilleDeTemps\FeuilleDeTemps\obj\Debug\FeuilleDeTemps.csproj.GenerateResource.cache
+C:\Users\Andréanne\source\repos\FeuilleDeTemps\FeuilleDeTemps\obj\Debug\FeuilleDeTemps.csproj.CoreCompileInputs.cache
+C:\Users\Andréanne\source\repos\FeuilleDeTemps\FeuilleDeTemps\obj\Debug\FeuilleDeTemps.exe
+C:\Users\Andréanne\source\repos\FeuilleDeTemps\FeuilleDeTemps\obj\Debug\FeuilleDeTemps.pdb
