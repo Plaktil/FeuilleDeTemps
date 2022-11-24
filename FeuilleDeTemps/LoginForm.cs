@@ -31,13 +31,14 @@ namespace FeuilleDeTemps
 			{
 				CurrentUser.fullName = currentUser.fname + " " + currentUser.lname;
 				CurrentUser.id = currentUser.empId.ToString();
+				CurrentUser.role = currentUser.job;
 
 				MessageBox.Show($"Bienvenue {CurrentUser.fullName} -- {CurrentUser.id}");
 
 				MainScreen mainScreen = new MainScreen();
 				mainScreen.Show();
 
-				this.Hide();
+				this.Hide(); // Ne pas oublier de fermer cette fenetre quand on quitte l'application
 			}
 			else
 			{

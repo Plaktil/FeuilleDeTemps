@@ -10,5 +10,6 @@ namespace FeuilleDeTemps
 	{
 		public static string id { get; set; }
 		public static string fullName { get; set; }
+		public static string role { get; set; }
 	}
 }
