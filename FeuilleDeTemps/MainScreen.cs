@@ -19,8 +19,22 @@ namespace FeuilleDeTemps
 
 		private void MainScreen_Load(object sender, EventArgs e)
 		{
-			this.employesTableAdapter.FillById(EmployesDataSet.EmployesDataTable, CurrentUser.id);
+			this.employesTableAdapter.FillById(employesDataSet.Employes, CurrentUser.id);
+		}
 
+		private void Menu1_Click(object sender, EventArgs e)
+		{
+			this.employesTableAdapter.FillById(employesDataSet.Employes, CurrentUser.id);
+		}
+
+		private void Menu2_Click(object sender, EventArgs e)
+		{
+			this.employesTableAdapter.Fill(employesDataSet.Employes);
+		}
+
+		private void Menu3_Click(object sender, EventArgs e)
+		{
+			this.employesTableAdapter.Delete("00008", "dsa", "asd", "dsd", "819-888-8888", "blah");
 		}
 	}
 }

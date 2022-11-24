@@ -31,29 +31,29 @@
 			this.components = new System.ComponentModel.Container();
 			this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.empIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.fnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.lnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.jobDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.telDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.employesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+			this.employesDataSet = new FeuilleDeTemps.EmployesDataSet();
 			this.MainScreenTopToolStrip = new System.Windows.Forms.ToolStrip();
 			this.Menu1 = new System.Windows.Forms.ToolStripLabel();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.Menu2 = new System.Windows.Forms.ToolStripLabel();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.Menu3 = new System.Windows.Forms.ToolStripLabel();
-			this.employesDataSet = new FeuilleDeTemps.EmployesDataSet();
 			this.employesBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.employesTableAdapter = new FeuilleDeTemps.EmployesDataSetTableAdapters.EmployesTableAdapter();
-			this.employesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-			this.empIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.fnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.lnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.jobDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.telDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.toolStripContainer1.ContentPanel.SuspendLayout();
 			this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
 			this.toolStripContainer1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-			this.MainScreenTopToolStrip.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.employesDataSet)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.employesBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.employesBindingSource1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.employesDataSet)).BeginInit();
+			this.MainScreenTopToolStrip.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.employesBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// toolStripContainer1
@@ -95,73 +95,6 @@
 			this.dataGridView1.Size = new System.Drawing.Size(776, 214);
 			this.dataGridView1.TabIndex = 0;
 			// 
-			// MainScreenTopToolStrip
-			// 
-			this.MainScreenTopToolStrip.AllowMerge = false;
-			this.MainScreenTopToolStrip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.MainScreenTopToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-			this.MainScreenTopToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Menu1,
-            this.toolStripSeparator2,
-            this.Menu2,
-            this.toolStripSeparator3,
-            this.Menu3});
-			this.MainScreenTopToolStrip.Location = new System.Drawing.Point(3, 0);
-			this.MainScreenTopToolStrip.Name = "MainScreenTopToolStrip";
-			this.MainScreenTopToolStrip.Size = new System.Drawing.Size(216, 25);
-			this.MainScreenTopToolStrip.TabIndex = 0;
-			// 
-			// Menu1
-			// 
-			this.Menu1.Margin = new System.Windows.Forms.Padding(10, 1, 10, 2);
-			this.Menu1.Name = "Menu1";
-			this.Menu1.Size = new System.Drawing.Size(44, 22);
-			this.Menu1.Text = "Menu1";
-			// 
-			// toolStripSeparator2
-			// 
-			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-			// 
-			// Menu2
-			// 
-			this.Menu2.Margin = new System.Windows.Forms.Padding(10, 1, 10, 2);
-			this.Menu2.Name = "Menu2";
-			this.Menu2.Size = new System.Drawing.Size(44, 22);
-			this.Menu2.Text = "Menu2";
-			// 
-			// toolStripSeparator3
-			// 
-			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-			// 
-			// Menu3
-			// 
-			this.Menu3.Margin = new System.Windows.Forms.Padding(10, 1, 10, 2);
-			this.Menu3.Name = "Menu3";
-			this.Menu3.Size = new System.Drawing.Size(44, 22);
-			this.Menu3.Text = "Menu3";
-			// 
-			// employesDataSet
-			// 
-			this.employesDataSet.DataSetName = "EmployesDataSet";
-			this.employesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-			// 
-			// employesBindingSource
-			// 
-			this.employesBindingSource.DataMember = "Employes";
-			this.employesBindingSource.DataSource = this.employesDataSet;
-			// 
-			// employesTableAdapter
-			// 
-			this.employesTableAdapter.ClearBeforeFill = true;
-			// 
-			// employesBindingSource1
-			// 
-			this.employesBindingSource1.DataMember = "Employes";
-			this.employesBindingSource1.DataSource = this.employesDataSet;
-			// 
 			// empIdDataGridViewTextBoxColumn
 			// 
 			this.empIdDataGridViewTextBoxColumn.DataPropertyName = "empId";
@@ -197,6 +130,79 @@
 			this.telDataGridViewTextBoxColumn.Name = "telDataGridViewTextBoxColumn";
 			this.telDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
+			// employesBindingSource1
+			// 
+			this.employesBindingSource1.DataMember = "Employes";
+			this.employesBindingSource1.DataSource = this.employesDataSet;
+			// 
+			// employesDataSet
+			// 
+			this.employesDataSet.DataSetName = "EmployesDataSet";
+			this.employesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+			// 
+			// MainScreenTopToolStrip
+			// 
+			this.MainScreenTopToolStrip.AllowMerge = false;
+			this.MainScreenTopToolStrip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.MainScreenTopToolStrip.BackColor = System.Drawing.SystemColors.Control;
+			this.MainScreenTopToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+			this.MainScreenTopToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Menu1,
+            this.toolStripSeparator2,
+            this.Menu2,
+            this.toolStripSeparator3,
+            this.Menu3});
+			this.MainScreenTopToolStrip.Location = new System.Drawing.Point(3, 0);
+			this.MainScreenTopToolStrip.Name = "MainScreenTopToolStrip";
+			this.MainScreenTopToolStrip.Size = new System.Drawing.Size(247, 25);
+			this.MainScreenTopToolStrip.TabIndex = 0;
+			// 
+			// Menu1
+			// 
+			this.Menu1.BackColor = System.Drawing.SystemColors.Control;
+			this.Menu1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.Menu1.Margin = new System.Windows.Forms.Padding(10, 1, 10, 2);
+			this.Menu1.Name = "Menu1";
+			this.Menu1.Size = new System.Drawing.Size(44, 22);
+			this.Menu1.Text = "Menu1";
+			this.Menu1.Click += new System.EventHandler(this.Menu1_Click);
+			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+			// 
+			// Menu2
+			// 
+			this.Menu2.Margin = new System.Windows.Forms.Padding(10, 1, 10, 2);
+			this.Menu2.Name = "Menu2";
+			this.Menu2.Size = new System.Drawing.Size(44, 22);
+			this.Menu2.Text = "Menu2";
+			this.Menu2.Click += new System.EventHandler(this.Menu2_Click);
+			// 
+			// toolStripSeparator3
+			// 
+			this.toolStripSeparator3.Name = "toolStripSeparator3";
+			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+			// 
+			// Menu3
+			// 
+			this.Menu3.Margin = new System.Windows.Forms.Padding(10, 1, 10, 2);
+			this.Menu3.Name = "Menu3";
+			this.Menu3.Size = new System.Drawing.Size(44, 22);
+			this.Menu3.Text = "Menu3";
+			this.Menu3.Click += new System.EventHandler(this.Menu3_Click);
+			// 
+			// employesBindingSource
+			// 
+			this.employesBindingSource.DataMember = "Employes";
+			this.employesBindingSource.DataSource = this.employesDataSet;
+			// 
+			// employesTableAdapter
+			// 
+			this.employesTableAdapter.ClearBeforeFill = true;
+			// 
 			// MainScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,11 +218,11 @@
 			this.toolStripContainer1.ResumeLayout(false);
 			this.toolStripContainer1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.employesBindingSource1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.employesDataSet)).EndInit();
 			this.MainScreenTopToolStrip.ResumeLayout(false);
 			this.MainScreenTopToolStrip.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.employesDataSet)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.employesBindingSource)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.employesBindingSource1)).EndInit();
 			this.ResumeLayout(false);
 
 		}
