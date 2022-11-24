@@ -9,3 +9,4 @@ C:\Users\Andréanne\source\repos\FeuilleDeTemps\FeuilleDeTemps\obj\Debug\Feuille
 C:\Users\Andréanne\source\repos\FeuilleDeTemps\FeuilleDeTemps\obj\Debug\FeuilleDeTemps.csproj.CoreCompileInputs.cache
 C:\Users\Andréanne\source\repos\FeuilleDeTemps\FeuilleDeTemps\obj\Debug\FeuilleDeTemps.exe
 C:\Users\Andréanne\source\repos\FeuilleDeTemps\FeuilleDeTemps\obj\Debug\FeuilleDeTemps.pdb
+C:\Users\Andréanne\source\repos\FeuilleDeTemps\FeuilleDeTemps\obj\Debug\FeuilleDeTemps.MainScreen.resources

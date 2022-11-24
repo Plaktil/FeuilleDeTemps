@@ -16,5 +16,11 @@ namespace FeuilleDeTemps
 		{
 			InitializeComponent();
 		}
+
+		private void MainScreen_Load(object sender, EventArgs e)
+		{
+			this.employesTableAdapter.FillById(EmployesDataSet.EmployesDataTable, CurrentUser.id);
+
+		}
 	}
 }
