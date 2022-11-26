@@ -49,6 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="fdtDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>fdtDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +85,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="fdtDataSet.xsc">
+      <DependentUpon>fdtDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="fdtDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>fdtDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="fdtDataSet.xss">
+      <DependentUpon>fdtDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
