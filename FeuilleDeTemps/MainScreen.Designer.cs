@@ -29,15 +29,15 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			this.tabControl1 = new System.Windows.Forms.TabControl();
-			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.MainScreenTabControl = new System.Windows.Forms.TabControl();
+			this.HistoriqueTabPage = new System.Windows.Forms.TabPage();
+			this.entreesHeuresBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.fdtDataSet1 = new FeuilleDeTemps.fdtDataSet();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.entreesHorodateurBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.fdtDataSet = new FeuilleDeTemps.fdtDataSet();
-			this.dataGridView2 = new System.Windows.Forms.DataGridView();
-			this.fdtDataSet1 = new FeuilleDeTemps.fdtDataSet();
-			this.entreesHeuresBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.entreesHeuresTableAdapter = new FeuilleDeTemps.fdtDataSetTableAdapters.EntreesHeuresTableAdapter();
+			this.dataGridView2 = new System.Windows.Forms.DataGridView();
 			this.projetIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.cliNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,47 +48,60 @@
 			this.minsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dateModifDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.modifParDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.tabControl1.SuspendLayout();
-			this.tabPage1.SuspendLayout();
+			this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+			this.employesTableAdapter = new FeuilleDeTemps.fdtDataSetTableAdapters.EmployesTableAdapter();
+			this.MainScreenTabControl.SuspendLayout();
+			this.HistoriqueTabPage.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.entreesHeuresBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.fdtDataSet1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.entreesHorodateurBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.fdtDataSet)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.fdtDataSet1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.entreesHeuresBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// tabControl1
+			// MainScreenTabControl
 			// 
-			this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.MainScreenTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.tabControl1.Controls.Add(this.tabPage1);
-			this.tabControl1.Controls.Add(this.tabPage2);
-			this.tabControl1.Location = new System.Drawing.Point(12, 67);
-			this.tabControl1.Name = "tabControl1";
-			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(776, 371);
-			this.tabControl1.TabIndex = 0;
+			this.MainScreenTabControl.Controls.Add(this.HistoriqueTabPage);
+			this.MainScreenTabControl.Controls.Add(this.tabPage2);
+			this.MainScreenTabControl.Location = new System.Drawing.Point(12, 103);
+			this.MainScreenTabControl.Name = "MainScreenTabControl";
+			this.MainScreenTabControl.SelectedIndex = 0;
+			this.MainScreenTabControl.Size = new System.Drawing.Size(776, 335);
+			this.MainScreenTabControl.TabIndex = 0;
 			// 
-			// tabPage1
+			// HistoriqueTabPage
 			// 
-			this.tabPage1.Controls.Add(this.dataGridView2);
-			this.tabPage1.Location = new System.Drawing.Point(4, 22);
-			this.tabPage1.Name = "tabPage1";
-			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(768, 345);
-			this.tabPage1.TabIndex = 0;
-			this.tabPage1.Text = "tabPage1";
-			this.tabPage1.UseVisualStyleBackColor = true;
+			this.HistoriqueTabPage.Controls.Add(this.dataGridView2);
+			this.HistoriqueTabPage.Location = new System.Drawing.Point(4, 22);
+			this.HistoriqueTabPage.Name = "HistoriqueTabPage";
+			this.HistoriqueTabPage.Padding = new System.Windows.Forms.Padding(3);
+			this.HistoriqueTabPage.Size = new System.Drawing.Size(768, 309);
+			this.HistoriqueTabPage.TabIndex = 0;
+			this.HistoriqueTabPage.Text = "Historique";
+			this.HistoriqueTabPage.UseVisualStyleBackColor = true;
+			// 
+			// entreesHeuresBindingSource
+			// 
+			this.entreesHeuresBindingSource.DataMember = "EntreesHeures";
+			this.entreesHeuresBindingSource.DataSource = this.fdtDataSet1;
+			// 
+			// fdtDataSet1
+			// 
+			this.fdtDataSet1.DataSetName = "fdtDataSet";
+			this.fdtDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
 			// 
 			// tabPage2
 			// 
 			this.tabPage2.Location = new System.Drawing.Point(4, 22);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(768, 399);
+			this.tabPage2.Size = new System.Drawing.Size(768, 309);
 			this.tabPage2.TabIndex = 1;
-			this.tabPage2.Text = "tabPage2";
+			this.tabPage2.Text = "Modifier / Ajouter";
 			this.tabPage2.UseVisualStyleBackColor = true;
 			// 
 			// entreesHorodateurBindingSource
@@ -100,6 +113,10 @@
 			// 
 			this.fdtDataSet.DataSetName = "fdtDataSet";
 			this.fdtDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+			// 
+			// entreesHeuresTableAdapter
+			// 
+			this.entreesHeuresTableAdapter.ClearBeforeFill = true;
 			// 
 			// dataGridView2
 			// 
@@ -128,22 +145,8 @@
 			this.dataGridView2.Location = new System.Drawing.Point(6, 6);
 			this.dataGridView2.Name = "dataGridView2";
 			this.dataGridView2.ReadOnly = true;
-			this.dataGridView2.Size = new System.Drawing.Size(756, 333);
-			this.dataGridView2.TabIndex = 0;
-			// 
-			// fdtDataSet1
-			// 
-			this.fdtDataSet1.DataSetName = "fdtDataSet";
-			this.fdtDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-			// 
-			// entreesHeuresBindingSource
-			// 
-			this.entreesHeuresBindingSource.DataMember = "EntreesHeures";
-			this.entreesHeuresBindingSource.DataSource = this.fdtDataSet1;
-			// 
-			// entreesHeuresTableAdapter
-			// 
-			this.entreesHeuresTableAdapter.ClearBeforeFill = true;
+			this.dataGridView2.Size = new System.Drawing.Size(756, 297);
+			this.dataGridView2.TabIndex = 1;
 			// 
 			// projetIdDataGridViewTextBoxColumn
 			// 
@@ -215,23 +218,33 @@
 			this.modifParDataGridViewTextBoxColumn.Name = "modifParDataGridViewTextBoxColumn";
 			this.modifParDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
+			// bindingSource1
+			// 
+			this.bindingSource1.DataMember = "Employes";
+			this.bindingSource1.DataSource = this.fdtDataSet1;
+			// 
+			// employesTableAdapter
+			// 
+			this.employesTableAdapter.ClearBeforeFill = true;
+			// 
 			// MainScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.tabControl1);
+			this.Controls.Add(this.MainScreenTabControl);
 			this.Name = "MainScreen";
 			this.Text = "Feuille De Temps";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.Load += new System.EventHandler(this.MainScreen_Load);
-			this.tabControl1.ResumeLayout(false);
-			this.tabPage1.ResumeLayout(false);
+			this.MainScreenTabControl.ResumeLayout(false);
+			this.HistoriqueTabPage.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.entreesHeuresBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.fdtDataSet1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.entreesHorodateurBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.fdtDataSet)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.fdtDataSet1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.entreesHeuresBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -245,15 +258,15 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn lnameDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn jobDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn telDataGridViewTextBoxColumn;
-		private System.Windows.Forms.TabControl tabControl1;
-		private System.Windows.Forms.TabPage tabPage1;
+		private System.Windows.Forms.TabControl MainScreenTabControl;
+		private System.Windows.Forms.TabPage HistoriqueTabPage;
 		private System.Windows.Forms.TabPage tabPage2;
 		private fdtDataSet fdtDataSet;
 		private System.Windows.Forms.BindingSource entreesHorodateurBindingSource;
-		private System.Windows.Forms.DataGridView dataGridView2;
 		private fdtDataSet fdtDataSet1;
 		private System.Windows.Forms.BindingSource entreesHeuresBindingSource;
 		private fdtDataSetTableAdapters.EntreesHeuresTableAdapter entreesHeuresTableAdapter;
+		private System.Windows.Forms.DataGridView dataGridView2;
 		private System.Windows.Forms.DataGridViewTextBoxColumn projetIdDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn cliNameDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -264,5 +277,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn minsDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dateModifDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn modifParDataGridViewTextBoxColumn;
+		private System.Windows.Forms.BindingSource bindingSource1;
+		private fdtDataSetTableAdapters.EmployesTableAdapter employesTableAdapter;
 	}
 }

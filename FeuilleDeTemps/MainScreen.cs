@@ -12,8 +12,8 @@ namespace FeuilleDeTemps
 
 		private void MainScreen_Load(object sender, EventArgs e)
 		{
-			// TODO: This line of code loads data into the 'fdtDataSet1.EntreesHeures' table. You can move, or remove it, as needed.
-			this.entreesHeuresTableAdapter.FillByCurrentUser(fdtDataSet.EntreesHeures, CurrentUser.id);
+			// TODO: This line of code loads data into the 'fdtDataSet1.Employes' table. You can move, or remove it, as needed.
+			this.entreesHeuresTableAdapter.FillByCurrentUser(this.fdtDataSet1.EntreesHeures, CurrentUser.id);
 		}
 	}
 }
