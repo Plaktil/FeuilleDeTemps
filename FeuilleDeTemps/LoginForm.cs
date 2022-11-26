@@ -25,7 +25,7 @@ namespace FeuilleDeTemps
 		/// <param name="e">L'evenement qui declenche la fonction</param>
 		private void loginButton_Click(object sender, EventArgs e)
 		{
-			var currentUser = new EmployesDataSetTableAdapters.EmployesTableAdapter().GetDataByLogin(idTextBox.Text, pwdTextBox.Text).FirstOrDefault();
+			var currentUser = new fdtDataSetTableAdapters.EmployesTableAdapter().GetDataByLogin(idTextBox.Text, pwdTextBox.Text).FirstOrDefault();
 
 			if (currentUser != null )
 			{

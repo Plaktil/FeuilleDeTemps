@@ -26,7 +26,9 @@ namespace FeuilleDeTemps {
         
         private EmployesDataTable tableEmployes;
         
-        private DataTable1DataTable tableDataTable1;
+        private EntreesHeuresDataTable tableEntreesHeures;
+        
+        private EntreesHorodateurDataTable tableEntreesHorodateur;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -59,8 +61,11 @@ namespace FeuilleDeTemps {
                 if ((ds.Tables["Employes"] != null)) {
                     base.Tables.Add(new EmployesDataTable(ds.Tables["Employes"]));
                 }
-                if ((ds.Tables["DataTable1"] != null)) {
-                    base.Tables.Add(new DataTable1DataTable(ds.Tables["DataTable1"]));
+                if ((ds.Tables["EntreesHeures"] != null)) {
+                    base.Tables.Add(new EntreesHeuresDataTable(ds.Tables["EntreesHeures"]));
+                }
+                if ((ds.Tables["EntreesHorodateur"] != null)) {
+                    base.Tables.Add(new EntreesHorodateurDataTable(ds.Tables["EntreesHorodateur"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -94,9 +99,19 @@ namespace FeuilleDeTemps {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public DataTable1DataTable DataTable1 {
+        public EntreesHeuresDataTable EntreesHeures {
             get {
-                return this.tableDataTable1;
+                return this.tableEntreesHeures;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public EntreesHorodateurDataTable EntreesHorodateur {
+            get {
+                return this.tableEntreesHorodateur;
             }
         }
         
@@ -170,8 +185,11 @@ namespace FeuilleDeTemps {
                 if ((ds.Tables["Employes"] != null)) {
                     base.Tables.Add(new EmployesDataTable(ds.Tables["Employes"]));
                 }
-                if ((ds.Tables["DataTable1"] != null)) {
-                    base.Tables.Add(new DataTable1DataTable(ds.Tables["DataTable1"]));
+                if ((ds.Tables["EntreesHeures"] != null)) {
+                    base.Tables.Add(new EntreesHeuresDataTable(ds.Tables["EntreesHeures"]));
+                }
+                if ((ds.Tables["EntreesHorodateur"] != null)) {
+                    base.Tables.Add(new EntreesHorodateurDataTable(ds.Tables["EntreesHorodateur"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -212,10 +230,16 @@ namespace FeuilleDeTemps {
                     this.tableEmployes.InitVars();
                 }
             }
-            this.tableDataTable1 = ((DataTable1DataTable)(base.Tables["DataTable1"]));
+            this.tableEntreesHeures = ((EntreesHeuresDataTable)(base.Tables["EntreesHeures"]));
             if ((initTable == true)) {
-                if ((this.tableDataTable1 != null)) {
-                    this.tableDataTable1.InitVars();
+                if ((this.tableEntreesHeures != null)) {
+                    this.tableEntreesHeures.InitVars();
+                }
+            }
+            this.tableEntreesHorodateur = ((EntreesHorodateurDataTable)(base.Tables["EntreesHorodateur"]));
+            if ((initTable == true)) {
+                if ((this.tableEntreesHorodateur != null)) {
+                    this.tableEntreesHorodateur.InitVars();
                 }
             }
         }
@@ -230,8 +254,10 @@ namespace FeuilleDeTemps {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableEmployes = new EmployesDataTable();
             base.Tables.Add(this.tableEmployes);
-            this.tableDataTable1 = new DataTable1DataTable();
-            base.Tables.Add(this.tableDataTable1);
+            this.tableEntreesHeures = new EntreesHeuresDataTable();
+            base.Tables.Add(this.tableEntreesHeures);
+            this.tableEntreesHorodateur = new EntreesHorodateurDataTable();
+            base.Tables.Add(this.tableEntreesHorodateur);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -242,7 +268,13 @@ namespace FeuilleDeTemps {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeDataTable1() {
+        private bool ShouldSerializeEntreesHeures() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeEntreesHorodateur() {
             return false;
         }
         
@@ -305,7 +337,10 @@ namespace FeuilleDeTemps {
         public delegate void EmployesRowChangeEventHandler(object sender, EmployesRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void DataTable1RowChangeEventHandler(object sender, DataTable1RowChangeEvent e);
+        public delegate void EntreesHeuresRowChangeEventHandler(object sender, EntreesHeuresRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void EntreesHorodateurRowChangeEventHandler(object sender, EntreesHorodateurRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -651,7 +686,469 @@ namespace FeuilleDeTemps {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class DataTable1DataTable : global::System.Data.TypedTableBase<DataTable1Row> {
+        public partial class EntreesHeuresDataTable : global::System.Data.TypedTableBase<EntreesHeuresRow> {
+            
+            private global::System.Data.DataColumn columnprojetId;
+            
+            private global::System.Data.DataColumn columnempId;
+            
+            private global::System.Data.DataColumn columnjournee;
+            
+            private global::System.Data.DataColumn columnheures;
+            
+            private global::System.Data.DataColumn columnmins;
+            
+            private global::System.Data.DataColumn columnsoumis;
+            
+            private global::System.Data.DataColumn columndateModif;
+            
+            private global::System.Data.DataColumn columnmodifPar;
+            
+            private global::System.Data.DataColumn columncliName;
+            
+            private global::System.Data.DataColumn columnfname;
+            
+            private global::System.Data.DataColumn columnlname;
+            
+            private global::System.Data.DataColumn columnclientId;
+            
+            private global::System.Data.DataColumn columndebut;
+            
+            private global::System.Data.DataColumn columnfin;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public EntreesHeuresDataTable() {
+                this.TableName = "EntreesHeures";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal EntreesHeuresDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected EntreesHeuresDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn projetIdColumn {
+                get {
+                    return this.columnprojetId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn empIdColumn {
+                get {
+                    return this.columnempId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn journeeColumn {
+                get {
+                    return this.columnjournee;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn heuresColumn {
+                get {
+                    return this.columnheures;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn minsColumn {
+                get {
+                    return this.columnmins;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn soumisColumn {
+                get {
+                    return this.columnsoumis;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn dateModifColumn {
+                get {
+                    return this.columndateModif;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn modifParColumn {
+                get {
+                    return this.columnmodifPar;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn cliNameColumn {
+                get {
+                    return this.columncliName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn fnameColumn {
+                get {
+                    return this.columnfname;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn lnameColumn {
+                get {
+                    return this.columnlname;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn clientIdColumn {
+                get {
+                    return this.columnclientId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn debutColumn {
+                get {
+                    return this.columndebut;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn finColumn {
+                get {
+                    return this.columnfin;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public EntreesHeuresRow this[int index] {
+                get {
+                    return ((EntreesHeuresRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event EntreesHeuresRowChangeEventHandler EntreesHeuresRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event EntreesHeuresRowChangeEventHandler EntreesHeuresRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event EntreesHeuresRowChangeEventHandler EntreesHeuresRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event EntreesHeuresRowChangeEventHandler EntreesHeuresRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddEntreesHeuresRow(EntreesHeuresRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public EntreesHeuresRow AddEntreesHeuresRow(string projetId, string empId, System.DateTime journee, int heures, int mins, bool soumis, System.DateTime dateModif, string modifPar, string cliName, string fname, string lname, string clientId, System.DateTime debut, System.DateTime fin) {
+                EntreesHeuresRow rowEntreesHeuresRow = ((EntreesHeuresRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        projetId,
+                        empId,
+                        journee,
+                        heures,
+                        mins,
+                        soumis,
+                        dateModif,
+                        modifPar,
+                        cliName,
+                        fname,
+                        lname,
+                        clientId,
+                        debut,
+                        fin};
+                rowEntreesHeuresRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowEntreesHeuresRow);
+                return rowEntreesHeuresRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public EntreesHeuresRow FindByprojetIdempIdjournee(string projetId, string empId, System.DateTime journee) {
+                return ((EntreesHeuresRow)(this.Rows.Find(new object[] {
+                            projetId,
+                            empId,
+                            journee})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                EntreesHeuresDataTable cln = ((EntreesHeuresDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new EntreesHeuresDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnprojetId = base.Columns["projetId"];
+                this.columnempId = base.Columns["empId"];
+                this.columnjournee = base.Columns["journee"];
+                this.columnheures = base.Columns["heures"];
+                this.columnmins = base.Columns["mins"];
+                this.columnsoumis = base.Columns["soumis"];
+                this.columndateModif = base.Columns["dateModif"];
+                this.columnmodifPar = base.Columns["modifPar"];
+                this.columncliName = base.Columns["cliName"];
+                this.columnfname = base.Columns["fname"];
+                this.columnlname = base.Columns["lname"];
+                this.columnclientId = base.Columns["clientId"];
+                this.columndebut = base.Columns["debut"];
+                this.columnfin = base.Columns["fin"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnprojetId = new global::System.Data.DataColumn("projetId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprojetId);
+                this.columnempId = new global::System.Data.DataColumn("empId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnempId);
+                this.columnjournee = new global::System.Data.DataColumn("journee", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnjournee);
+                this.columnheures = new global::System.Data.DataColumn("heures", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnheures);
+                this.columnmins = new global::System.Data.DataColumn("mins", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmins);
+                this.columnsoumis = new global::System.Data.DataColumn("soumis", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsoumis);
+                this.columndateModif = new global::System.Data.DataColumn("dateModif", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndateModif);
+                this.columnmodifPar = new global::System.Data.DataColumn("modifPar", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmodifPar);
+                this.columncliName = new global::System.Data.DataColumn("cliName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncliName);
+                this.columnfname = new global::System.Data.DataColumn("fname", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfname);
+                this.columnlname = new global::System.Data.DataColumn("lname", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlname);
+                this.columnclientId = new global::System.Data.DataColumn("clientId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnclientId);
+                this.columndebut = new global::System.Data.DataColumn("debut", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndebut);
+                this.columnfin = new global::System.Data.DataColumn("fin", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfin);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnprojetId,
+                                this.columnempId,
+                                this.columnjournee}, true));
+                this.columnprojetId.AllowDBNull = false;
+                this.columnprojetId.MaxLength = 5;
+                this.columnempId.AllowDBNull = false;
+                this.columnempId.MaxLength = 5;
+                this.columnjournee.AllowDBNull = false;
+                this.columnheures.AllowDBNull = false;
+                this.columnmins.AllowDBNull = false;
+                this.columnsoumis.AllowDBNull = false;
+                this.columndateModif.AllowDBNull = false;
+                this.columnmodifPar.AllowDBNull = false;
+                this.columnmodifPar.MaxLength = 5;
+                this.columncliName.AllowDBNull = false;
+                this.columncliName.MaxLength = 50;
+                this.columnfname.AllowDBNull = false;
+                this.columnfname.MaxLength = 50;
+                this.columnlname.AllowDBNull = false;
+                this.columnlname.MaxLength = 50;
+                this.columnclientId.AllowDBNull = false;
+                this.columnclientId.MaxLength = 5;
+                this.columndebut.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public EntreesHeuresRow NewEntreesHeuresRow() {
+                return ((EntreesHeuresRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new EntreesHeuresRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(EntreesHeuresRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.EntreesHeuresRowChanged != null)) {
+                    this.EntreesHeuresRowChanged(this, new EntreesHeuresRowChangeEvent(((EntreesHeuresRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.EntreesHeuresRowChanging != null)) {
+                    this.EntreesHeuresRowChanging(this, new EntreesHeuresRowChangeEvent(((EntreesHeuresRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.EntreesHeuresRowDeleted != null)) {
+                    this.EntreesHeuresRowDeleted(this, new EntreesHeuresRowChangeEvent(((EntreesHeuresRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.EntreesHeuresRowDeleting != null)) {
+                    this.EntreesHeuresRowDeleting(this, new EntreesHeuresRowChangeEvent(((EntreesHeuresRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveEntreesHeuresRow(EntreesHeuresRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                fdtDataSet ds = new fdtDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "EntreesHeuresDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class EntreesHorodateurDataTable : global::System.Data.TypedTableBase<EntreesHorodateurRow> {
             
             private global::System.Data.DataColumn columnprojetId;
             
@@ -685,8 +1182,8 @@ namespace FeuilleDeTemps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DataTable1DataTable() {
-                this.TableName = "DataTable1";
+            public EntreesHorodateurDataTable() {
+                this.TableName = "EntreesHorodateur";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -694,7 +1191,7 @@ namespace FeuilleDeTemps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal DataTable1DataTable(global::System.Data.DataTable table) {
+            internal EntreesHorodateurDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -711,7 +1208,7 @@ namespace FeuilleDeTemps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected DataTable1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected EntreesHorodateurDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -847,34 +1344,34 @@ namespace FeuilleDeTemps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DataTable1Row this[int index] {
+            public EntreesHorodateurRow this[int index] {
                 get {
-                    return ((DataTable1Row)(this.Rows[index]));
+                    return ((EntreesHorodateurRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DataTable1RowChangeEventHandler DataTable1RowChanging;
+            public event EntreesHorodateurRowChangeEventHandler EntreesHorodateurRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DataTable1RowChangeEventHandler DataTable1RowChanged;
+            public event EntreesHorodateurRowChangeEventHandler EntreesHorodateurRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DataTable1RowChangeEventHandler DataTable1RowDeleting;
+            public event EntreesHorodateurRowChangeEventHandler EntreesHorodateurRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DataTable1RowChangeEventHandler DataTable1RowDeleted;
+            public event EntreesHorodateurRowChangeEventHandler EntreesHorodateurRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddDataTable1Row(DataTable1Row row) {
+            public void AddEntreesHorodateurRow(EntreesHorodateurRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string projetId, string empId, System.DateTime journee, int heures, int mins, bool soumis, System.DateTime dateModif, string modifPar, string projetId1, string projInfo, string clientId, System.DateTime debut, System.DateTime fin, string clientId1, string cliName) {
-                DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
+            public EntreesHorodateurRow AddEntreesHorodateurRow(string projetId, string empId, System.DateTime journee, int heures, int mins, bool soumis, System.DateTime dateModif, string modifPar, string projetId1, string projInfo, string clientId, System.DateTime debut, System.DateTime fin, string clientId1, string cliName) {
+                EntreesHorodateurRow rowEntreesHorodateurRow = ((EntreesHorodateurRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         projetId,
                         empId,
@@ -891,15 +1388,15 @@ namespace FeuilleDeTemps {
                         fin,
                         clientId1,
                         cliName};
-                rowDataTable1Row.ItemArray = columnValuesArray;
-                this.Rows.Add(rowDataTable1Row);
-                return rowDataTable1Row;
+                rowEntreesHorodateurRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowEntreesHorodateurRow);
+                return rowEntreesHorodateurRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DataTable1Row FindByprojetIdempIdjourneeprojetId1clientId1(string projetId, string empId, System.DateTime journee, string projetId1, string clientId1) {
-                return ((DataTable1Row)(this.Rows.Find(new object[] {
+            public EntreesHorodateurRow FindByprojetIdempIdjourneeprojetId1clientId1(string projetId, string empId, System.DateTime journee, string projetId1, string clientId1) {
+                return ((EntreesHorodateurRow)(this.Rows.Find(new object[] {
                             projetId,
                             empId,
                             journee,
@@ -910,7 +1407,7 @@ namespace FeuilleDeTemps {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                DataTable1DataTable cln = ((DataTable1DataTable)(base.Clone()));
+                EntreesHorodateurDataTable cln = ((EntreesHorodateurDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -918,7 +1415,7 @@ namespace FeuilleDeTemps {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new DataTable1DataTable();
+                return new EntreesHorodateurDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1005,28 +1502,28 @@ namespace FeuilleDeTemps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DataTable1Row NewDataTable1Row() {
-                return ((DataTable1Row)(this.NewRow()));
+            public EntreesHorodateurRow NewEntreesHorodateurRow() {
+                return ((EntreesHorodateurRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new DataTable1Row(builder);
+                return new EntreesHorodateurRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(DataTable1Row);
+                return typeof(EntreesHorodateurRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.DataTable1RowChanged != null)) {
-                    this.DataTable1RowChanged(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                if ((this.EntreesHorodateurRowChanged != null)) {
+                    this.EntreesHorodateurRowChanged(this, new EntreesHorodateurRowChangeEvent(((EntreesHorodateurRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1034,8 +1531,8 @@ namespace FeuilleDeTemps {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.DataTable1RowChanging != null)) {
-                    this.DataTable1RowChanging(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                if ((this.EntreesHorodateurRowChanging != null)) {
+                    this.EntreesHorodateurRowChanging(this, new EntreesHorodateurRowChangeEvent(((EntreesHorodateurRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1043,8 +1540,8 @@ namespace FeuilleDeTemps {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.DataTable1RowDeleted != null)) {
-                    this.DataTable1RowDeleted(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                if ((this.EntreesHorodateurRowDeleted != null)) {
+                    this.EntreesHorodateurRowDeleted(this, new EntreesHorodateurRowChangeEvent(((EntreesHorodateurRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1052,14 +1549,14 @@ namespace FeuilleDeTemps {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.DataTable1RowDeleting != null)) {
-                    this.DataTable1RowDeleting(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                if ((this.EntreesHorodateurRowDeleting != null)) {
+                    this.EntreesHorodateurRowDeleting(this, new EntreesHorodateurRowChangeEvent(((EntreesHorodateurRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveDataTable1Row(DataTable1Row row) {
+            public void RemoveEntreesHorodateurRow(EntreesHorodateurRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1086,7 +1583,7 @@ namespace FeuilleDeTemps {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "DataTable1DataTable";
+                attribute2.FixedValue = "EntreesHorodateurDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1211,25 +1708,25 @@ namespace FeuilleDeTemps {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class DataTable1Row : global::System.Data.DataRow {
+        public partial class EntreesHeuresRow : global::System.Data.DataRow {
             
-            private DataTable1DataTable tableDataTable1;
+            private EntreesHeuresDataTable tableEntreesHeures;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal DataTable1Row(global::System.Data.DataRowBuilder rb) : 
+            internal EntreesHeuresRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableDataTable1 = ((DataTable1DataTable)(this.Table));
+                this.tableEntreesHeures = ((EntreesHeuresDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string projetId {
                 get {
-                    return ((string)(this[this.tableDataTable1.projetIdColumn]));
+                    return ((string)(this[this.tableEntreesHeures.projetIdColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.projetIdColumn] = value;
+                    this[this.tableEntreesHeures.projetIdColumn] = value;
                 }
             }
             
@@ -1237,10 +1734,10 @@ namespace FeuilleDeTemps {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string empId {
                 get {
-                    return ((string)(this[this.tableDataTable1.empIdColumn]));
+                    return ((string)(this[this.tableEntreesHeures.empIdColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.empIdColumn] = value;
+                    this[this.tableEntreesHeures.empIdColumn] = value;
                 }
             }
             
@@ -1248,10 +1745,10 @@ namespace FeuilleDeTemps {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime journee {
                 get {
-                    return ((global::System.DateTime)(this[this.tableDataTable1.journeeColumn]));
+                    return ((global::System.DateTime)(this[this.tableEntreesHeures.journeeColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.journeeColumn] = value;
+                    this[this.tableEntreesHeures.journeeColumn] = value;
                 }
             }
             
@@ -1259,10 +1756,10 @@ namespace FeuilleDeTemps {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int heures {
                 get {
-                    return ((int)(this[this.tableDataTable1.heuresColumn]));
+                    return ((int)(this[this.tableEntreesHeures.heuresColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.heuresColumn] = value;
+                    this[this.tableEntreesHeures.heuresColumn] = value;
                 }
             }
             
@@ -1270,10 +1767,10 @@ namespace FeuilleDeTemps {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int mins {
                 get {
-                    return ((int)(this[this.tableDataTable1.minsColumn]));
+                    return ((int)(this[this.tableEntreesHeures.minsColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.minsColumn] = value;
+                    this[this.tableEntreesHeures.minsColumn] = value;
                 }
             }
             
@@ -1281,10 +1778,10 @@ namespace FeuilleDeTemps {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool soumis {
                 get {
-                    return ((bool)(this[this.tableDataTable1.soumisColumn]));
+                    return ((bool)(this[this.tableEntreesHeures.soumisColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.soumisColumn] = value;
+                    this[this.tableEntreesHeures.soumisColumn] = value;
                 }
             }
             
@@ -1292,10 +1789,10 @@ namespace FeuilleDeTemps {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime dateModif {
                 get {
-                    return ((global::System.DateTime)(this[this.tableDataTable1.dateModifColumn]));
+                    return ((global::System.DateTime)(this[this.tableEntreesHeures.dateModifColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.dateModifColumn] = value;
+                    this[this.tableEntreesHeures.dateModifColumn] = value;
                 }
             }
             
@@ -1303,37 +1800,43 @@ namespace FeuilleDeTemps {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string modifPar {
                 get {
-                    return ((string)(this[this.tableDataTable1.modifParColumn]));
+                    return ((string)(this[this.tableEntreesHeures.modifParColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.modifParColumn] = value;
+                    this[this.tableEntreesHeures.modifParColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string projetId1 {
+            public string cliName {
                 get {
-                    return ((string)(this[this.tableDataTable1.projetId1Column]));
+                    return ((string)(this[this.tableEntreesHeures.cliNameColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.projetId1Column] = value;
+                    this[this.tableEntreesHeures.cliNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string projInfo {
+            public string fname {
                 get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.projInfoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'projInfo\' in table \'DataTable1\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableEntreesHeures.fnameColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.projInfoColumn] = value;
+                    this[this.tableEntreesHeures.fnameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string lname {
+                get {
+                    return ((string)(this[this.tableEntreesHeures.lnameColumn]));
+                }
+                set {
+                    this[this.tableEntreesHeures.lnameColumn] = value;
                 }
             }
             
@@ -1341,10 +1844,10 @@ namespace FeuilleDeTemps {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string clientId {
                 get {
-                    return ((string)(this[this.tableDataTable1.clientIdColumn]));
+                    return ((string)(this[this.tableEntreesHeures.clientIdColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.clientIdColumn] = value;
+                    this[this.tableEntreesHeures.clientIdColumn] = value;
                 }
             }
             
@@ -1352,10 +1855,10 @@ namespace FeuilleDeTemps {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime debut {
                 get {
-                    return ((global::System.DateTime)(this[this.tableDataTable1.debutColumn]));
+                    return ((global::System.DateTime)(this[this.tableEntreesHeures.debutColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.debutColumn] = value;
+                    this[this.tableEntreesHeures.debutColumn] = value;
                 }
             }
             
@@ -1364,14 +1867,194 @@ namespace FeuilleDeTemps {
             public System.DateTime fin {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableDataTable1.finColumn]));
+                        return ((global::System.DateTime)(this[this.tableEntreesHeures.finColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'fin\' in table \'DataTable1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'fin\' in table \'EntreesHeures\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.finColumn] = value;
+                    this[this.tableEntreesHeures.finColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsfinNull() {
+                return this.IsNull(this.tableEntreesHeures.finColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetfinNull() {
+                this[this.tableEntreesHeures.finColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class EntreesHorodateurRow : global::System.Data.DataRow {
+            
+            private EntreesHorodateurDataTable tableEntreesHorodateur;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal EntreesHorodateurRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableEntreesHorodateur = ((EntreesHorodateurDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string projetId {
+                get {
+                    return ((string)(this[this.tableEntreesHorodateur.projetIdColumn]));
+                }
+                set {
+                    this[this.tableEntreesHorodateur.projetIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string empId {
+                get {
+                    return ((string)(this[this.tableEntreesHorodateur.empIdColumn]));
+                }
+                set {
+                    this[this.tableEntreesHorodateur.empIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime journee {
+                get {
+                    return ((global::System.DateTime)(this[this.tableEntreesHorodateur.journeeColumn]));
+                }
+                set {
+                    this[this.tableEntreesHorodateur.journeeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int heures {
+                get {
+                    return ((int)(this[this.tableEntreesHorodateur.heuresColumn]));
+                }
+                set {
+                    this[this.tableEntreesHorodateur.heuresColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int mins {
+                get {
+                    return ((int)(this[this.tableEntreesHorodateur.minsColumn]));
+                }
+                set {
+                    this[this.tableEntreesHorodateur.minsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool soumis {
+                get {
+                    return ((bool)(this[this.tableEntreesHorodateur.soumisColumn]));
+                }
+                set {
+                    this[this.tableEntreesHorodateur.soumisColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime dateModif {
+                get {
+                    return ((global::System.DateTime)(this[this.tableEntreesHorodateur.dateModifColumn]));
+                }
+                set {
+                    this[this.tableEntreesHorodateur.dateModifColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string modifPar {
+                get {
+                    return ((string)(this[this.tableEntreesHorodateur.modifParColumn]));
+                }
+                set {
+                    this[this.tableEntreesHorodateur.modifParColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string projetId1 {
+                get {
+                    return ((string)(this[this.tableEntreesHorodateur.projetId1Column]));
+                }
+                set {
+                    this[this.tableEntreesHorodateur.projetId1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string projInfo {
+                get {
+                    try {
+                        return ((string)(this[this.tableEntreesHorodateur.projInfoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'projInfo\' in table \'EntreesHorodateur\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEntreesHorodateur.projInfoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string clientId {
+                get {
+                    return ((string)(this[this.tableEntreesHorodateur.clientIdColumn]));
+                }
+                set {
+                    this[this.tableEntreesHorodateur.clientIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime debut {
+                get {
+                    return ((global::System.DateTime)(this[this.tableEntreesHorodateur.debutColumn]));
+                }
+                set {
+                    this[this.tableEntreesHorodateur.debutColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime fin {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableEntreesHorodateur.finColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'fin\' in table \'EntreesHorodateur\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEntreesHorodateur.finColumn] = value;
                 }
             }
             
@@ -1379,10 +2062,10 @@ namespace FeuilleDeTemps {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string clientId1 {
                 get {
-                    return ((string)(this[this.tableDataTable1.clientId1Column]));
+                    return ((string)(this[this.tableEntreesHorodateur.clientId1Column]));
                 }
                 set {
-                    this[this.tableDataTable1.clientId1Column] = value;
+                    this[this.tableEntreesHorodateur.clientId1Column] = value;
                 }
             }
             
@@ -1390,35 +2073,35 @@ namespace FeuilleDeTemps {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string cliName {
                 get {
-                    return ((string)(this[this.tableDataTable1.cliNameColumn]));
+                    return ((string)(this[this.tableEntreesHorodateur.cliNameColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.cliNameColumn] = value;
+                    this[this.tableEntreesHorodateur.cliNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsprojInfoNull() {
-                return this.IsNull(this.tableDataTable1.projInfoColumn);
+                return this.IsNull(this.tableEntreesHorodateur.projInfoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetprojInfoNull() {
-                this[this.tableDataTable1.projInfoColumn] = global::System.Convert.DBNull;
+                this[this.tableEntreesHorodateur.projInfoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsfinNull() {
-                return this.IsNull(this.tableDataTable1.finColumn);
+                return this.IsNull(this.tableEntreesHorodateur.finColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetfinNull() {
-                this[this.tableDataTable1.finColumn] = global::System.Convert.DBNull;
+                this[this.tableEntreesHorodateur.finColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1460,22 +2143,56 @@ namespace FeuilleDeTemps {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class DataTable1RowChangeEvent : global::System.EventArgs {
+        public class EntreesHeuresRowChangeEvent : global::System.EventArgs {
             
-            private DataTable1Row eventRow;
+            private EntreesHeuresRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DataTable1RowChangeEvent(DataTable1Row row, global::System.Data.DataRowAction action) {
+            public EntreesHeuresRowChangeEvent(EntreesHeuresRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DataTable1Row Row {
+            public EntreesHeuresRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class EntreesHorodateurRowChangeEvent : global::System.EventArgs {
+            
+            private EntreesHorodateurRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public EntreesHorodateurRowChangeEvent(EntreesHorodateurRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public EntreesHorodateurRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1682,9 +2399,10 @@ SELECT empId, fname, lname, job, tel, passwd FROM Employes WHERE (empId = @empId
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT empId, fname, lname, passwd, job\r\nFROM Employes\r\nWHERE (empId = @loginId)";
+            this._commandCollection[1].CommandText = "SELECT *\r\nFROM Employes\r\nWHERE (empId = @loginId AND passwd = @loginPasswd)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loginId", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "empId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loginPasswd", global::System.Data.SqlDbType.VarChar, 24, global::System.Data.ParameterDirection.Input, 0, 0, "passwd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1715,13 +2433,19 @@ SELECT empId, fname, lname, job, tel, passwd FROM Employes WHERE (empId = @empId
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByLogin(fdtDataSet.EmployesDataTable dataTable, string loginId) {
+        public virtual int FillByLogin(fdtDataSet.EmployesDataTable dataTable, string loginId, string loginPasswd) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((loginId == null)) {
                 throw new global::System.ArgumentNullException("loginId");
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(loginId));
+            }
+            if ((loginPasswd == null)) {
+                throw new global::System.ArgumentNullException("loginPasswd");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(loginPasswd));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1734,13 +2458,19 @@ SELECT empId, fname, lname, job, tel, passwd FROM Employes WHERE (empId = @empId
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual fdtDataSet.EmployesDataTable GetDataByLogin(string loginId) {
+        public virtual fdtDataSet.EmployesDataTable GetDataByLogin(string loginId, string loginPasswd) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((loginId == null)) {
                 throw new global::System.ArgumentNullException("loginId");
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(loginId));
+            }
+            if ((loginPasswd == null)) {
+                throw new global::System.ArgumentNullException("loginPasswd");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(loginPasswd));
             }
             fdtDataSet.EmployesDataTable dataTable = new fdtDataSet.EmployesDataTable();
             this.Adapter.Fill(dataTable);
@@ -2001,7 +2731,7 @@ SELECT empId, fname, lname, job, tel, passwd FROM Employes WHERE (empId = @empId
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class DataTable1TableAdapter : global::System.ComponentModel.Component {
+    public partial class EntreesHeuresTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -2015,7 +2745,7 @@ SELECT empId, fname, lname, job, tel, passwd FROM Employes WHERE (empId = @empId
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public DataTable1TableAdapter() {
+        public EntreesHeuresTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -2112,7 +2842,7 @@ SELECT empId, fname, lname, job, tel, passwd FROM Employes WHERE (empId = @empId
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "DataTable1";
+            tableMapping.DataSetTable = "EntreesHeures";
             tableMapping.ColumnMappings.Add("projetId", "projetId");
             tableMapping.ColumnMappings.Add("empId", "empId");
             tableMapping.ColumnMappings.Add("journee", "journee");
@@ -2121,13 +2851,12 @@ SELECT empId, fname, lname, job, tel, passwd FROM Employes WHERE (empId = @empId
             tableMapping.ColumnMappings.Add("soumis", "soumis");
             tableMapping.ColumnMappings.Add("dateModif", "dateModif");
             tableMapping.ColumnMappings.Add("modifPar", "modifPar");
-            tableMapping.ColumnMappings.Add("projetId1", "projetId1");
-            tableMapping.ColumnMappings.Add("projInfo", "projInfo");
+            tableMapping.ColumnMappings.Add("cliName", "cliName");
+            tableMapping.ColumnMappings.Add("fname", "fname");
+            tableMapping.ColumnMappings.Add("lname", "lname");
             tableMapping.ColumnMappings.Add("clientId", "clientId");
             tableMapping.ColumnMappings.Add("debut", "debut");
             tableMapping.ColumnMappings.Add("fin", "fin");
-            tableMapping.ColumnMappings.Add("clientId1", "clientId1");
-            tableMapping.ColumnMappings.Add("cliName", "cliName");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2141,33 +2870,34 @@ SELECT empId, fname, lname, job, tel, passwd FROM Employes WHERE (empId = @empId
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT * \r\nFROM Horodateur JOIN Projets ON Horodateur.projetId = Projets.projetId" +
-                "\r\nJOIN Clients ON Projets.clientId = Clients.clientId";
+            this._commandCollection[0].CommandText = @"SELECT        Horodateur.projetId, Horodateur.empId, Horodateur.journee, Horodateur.heures, Horodateur.mins, Horodateur.soumis, Horodateur.dateModif, Horodateur.modifPar, Clients.cliName, Employes.fname, Employes.lname, 
+                         Projets.clientId, Projets.debut, Projets.fin
+FROM            Horodateur INNER JOIN
+                         Projets ON Horodateur.projetId = Projets.projetId INNER JOIN
+                         Clients ON Projets.clientId = Clients.clientId INNER JOIN
+                         Employes ON Horodateur.empId = Employes.empId AND Horodateur.modifPar = Employes.empId";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT * \r\nFROM Horodateur JOIN Projets ON Horodateur.projetId = Projets.projetId" +
-                "\r\nJOIN Clients ON Projets.clientId = Clients.clientId\r\nWHERE (Horodateur.EmpId =" +
-                " @currentUserId)";
+            this._commandCollection[1].CommandText = @"SELECT        Horodateur.projetId, Horodateur.empId, Horodateur.journee, Horodateur.heures, Horodateur.mins, Horodateur.soumis, Horodateur.dateModif, Horodateur.modifPar, Clients.cliName, Employes.fname, Employes.lname, 
+                         Projets.clientId, Projets.debut, Projets.fin
+FROM            Horodateur INNER JOIN
+                         Projets ON Horodateur.projetId = Projets.projetId INNER JOIN
+                         Clients ON Projets.clientId = Clients.clientId INNER JOIN
+                         Employes ON Horodateur.empId = Employes.empId AND Horodateur.modifPar = Employes.empId
+WHERE (Horodateur.empId = @currentUserId)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@currentUserId", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "empId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT * \r\nFROM Horodateur JOIN Projets ON Horodateur.projetId = Projets.projetId" +
-                "\r\nJOIN Clients ON Projets.clientId = Clients.clientId\r\nWHERE (Horodateur.empId =" +
-                " @currentUserId AND soumis = 0)";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@currentUserId", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "empId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int FillAdmin(fdtDataSet.DataTable1DataTable dataTable) {
+        public virtual int Fill(fdtDataSet.EntreesHeuresDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2180,9 +2910,9 @@ SELECT empId, fname, lname, job, tel, passwd FROM Employes WHERE (empId = @empId
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual fdtDataSet.DataTable1DataTable GetDataAdmin() {
+        public virtual fdtDataSet.EntreesHeuresDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            fdtDataSet.DataTable1DataTable dataTable = new fdtDataSet.DataTable1DataTable();
+            fdtDataSet.EntreesHeuresDataTable dataTable = new fdtDataSet.EntreesHeuresDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2191,7 +2921,7 @@ SELECT empId, fname, lname, job, tel, passwd FROM Employes WHERE (empId = @empId
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByCurrentUser(fdtDataSet.DataTable1DataTable dataTable, string currentUserId) {
+        public virtual int FillByCurrentUser(fdtDataSet.EntreesHeuresDataTable dataTable, string currentUserId) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((currentUserId == null)) {
                 throw new global::System.ArgumentNullException("currentUserId");
@@ -2210,7 +2940,7 @@ SELECT empId, fname, lname, job, tel, passwd FROM Employes WHERE (empId = @empId
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual fdtDataSet.DataTable1DataTable GetDataByCurrentUser(string currentUserId) {
+        public virtual fdtDataSet.EntreesHeuresDataTable GetDataByCurrentUser(string currentUserId) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((currentUserId == null)) {
                 throw new global::System.ArgumentNullException("currentUserId");
@@ -2218,43 +2948,7 @@ SELECT empId, fname, lname, job, tel, passwd FROM Employes WHERE (empId = @empId
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(currentUserId));
             }
-            fdtDataSet.DataTable1DataTable dataTable = new fdtDataSet.DataTable1DataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBySoumis(fdtDataSet.DataTable1DataTable dataTable, string currentUserId) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((currentUserId == null)) {
-                throw new global::System.ArgumentNullException("currentUserId");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(currentUserId));
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual fdtDataSet.DataTable1DataTable GetDataBySoumis(string currentUserId) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((currentUserId == null)) {
-                throw new global::System.ArgumentNullException("currentUserId");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(currentUserId));
-            }
-            fdtDataSet.DataTable1DataTable dataTable = new fdtDataSet.DataTable1DataTable();
+            fdtDataSet.EntreesHeuresDataTable dataTable = new fdtDataSet.EntreesHeuresDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
