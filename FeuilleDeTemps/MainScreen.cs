@@ -19,16 +19,6 @@ namespace FeuilleDeTemps
 
 		private void MainScreen_Load(object sender, EventArgs e)
 		{
-			if (CurrentUser.role == "Superviseur")
-			{
-				this.employesTableAdapter.Fill(this.employesDataSet.Employes);
-			}
-
-			else
-			{
-				this.employesTableAdapter.FillById(this.employesDataSet.Employes, CurrentUser.id);
-			}
-
 		}
 	}
 }

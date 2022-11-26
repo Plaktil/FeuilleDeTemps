@@ -49,14 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EmployesDataSet.cs">
-      <DependentUpon>EmployesDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="EmployesDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EmployesDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,17 +80,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="EmployesDataSet.xsc">
-      <DependentUpon>EmployesDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="EmployesDataSet.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>EmployesDataSet.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="EmployesDataSet.xss">
-      <DependentUpon>EmployesDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
