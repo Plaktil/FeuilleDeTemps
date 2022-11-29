@@ -33,12 +33,14 @@ namespace FeuilleDeTemps
 				CurrentUser.id = currentUser.empId.ToString();
 				CurrentUser.role = currentUser.job;
 
-				MessageBox.Show($"Bienvenue {CurrentUser.fullName} -- {CurrentUser.id}");
+				idTextBox.Text = String.Empty;
+				pwdTextBox.Text = String.Empty;
+				idTextBox.Focus();
 
-				MainScreen mainScreen = new MainScreen();
+				MainScreen mainScreen = new MainScreen(this);
 				mainScreen.Show();
 
-				this.Hide(); // Ne pas oublier de fermer cette fenetre quand on quitte l'application
+				this.Hide(); // Ne pas oublier de fermer cette fenetre quand on quitte l'application par le MainScreen
 			}
 			else
 			{
