@@ -29,9 +29,17 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
 			this.MainScreenTabControl = new System.Windows.Forms.TabControl();
 			this.HistoriqueTabPage = new System.Windows.Forms.TabPage();
 			this.rechercheGroupBox = new System.Windows.Forms.GroupBox();
+			this.HistEmpIdCheckBox = new System.Windows.Forms.CheckBox();
+			this.HistEmpIdLabel = new System.Windows.Forms.Label();
+			this.HistResetButton = new System.Windows.Forms.Button();
+			this.HistSearchButton = new System.Windows.Forms.Button();
+			this.HistEndDateCheckBox = new System.Windows.Forms.CheckBox();
+			this.HistStartDateCheckBox = new System.Windows.Forms.CheckBox();
+			this.HistProjetIdCheckBox = new System.Windows.Forms.CheckBox();
 			this.HistEndDatePicker = new System.Windows.Forms.DateTimePicker();
 			this.HistEndDatePickerLabel = new System.Windows.Forms.Label();
 			this.HistStartDatePicker = new System.Windows.Forms.DateTimePicker();
@@ -59,11 +67,8 @@
 			this.employesTableAdapter = new FeuilleDeTemps.fdtDataSetTableAdapters.EmployesTableAdapter();
 			this.projetsTableAdapter = new FeuilleDeTemps.fdtDataSetTableAdapters.ProjetsTableAdapter();
 			this.LogoutButton = new System.Windows.Forms.Button();
-			this.HistProjetIdCheckBox = new System.Windows.Forms.CheckBox();
-			this.HistStartDateCheckBox = new System.Windows.Forms.CheckBox();
-			this.HistEndDateCheckBox = new System.Windows.Forms.CheckBox();
-			this.HistSearchButton = new System.Windows.Forms.Button();
-			this.HistResetButton = new System.Windows.Forms.Button();
+			this.HistEmpIdComboBox = new System.Windows.Forms.ComboBox();
+			this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
 			this.MainScreenTabControl.SuspendLayout();
 			this.HistoriqueTabPage.SuspendLayout();
 			this.rechercheGroupBox.SuspendLayout();
@@ -73,6 +78,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.entreesHeuresBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.fdtDataSet)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// MainScreenTabControl
@@ -85,7 +91,7 @@
 			this.MainScreenTabControl.Location = new System.Drawing.Point(12, 38);
 			this.MainScreenTabControl.Name = "MainScreenTabControl";
 			this.MainScreenTabControl.SelectedIndex = 0;
-			this.MainScreenTabControl.Size = new System.Drawing.Size(776, 400);
+			this.MainScreenTabControl.Size = new System.Drawing.Size(831, 400);
 			this.MainScreenTabControl.TabIndex = 0;
 			// 
 			// HistoriqueTabPage
@@ -95,7 +101,7 @@
 			this.HistoriqueTabPage.Location = new System.Drawing.Point(4, 22);
 			this.HistoriqueTabPage.Name = "HistoriqueTabPage";
 			this.HistoriqueTabPage.Padding = new System.Windows.Forms.Padding(3);
-			this.HistoriqueTabPage.Size = new System.Drawing.Size(768, 374);
+			this.HistoriqueTabPage.Size = new System.Drawing.Size(823, 374);
 			this.HistoriqueTabPage.TabIndex = 0;
 			this.HistoriqueTabPage.Text = "Historique";
 			this.HistoriqueTabPage.UseVisualStyleBackColor = true;
@@ -104,6 +110,9 @@
 			// 
 			this.rechercheGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.rechercheGroupBox.Controls.Add(this.HistEmpIdComboBox);
+			this.rechercheGroupBox.Controls.Add(this.HistEmpIdCheckBox);
+			this.rechercheGroupBox.Controls.Add(this.HistEmpIdLabel);
 			this.rechercheGroupBox.Controls.Add(this.HistResetButton);
 			this.rechercheGroupBox.Controls.Add(this.HistSearchButton);
 			this.rechercheGroupBox.Controls.Add(this.HistEndDateCheckBox);
@@ -117,10 +126,77 @@
 			this.rechercheGroupBox.Controls.Add(this.HistProjetIdComboBox);
 			this.rechercheGroupBox.Location = new System.Drawing.Point(7, 7);
 			this.rechercheGroupBox.Name = "rechercheGroupBox";
-			this.rechercheGroupBox.Size = new System.Drawing.Size(755, 87);
+			this.rechercheGroupBox.Size = new System.Drawing.Size(810, 87);
 			this.rechercheGroupBox.TabIndex = 2;
 			this.rechercheGroupBox.TabStop = false;
 			this.rechercheGroupBox.Text = "Critères de recherche";
+			// 
+			// HistEmpIdCheckBox
+			// 
+			this.HistEmpIdCheckBox.AutoSize = true;
+			this.HistEmpIdCheckBox.Location = new System.Drawing.Point(524, 54);
+			this.HistEmpIdCheckBox.Name = "HistEmpIdCheckBox";
+			this.HistEmpIdCheckBox.Size = new System.Drawing.Size(15, 14);
+			this.HistEmpIdCheckBox.TabIndex = 14;
+			this.HistEmpIdCheckBox.UseVisualStyleBackColor = true;
+			// 
+			// HistEmpIdLabel
+			// 
+			this.HistEmpIdLabel.AutoSize = true;
+			this.HistEmpIdLabel.Location = new System.Drawing.Point(542, 32);
+			this.HistEmpIdLabel.Name = "HistEmpIdLabel";
+			this.HistEmpIdLabel.Size = new System.Drawing.Size(103, 13);
+			this.HistEmpIdLabel.TabIndex = 12;
+			this.HistEmpIdLabel.Text = "Identifiant d\'employé";
+			// 
+			// HistResetButton
+			// 
+			this.HistResetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.HistResetButton.Location = new System.Drawing.Point(729, 18);
+			this.HistResetButton.Name = "HistResetButton";
+			this.HistResetButton.Size = new System.Drawing.Size(75, 23);
+			this.HistResetButton.TabIndex = 11;
+			this.HistResetButton.Text = "Réinitialiser";
+			this.HistResetButton.UseVisualStyleBackColor = true;
+			this.HistResetButton.Click += new System.EventHandler(this.HistResetButton_Click);
+			// 
+			// HistSearchButton
+			// 
+			this.HistSearchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.HistSearchButton.Location = new System.Drawing.Point(729, 47);
+			this.HistSearchButton.Name = "HistSearchButton";
+			this.HistSearchButton.Size = new System.Drawing.Size(75, 23);
+			this.HistSearchButton.TabIndex = 10;
+			this.HistSearchButton.Text = "Rechercher";
+			this.HistSearchButton.UseVisualStyleBackColor = true;
+			this.HistSearchButton.Click += new System.EventHandler(this.HistSearchButton_Click);
+			// 
+			// HistEndDateCheckBox
+			// 
+			this.HistEndDateCheckBox.AutoSize = true;
+			this.HistEndDateCheckBox.Location = new System.Drawing.Point(347, 54);
+			this.HistEndDateCheckBox.Name = "HistEndDateCheckBox";
+			this.HistEndDateCheckBox.Size = new System.Drawing.Size(15, 14);
+			this.HistEndDateCheckBox.TabIndex = 9;
+			this.HistEndDateCheckBox.UseVisualStyleBackColor = true;
+			// 
+			// HistStartDateCheckBox
+			// 
+			this.HistStartDateCheckBox.AutoSize = true;
+			this.HistStartDateCheckBox.Location = new System.Drawing.Point(170, 53);
+			this.HistStartDateCheckBox.Name = "HistStartDateCheckBox";
+			this.HistStartDateCheckBox.Size = new System.Drawing.Size(15, 14);
+			this.HistStartDateCheckBox.TabIndex = 8;
+			this.HistStartDateCheckBox.UseVisualStyleBackColor = true;
+			// 
+			// HistProjetIdCheckBox
+			// 
+			this.HistProjetIdCheckBox.AutoSize = true;
+			this.HistProjetIdCheckBox.Location = new System.Drawing.Point(9, 53);
+			this.HistProjetIdCheckBox.Name = "HistProjetIdCheckBox";
+			this.HistProjetIdCheckBox.Size = new System.Drawing.Size(15, 14);
+			this.HistProjetIdCheckBox.TabIndex = 7;
+			this.HistProjetIdCheckBox.UseVisualStyleBackColor = true;
 			// 
 			// HistEndDatePicker
 			// 
@@ -212,7 +288,7 @@
 			this.dataGridView2.Location = new System.Drawing.Point(6, 100);
 			this.dataGridView2.Name = "dataGridView2";
 			this.dataGridView2.ReadOnly = true;
-			this.dataGridView2.Size = new System.Drawing.Size(756, 268);
+			this.dataGridView2.Size = new System.Drawing.Size(811, 268);
 			this.dataGridView2.TabIndex = 1;
 			// 
 			// projetIdDataGridViewTextBoxColumn
@@ -295,7 +371,7 @@
 			this.tabPage2.Location = new System.Drawing.Point(4, 22);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(768, 374);
+			this.tabPage2.Size = new System.Drawing.Size(823, 374);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Modifier / Ajouter";
 			this.tabPage2.UseVisualStyleBackColor = true;
@@ -325,7 +401,7 @@
 			// LogoutButton
 			// 
 			this.LogoutButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.LogoutButton.Location = new System.Drawing.Point(664, 12);
+			this.LogoutButton.Location = new System.Drawing.Point(719, 12);
 			this.LogoutButton.Name = "LogoutButton";
 			this.LogoutButton.Size = new System.Drawing.Size(120, 30);
 			this.LogoutButton.TabIndex = 1;
@@ -333,59 +409,29 @@
 			this.LogoutButton.UseVisualStyleBackColor = true;
 			this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
 			// 
-			// HistProjetIdCheckBox
+			// HistEmpIdComboBox
 			// 
-			this.HistProjetIdCheckBox.AutoSize = true;
-			this.HistProjetIdCheckBox.Location = new System.Drawing.Point(9, 53);
-			this.HistProjetIdCheckBox.Name = "HistProjetIdCheckBox";
-			this.HistProjetIdCheckBox.Size = new System.Drawing.Size(15, 14);
-			this.HistProjetIdCheckBox.TabIndex = 7;
-			this.HistProjetIdCheckBox.UseVisualStyleBackColor = true;
+			this.HistEmpIdComboBox.DataSource = this.bindingSource2;
+			this.HistEmpIdComboBox.DisplayMember = "empId";
+			this.HistEmpIdComboBox.FormattingEnabled = true;
+			this.HistEmpIdComboBox.Location = new System.Drawing.Point(545, 52);
+			this.HistEmpIdComboBox.Name = "HistEmpIdComboBox";
+			this.HistEmpIdComboBox.Size = new System.Drawing.Size(121, 21);
+			this.HistEmpIdComboBox.TabIndex = 15;
 			// 
-			// HistStartDateCheckBox
+			// bindingSource2
 			// 
-			this.HistStartDateCheckBox.AutoSize = true;
-			this.HistStartDateCheckBox.Location = new System.Drawing.Point(170, 53);
-			this.HistStartDateCheckBox.Name = "HistStartDateCheckBox";
-			this.HistStartDateCheckBox.Size = new System.Drawing.Size(15, 14);
-			this.HistStartDateCheckBox.TabIndex = 8;
-			this.HistStartDateCheckBox.UseVisualStyleBackColor = true;
-			// 
-			// HistEndDateCheckBox
-			// 
-			this.HistEndDateCheckBox.AutoSize = true;
-			this.HistEndDateCheckBox.Location = new System.Drawing.Point(347, 54);
-			this.HistEndDateCheckBox.Name = "HistEndDateCheckBox";
-			this.HistEndDateCheckBox.Size = new System.Drawing.Size(15, 14);
-			this.HistEndDateCheckBox.TabIndex = 9;
-			this.HistEndDateCheckBox.UseVisualStyleBackColor = true;
-			// 
-			// HistSearchButton
-			// 
-			this.HistSearchButton.Location = new System.Drawing.Point(674, 47);
-			this.HistSearchButton.Name = "HistSearchButton";
-			this.HistSearchButton.Size = new System.Drawing.Size(75, 23);
-			this.HistSearchButton.TabIndex = 10;
-			this.HistSearchButton.Text = "Rechercher";
-			this.HistSearchButton.UseVisualStyleBackColor = true;
-			this.HistSearchButton.Click += new System.EventHandler(this.HistSearchButton_Click);
-			// 
-			// HistResetButton
-			// 
-			this.HistResetButton.Location = new System.Drawing.Point(674, 18);
-			this.HistResetButton.Name = "HistResetButton";
-			this.HistResetButton.Size = new System.Drawing.Size(75, 23);
-			this.HistResetButton.TabIndex = 11;
-			this.HistResetButton.Text = "Réinitialiser";
-			this.HistResetButton.UseVisualStyleBackColor = true;
+			this.bindingSource2.DataMember = "Employes";
+			this.bindingSource2.DataSource = this.fdtDataSet1;
 			// 
 			// MainScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(855, 450);
 			this.Controls.Add(this.LogoutButton);
 			this.Controls.Add(this.MainScreenTabControl);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "MainScreen";
 			this.Text = "Feuille De Temps";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -401,6 +447,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.entreesHeuresBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.fdtDataSet)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -449,5 +496,9 @@
 		private System.Windows.Forms.CheckBox HistStartDateCheckBox;
 		private System.Windows.Forms.Button HistSearchButton;
 		private System.Windows.Forms.Button HistResetButton;
+		private System.Windows.Forms.CheckBox HistEmpIdCheckBox;
+		private System.Windows.Forms.Label HistEmpIdLabel;
+		private System.Windows.Forms.ComboBox HistEmpIdComboBox;
+		private System.Windows.Forms.BindingSource bindingSource2;
 	}
 }

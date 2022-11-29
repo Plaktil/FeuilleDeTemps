@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Drawing.Text;
 using System.Windows.Forms;
 
@@ -11,19 +12,35 @@ namespace FeuilleDeTemps
 		/// </summary>
 		private LoginForm loginForm;
 
+		// Private 
+		private String currentSearchProjId;
+		private String currentSearchUserId;
+		private String currentSearchStartDate;
+		private String currentSearchEndDate;
+
+		#region Constructor
+		/// <summary>
+		/// MainScreen Constructor
+		/// </summary>
+		/// <param name="loginForm">The instance of the (hidden) login form to return to</param>
 		public MainScreen(LoginForm loginForm)
 		{
 			InitializeComponent();
 			this.loginForm = loginForm;
 		}
-
+		#endregion
+		#region On Load
 		private void MainScreen_Load(object sender, EventArgs e)
 		{
-			// TODO: This line of code loads data into the 'fdtDataSet1.Projets' table. You can move, or remove it, as needed.
+			// Loads the existing project Ids for the Project Id filter
 			this.projetsTableAdapter.Fill(this.fdtDataSet1.Projets);
-			// TODO: This line of code loads data into the 'fdtDataSet1.Employes' table. You can move, or remove it, as needed.
-			this.entreesHeuresTableAdapter.FillByUser(this.fdtDataSet1.EntreesHeures, CurrentUser.id);
+
+			// On load, gets all the existing data for the current user
+			this.DefaultSearchParams();
+			this.entreesHeuresTableAdapter.FillByFilter(this.fdtDataSet1.EntreesHeures, this.currentSearchUserId, this.currentSearchProjId, this.currentSearchStartDate, this.currentSearchEndDate);
 		}
+		#endregion
+		#region Controls Behaviour
 
 		/// <summary>
 		/// Returns the user to the login form, resets the current user
@@ -56,5 +73,23 @@ namespace FeuilleDeTemps
 
 			//this.entreesHeuresTableAdapter.FillByUser(this.fdtDataSet1.EntreesHeures, CurrentUser.id);
 		}
+
+		private void HistResetButton_Click(object sender, EventArgs e)
+		{
+			this.DefaultSearchParams();
+			MessageBox.Show(this.currentSearchEndDate);
+		}
+
+		#endregion
+		#region Helper Methods
+		private void DefaultSearchParams()
+		{
+			this.currentSearchProjId = "%";
+			this.currentSearchUserId = CurrentUser.id;
+			this.currentSearchStartDate = "1999-01-01";
+			this.currentSearchEndDate = DateTime.Today.AddDays(1.0).ToLongDateString();
+			// TODO: set projid field, userId field to default, set dates fields to today
+		}
+		#endregion
 	}
 }

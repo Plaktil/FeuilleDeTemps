@@ -2617,9 +2617,12 @@ FROM            Horodateur INNER JOIN
                          Projets ON Horodateur.projetId = Projets.projetId INNER JOIN
                          Clients ON Projets.clientId = Clients.clientId INNER JOIN
                          Employes ON Horodateur.empId = Employes.empId AND Horodateur.modifPar = Employes.empId
-WHERE (Horodateur.empId = @currentUserId )";
+WHERE (Horodateur.empId LIKE @currentUserId  AND Horodateur.projetId LIKE @projId AND Horodateur.journee >= @startDate AND Horodateur.journee <= @endDate)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@currentUserId", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "empId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@projId", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "projetId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@startDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "journee", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@endDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "journee", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2650,13 +2653,31 @@ WHERE (Horodateur.empId = @currentUserId )";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByUser(fdtDataSet.EntreesHeuresDataTable dataTable, string currentUserId) {
+        public virtual int FillByFilter(fdtDataSet.EntreesHeuresDataTable dataTable, string currentUserId, string projId, string startDate, string endDate) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((currentUserId == null)) {
                 throw new global::System.ArgumentNullException("currentUserId");
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(currentUserId));
+            }
+            if ((projId == null)) {
+                throw new global::System.ArgumentNullException("projId");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(projId));
+            }
+            if ((startDate == null)) {
+                throw new global::System.ArgumentNullException("startDate");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(startDate));
+            }
+            if ((endDate == null)) {
+                throw new global::System.ArgumentNullException("endDate");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(endDate));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2669,13 +2690,31 @@ WHERE (Horodateur.empId = @currentUserId )";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual fdtDataSet.EntreesHeuresDataTable GetDataByUser(string currentUserId) {
+        public virtual fdtDataSet.EntreesHeuresDataTable GetDataByFilter(string currentUserId, string projId, string startDate, string endDate) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((currentUserId == null)) {
                 throw new global::System.ArgumentNullException("currentUserId");
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(currentUserId));
+            }
+            if ((projId == null)) {
+                throw new global::System.ArgumentNullException("projId");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(projId));
+            }
+            if ((startDate == null)) {
+                throw new global::System.ArgumentNullException("startDate");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(startDate));
+            }
+            if ((endDate == null)) {
+                throw new global::System.ArgumentNullException("endDate");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(endDate));
             }
             fdtDataSet.EntreesHeuresDataTable dataTable = new fdtDataSet.EntreesHeuresDataTable();
             this.Adapter.Fill(dataTable);
