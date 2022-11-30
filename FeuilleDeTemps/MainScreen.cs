@@ -44,17 +44,22 @@ namespace FeuilleDeTemps
 			{
 				// Normal users can only see their own punch time
 				this.employesTableAdapter.FillByCurrentUser(this.fdtDataSet1.Employes, CurrentUser.id);
-				HistEmpIdCheckBox.Checked = true;
-				HistEmpIdCheckBox.Enabled = false;
-				HistEmpIdComboBox.Enabled = false;
+				EmpIdCheckBox.Checked = true;
+				EmpIdCheckBox.Enabled = false;
+				EmpIdComboBox.Enabled = false;
 			}
 
 			// Loads the existing project Ids for the Project Id filter
 			this.projetsTableAdapter.Fill(this.fdtDataSet1.Projets);
 
-			// Get all the existing punch clock data for the current user (unless admin)
+			// Set the default query parameters and controls
 			this.DefaultSearchParams();
-			LaunchSearch();
+
+			// Get all the existing unsubmitted punch clock data for the current user (unless admin)
+			LaunchSearch(AddDeleteTabPage);
+
+			// Get all the existing unsubmitted punch clock data for the current user (unless admin)
+			LaunchSearch(HistTabPage);
 		}
 		#endregion
 		#region Controls Behaviours
@@ -71,29 +76,18 @@ namespace FeuilleDeTemps
 		}
 
 		/// <summary>
-		/// Does the same work when the user closes the form as when he logs out.
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void MainScreen_FormClosed(object sender, FormClosedEventArgs e)
-		{
-			CurrentUser.Logout();
-			this.loginForm.Show();
-		}
-
-		/// <summary>
 		/// Launches the search using the values that have their associated checkbox checked.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void HistSearchButton_Click(object sender, EventArgs e)
+		private void SearchButton_Click(object sender, EventArgs e)
 		{
-			this.currentSearchProjId = HistProjetIdCheckBox.Checked ? HistProjetIdComboBox.Text : "%";
-			this.currentSearchEmpId = HistEmpIdCheckBox.Checked ? HistEmpIdComboBox.Text : "%";
-			this.currentSearchStartDate = HistStartDateCheckBox.Checked ? HistStartDatePicker.Text : "1999-01-01";
-			this.currentSearchEndDate = HistEndDateCheckBox.Checked ? HistEndDatePicker.Text : DateTime.Today.ToLongDateString();
+			this.currentSearchProjId = ProjetIdCheckBox.Checked ? ProjetIdComboBox.Text : "%";
+			this.currentSearchEmpId = EmpIdCheckBox.Checked ? EmpIdComboBox.Text : "%";
+			this.currentSearchStartDate = StartDateCheckBox.Checked ? StartDatePicker.Text : "1999-01-01";
+			this.currentSearchEndDate = EndDateCheckBox.Checked ? EndDatePicker.Text : DateTime.Today.ToLongDateString();
 
-			LaunchSearch();
+			LaunchSearch(MainScreenTabControl.SelectedTab);
 		}
 
 		/// <summary>
@@ -104,8 +98,30 @@ namespace FeuilleDeTemps
 		private void HistResetButton_Click(object sender, EventArgs e)
 		{
 			DefaultSearchParams();
-			LaunchSearch();
+			LaunchSearch(MainScreenTabControl.SelectedTab);
 		}
+
+		private void CreateModifyButton_Click(object sender, EventArgs e)
+		{
+			// TODO: Create a pop-up form to allow user to create/modify an entry
+		}
+
+		private void SubmitButton_Click(object sender, EventArgs e)
+		{
+			// TODO: Create a dialog box that shows what will be submitted and asks to confirm the submission
+		}
+
+		/// <summary>
+		/// Custom behaviour when closing the form: logout user, return to login form
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MainScreen_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			CurrentUser.Logout();
+			this.loginForm.Show();
+		}
+
 
 		#endregion
 		#region Helper Methods
@@ -120,26 +136,27 @@ namespace FeuilleDeTemps
 			this.currentSearchStartDate = "1999-01-01";
 			this.currentSearchEndDate = DateTime.Today.ToLongDateString();			
 
-			// Reset the controls values
-			HistProjetIdComboBox.SelectedIndex = 0;
-			HistStartDatePicker.Value = DateTime.Today;
-			HistEndDatePicker.Value = DateTime.Today;
-			HistEmpIdComboBox.SelectedIndex = 0;
+			// Reset the search controls values
+			ProjetIdComboBox.SelectedIndex = 0;
+			StartDatePicker.Value = DateTime.Today;
+			EndDatePicker.Value = DateTime.Today;
+			EmpIdComboBox.SelectedIndex = 0;
 
 			// Reset the checkbox states
-			HistProjetIdCheckBox.Checked = false;
-			HistStartDateCheckBox.Checked = false;
-			HistEndDateCheckBox.Checked = false;
-			HistEmpIdCheckBox.Checked = !CurrentUser.IsAdmin();
+			ProjetIdCheckBox.Checked = false;
+			StartDateCheckBox.Checked = false;
+			EndDateCheckBox.Checked = false;
+			EmpIdCheckBox.Checked = !CurrentUser.IsAdmin();
 		}
 
 		/// <summary>
-		/// Launches the query with the current search filters
+		/// Launches the query with the current search filters into the right tab
 		/// </summary>
-		private void LaunchSearch()
+		private void LaunchSearch(TabPage activeTab)
 		{
-			String activeTab = MainScreenTabControl.SelectedTab.Name;
-			if (activeTab == "AddDeleteTabPage")
+			// TOOD: This repetition can be dealt with by implementing the LaunchSearch method in
+			// each tab's respective class.
+			if (activeTab.Name == "AddDeleteTabPage")
 			{
 				this.horodateurTableAdapter.FillByFilter(
 					this.fdtDataSet1.Horodateur,
@@ -149,7 +166,7 @@ namespace FeuilleDeTemps
 					this.currentSearchEndDate
 				);
 			}
-			else if (activeTab == "HistTabPage")
+			else if (activeTab.Name == "HistTabPage")
 			{
 				this.entreesHeuresTableAdapter.FillByFilter(
 					this.fdtDataSet1.EntreesHeures,

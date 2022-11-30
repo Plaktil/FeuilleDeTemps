@@ -29,11 +29,14 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
 			this.MainScreenTabControl = new System.Windows.Forms.TabControl();
 			this.AddDeleteTabPage = new System.Windows.Forms.TabPage();
+			this.SubmitButton = new System.Windows.Forms.Button();
+			this.CreateModifyButton = new System.Windows.Forms.Button();
 			this.AddModifDGV = new System.Windows.Forms.DataGridView();
-			this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,21 +61,21 @@
 			this.modifParDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.entreesHeuresBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.rechercheGroupBox = new System.Windows.Forms.GroupBox();
-			this.HistEmpIdComboBox = new System.Windows.Forms.ComboBox();
+			this.EmpIdComboBox = new System.Windows.Forms.ComboBox();
 			this.bindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-			this.HistEmpIdCheckBox = new System.Windows.Forms.CheckBox();
-			this.HistEmpIdLabel = new System.Windows.Forms.Label();
-			this.HistResetButton = new System.Windows.Forms.Button();
-			this.HistSearchButton = new System.Windows.Forms.Button();
-			this.HistEndDateCheckBox = new System.Windows.Forms.CheckBox();
-			this.HistStartDateCheckBox = new System.Windows.Forms.CheckBox();
-			this.HistProjetIdCheckBox = new System.Windows.Forms.CheckBox();
-			this.HistEndDatePicker = new System.Windows.Forms.DateTimePicker();
-			this.HistEndDatePickerLabel = new System.Windows.Forms.Label();
-			this.HistStartDatePicker = new System.Windows.Forms.DateTimePicker();
-			this.HistStartDatePickerLabel = new System.Windows.Forms.Label();
-			this.HistProjetIdLabel = new System.Windows.Forms.Label();
-			this.HistProjetIdComboBox = new System.Windows.Forms.ComboBox();
+			this.EmpIdCheckBox = new System.Windows.Forms.CheckBox();
+			this.EmpIdLabel = new System.Windows.Forms.Label();
+			this.ResetButton = new System.Windows.Forms.Button();
+			this.SearchButton = new System.Windows.Forms.Button();
+			this.EndDateCheckBox = new System.Windows.Forms.CheckBox();
+			this.StartDateCheckBox = new System.Windows.Forms.CheckBox();
+			this.ProjetIdCheckBox = new System.Windows.Forms.CheckBox();
+			this.EndDatePicker = new System.Windows.Forms.DateTimePicker();
+			this.EndDatePickerLabel = new System.Windows.Forms.Label();
+			this.StartDatePicker = new System.Windows.Forms.DateTimePicker();
+			this.StartDatePickerLabel = new System.Windows.Forms.Label();
+			this.ProjetIdLabel = new System.Windows.Forms.Label();
+			this.ProjetIdComboBox = new System.Windows.Forms.ComboBox();
 			this.projetsBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
 			this.fdtDataSet = new FeuilleDeTemps.fdtDataSet();
@@ -115,6 +118,8 @@
 			// 
 			// AddDeleteTabPage
 			// 
+			this.AddDeleteTabPage.Controls.Add(this.SubmitButton);
+			this.AddDeleteTabPage.Controls.Add(this.CreateModifyButton);
 			this.AddDeleteTabPage.Controls.Add(this.AddModifDGV);
 			this.AddDeleteTabPage.Location = new System.Drawing.Point(4, 22);
 			this.AddDeleteTabPage.Name = "AddDeleteTabPage";
@@ -124,8 +129,32 @@
 			this.AddDeleteTabPage.Text = "Modifier / Ajouter";
 			this.AddDeleteTabPage.UseVisualStyleBackColor = true;
 			// 
+			// SubmitButton
+			// 
+			this.SubmitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.SubmitButton.Location = new System.Drawing.Point(98, 283);
+			this.SubmitButton.Name = "SubmitButton";
+			this.SubmitButton.Size = new System.Drawing.Size(84, 23);
+			this.SubmitButton.TabIndex = 4;
+			this.SubmitButton.Text = "Soumettre";
+			this.SubmitButton.UseVisualStyleBackColor = true;
+			this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
+			// 
+			// CreateModifyButton
+			// 
+			this.CreateModifyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.CreateModifyButton.Location = new System.Drawing.Point(9, 283);
+			this.CreateModifyButton.Name = "CreateModifyButton";
+			this.CreateModifyButton.Size = new System.Drawing.Size(83, 23);
+			this.CreateModifyButton.TabIndex = 3;
+			this.CreateModifyButton.Text = "Créer/Modifier";
+			this.CreateModifyButton.UseVisualStyleBackColor = true;
+			this.CreateModifyButton.Click += new System.EventHandler(this.CreateModifyButton_Click);
+			// 
 			// AddModifDGV
 			// 
+			this.AddModifDGV.AllowUserToAddRows = false;
+			this.AddModifDGV.AllowUserToDeleteRows = false;
 			this.AddModifDGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -134,7 +163,6 @@
 			this.AddModifDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
 			this.AddModifDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.AddModifDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewCheckBoxColumn1,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn9,
@@ -145,57 +173,64 @@
 			this.AddModifDGV.DataSource = this.horodateurBindingSource;
 			this.AddModifDGV.Location = new System.Drawing.Point(6, 6);
 			this.AddModifDGV.Name = "AddModifDGV";
-			this.AddModifDGV.Size = new System.Drawing.Size(811, 305);
+			this.AddModifDGV.ReadOnly = true;
+			this.AddModifDGV.Size = new System.Drawing.Size(811, 271);
 			this.AddModifDGV.TabIndex = 2;
-			// 
-			// dataGridViewCheckBoxColumn1
-			// 
-			this.dataGridViewCheckBoxColumn1.DataPropertyName = "soumis";
-			this.dataGridViewCheckBoxColumn1.FillWeight = 60F;
-			this.dataGridViewCheckBoxColumn1.HeaderText = "Soumettre";
-			this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
 			// 
 			// dataGridViewTextBoxColumn4
 			// 
 			this.dataGridViewTextBoxColumn4.DataPropertyName = "projetId";
 			this.dataGridViewTextBoxColumn4.HeaderText = "Identifiant de projet";
 			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+			this.dataGridViewTextBoxColumn4.ReadOnly = true;
 			// 
 			// dataGridViewTextBoxColumn6
 			// 
 			this.dataGridViewTextBoxColumn6.DataPropertyName = "empId";
 			this.dataGridViewTextBoxColumn6.HeaderText = "Identifiant d\'employé";
 			this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+			this.dataGridViewTextBoxColumn6.ReadOnly = true;
 			// 
 			// dataGridViewTextBoxColumn9
 			// 
 			this.dataGridViewTextBoxColumn9.DataPropertyName = "journee";
+			dataGridViewCellStyle1.Format = "D";
+			dataGridViewCellStyle1.NullValue = null;
+			this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle1;
 			this.dataGridViewTextBoxColumn9.HeaderText = "Journée de travail";
 			this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+			this.dataGridViewTextBoxColumn9.ReadOnly = true;
 			// 
 			// dataGridViewTextBoxColumn10
 			// 
 			this.dataGridViewTextBoxColumn10.DataPropertyName = "heures";
 			this.dataGridViewTextBoxColumn10.HeaderText = "Heures travaillées";
 			this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+			this.dataGridViewTextBoxColumn10.ReadOnly = true;
 			// 
 			// dataGridViewTextBoxColumn11
 			// 
 			this.dataGridViewTextBoxColumn11.DataPropertyName = "mins";
 			this.dataGridViewTextBoxColumn11.HeaderText = "Minutes";
 			this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+			this.dataGridViewTextBoxColumn11.ReadOnly = true;
 			// 
 			// dataGridViewTextBoxColumn12
 			// 
 			this.dataGridViewTextBoxColumn12.DataPropertyName = "dateModif";
+			dataGridViewCellStyle2.Format = "F";
+			dataGridViewCellStyle2.NullValue = null;
+			this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle2;
 			this.dataGridViewTextBoxColumn12.HeaderText = "Dernière modification";
 			this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+			this.dataGridViewTextBoxColumn12.ReadOnly = true;
 			// 
 			// dataGridViewTextBoxColumn13
 			// 
 			this.dataGridViewTextBoxColumn13.DataPropertyName = "modifPar";
 			this.dataGridViewTextBoxColumn13.HeaderText = "Modifié par";
 			this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+			this.dataGridViewTextBoxColumn13.ReadOnly = true;
 			// 
 			// horodateurBindingSource
 			// 
@@ -245,6 +280,7 @@
 			this.HistDGV.DataSource = this.entreesHeuresBindingSource;
 			this.HistDGV.Location = new System.Drawing.Point(6, 6);
 			this.HistDGV.Name = "HistDGV";
+			this.HistDGV.ReadOnly = true;
 			this.HistDGV.Size = new System.Drawing.Size(811, 305);
 			this.HistDGV.TabIndex = 1;
 			// 
@@ -253,66 +289,77 @@
 			this.projetIdDataGridViewTextBoxColumn.DataPropertyName = "projetId";
 			this.projetIdDataGridViewTextBoxColumn.HeaderText = "Identifiant de projet";
 			this.projetIdDataGridViewTextBoxColumn.Name = "projetIdDataGridViewTextBoxColumn";
+			this.projetIdDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// cliNameDataGridViewTextBoxColumn
 			// 
 			this.cliNameDataGridViewTextBoxColumn.DataPropertyName = "cliName";
 			this.cliNameDataGridViewTextBoxColumn.HeaderText = "Client";
 			this.cliNameDataGridViewTextBoxColumn.Name = "cliNameDataGridViewTextBoxColumn";
+			this.cliNameDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// dataGridViewTextBoxColumn1
 			// 
 			this.dataGridViewTextBoxColumn1.DataPropertyName = "empId";
 			this.dataGridViewTextBoxColumn1.HeaderText = "Identifiant d\'employé";
 			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+			this.dataGridViewTextBoxColumn1.ReadOnly = true;
 			// 
 			// dataGridViewTextBoxColumn2
 			// 
 			this.dataGridViewTextBoxColumn2.DataPropertyName = "fname";
 			this.dataGridViewTextBoxColumn2.HeaderText = "Prénom";
 			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+			this.dataGridViewTextBoxColumn2.ReadOnly = true;
 			// 
 			// dataGridViewTextBoxColumn3
 			// 
 			this.dataGridViewTextBoxColumn3.DataPropertyName = "lname";
 			this.dataGridViewTextBoxColumn3.HeaderText = "Nom de famille";
 			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+			this.dataGridViewTextBoxColumn3.ReadOnly = true;
 			// 
 			// journeeDataGridViewTextBoxColumn
 			// 
 			this.journeeDataGridViewTextBoxColumn.DataPropertyName = "journee";
 			this.journeeDataGridViewTextBoxColumn.HeaderText = "Journée de travail";
 			this.journeeDataGridViewTextBoxColumn.Name = "journeeDataGridViewTextBoxColumn";
+			this.journeeDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// heuresDataGridViewTextBoxColumn
 			// 
 			this.heuresDataGridViewTextBoxColumn.DataPropertyName = "heures";
 			this.heuresDataGridViewTextBoxColumn.HeaderText = "Heures travaillées";
 			this.heuresDataGridViewTextBoxColumn.Name = "heuresDataGridViewTextBoxColumn";
+			this.heuresDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// minsDataGridViewTextBoxColumn
 			// 
 			this.minsDataGridViewTextBoxColumn.DataPropertyName = "mins";
 			this.minsDataGridViewTextBoxColumn.HeaderText = "Minutes";
 			this.minsDataGridViewTextBoxColumn.Name = "minsDataGridViewTextBoxColumn";
+			this.minsDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// soumis
 			// 
 			this.soumis.DataPropertyName = "soumis";
 			this.soumis.HeaderText = "Soumis";
 			this.soumis.Name = "soumis";
+			this.soumis.ReadOnly = true;
 			// 
 			// dateModifDataGridViewTextBoxColumn
 			// 
 			this.dateModifDataGridViewTextBoxColumn.DataPropertyName = "dateModif";
 			this.dateModifDataGridViewTextBoxColumn.HeaderText = "Dernière modification";
 			this.dateModifDataGridViewTextBoxColumn.Name = "dateModifDataGridViewTextBoxColumn";
+			this.dateModifDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// modifParDataGridViewTextBoxColumn
 			// 
 			this.modifParDataGridViewTextBoxColumn.DataPropertyName = "modifPar";
 			this.modifParDataGridViewTextBoxColumn.HeaderText = "Modifié par";
 			this.modifParDataGridViewTextBoxColumn.Name = "modifParDataGridViewTextBoxColumn";
+			this.modifParDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// entreesHeuresBindingSource
 			// 
@@ -321,20 +368,20 @@
 			// 
 			// rechercheGroupBox
 			// 
-			this.rechercheGroupBox.Controls.Add(this.HistEmpIdComboBox);
-			this.rechercheGroupBox.Controls.Add(this.HistEmpIdCheckBox);
-			this.rechercheGroupBox.Controls.Add(this.HistEmpIdLabel);
-			this.rechercheGroupBox.Controls.Add(this.HistResetButton);
-			this.rechercheGroupBox.Controls.Add(this.HistSearchButton);
-			this.rechercheGroupBox.Controls.Add(this.HistEndDateCheckBox);
-			this.rechercheGroupBox.Controls.Add(this.HistStartDateCheckBox);
-			this.rechercheGroupBox.Controls.Add(this.HistProjetIdCheckBox);
-			this.rechercheGroupBox.Controls.Add(this.HistEndDatePicker);
-			this.rechercheGroupBox.Controls.Add(this.HistEndDatePickerLabel);
-			this.rechercheGroupBox.Controls.Add(this.HistStartDatePicker);
-			this.rechercheGroupBox.Controls.Add(this.HistStartDatePickerLabel);
-			this.rechercheGroupBox.Controls.Add(this.HistProjetIdLabel);
-			this.rechercheGroupBox.Controls.Add(this.HistProjetIdComboBox);
+			this.rechercheGroupBox.Controls.Add(this.EmpIdComboBox);
+			this.rechercheGroupBox.Controls.Add(this.EmpIdCheckBox);
+			this.rechercheGroupBox.Controls.Add(this.EmpIdLabel);
+			this.rechercheGroupBox.Controls.Add(this.ResetButton);
+			this.rechercheGroupBox.Controls.Add(this.SearchButton);
+			this.rechercheGroupBox.Controls.Add(this.EndDateCheckBox);
+			this.rechercheGroupBox.Controls.Add(this.StartDateCheckBox);
+			this.rechercheGroupBox.Controls.Add(this.ProjetIdCheckBox);
+			this.rechercheGroupBox.Controls.Add(this.EndDatePicker);
+			this.rechercheGroupBox.Controls.Add(this.EndDatePickerLabel);
+			this.rechercheGroupBox.Controls.Add(this.StartDatePicker);
+			this.rechercheGroupBox.Controls.Add(this.StartDatePickerLabel);
+			this.rechercheGroupBox.Controls.Add(this.ProjetIdLabel);
+			this.rechercheGroupBox.Controls.Add(this.ProjetIdComboBox);
 			this.rechercheGroupBox.Location = new System.Drawing.Point(16, 48);
 			this.rechercheGroupBox.Name = "rechercheGroupBox";
 			this.rechercheGroupBox.Size = new System.Drawing.Size(823, 118);
@@ -342,138 +389,138 @@
 			this.rechercheGroupBox.TabStop = false;
 			this.rechercheGroupBox.Text = "Critères de recherche";
 			// 
-			// HistEmpIdComboBox
+			// EmpIdComboBox
 			// 
-			this.HistEmpIdComboBox.DataSource = this.bindingSource3;
-			this.HistEmpIdComboBox.DisplayMember = "empId";
-			this.HistEmpIdComboBox.FormattingEnabled = true;
-			this.HistEmpIdComboBox.Location = new System.Drawing.Point(545, 52);
-			this.HistEmpIdComboBox.Name = "HistEmpIdComboBox";
-			this.HistEmpIdComboBox.Size = new System.Drawing.Size(121, 21);
-			this.HistEmpIdComboBox.TabIndex = 15;
+			this.EmpIdComboBox.DataSource = this.bindingSource3;
+			this.EmpIdComboBox.DisplayMember = "empId";
+			this.EmpIdComboBox.FormattingEnabled = true;
+			this.EmpIdComboBox.Location = new System.Drawing.Point(545, 52);
+			this.EmpIdComboBox.Name = "EmpIdComboBox";
+			this.EmpIdComboBox.Size = new System.Drawing.Size(121, 21);
+			this.EmpIdComboBox.TabIndex = 15;
 			// 
 			// bindingSource3
 			// 
 			this.bindingSource3.DataMember = "Employes";
 			this.bindingSource3.DataSource = this.fdtDataSet1;
 			// 
-			// HistEmpIdCheckBox
+			// EmpIdCheckBox
 			// 
-			this.HistEmpIdCheckBox.AutoSize = true;
-			this.HistEmpIdCheckBox.Location = new System.Drawing.Point(524, 54);
-			this.HistEmpIdCheckBox.Name = "HistEmpIdCheckBox";
-			this.HistEmpIdCheckBox.Size = new System.Drawing.Size(15, 14);
-			this.HistEmpIdCheckBox.TabIndex = 14;
-			this.HistEmpIdCheckBox.UseVisualStyleBackColor = true;
+			this.EmpIdCheckBox.AutoSize = true;
+			this.EmpIdCheckBox.Location = new System.Drawing.Point(524, 54);
+			this.EmpIdCheckBox.Name = "EmpIdCheckBox";
+			this.EmpIdCheckBox.Size = new System.Drawing.Size(15, 14);
+			this.EmpIdCheckBox.TabIndex = 14;
+			this.EmpIdCheckBox.UseVisualStyleBackColor = true;
 			// 
-			// HistEmpIdLabel
+			// EmpIdLabel
 			// 
-			this.HistEmpIdLabel.AutoSize = true;
-			this.HistEmpIdLabel.Location = new System.Drawing.Point(542, 32);
-			this.HistEmpIdLabel.Name = "HistEmpIdLabel";
-			this.HistEmpIdLabel.Size = new System.Drawing.Size(103, 13);
-			this.HistEmpIdLabel.TabIndex = 12;
-			this.HistEmpIdLabel.Text = "Identifiant d\'employé";
+			this.EmpIdLabel.AutoSize = true;
+			this.EmpIdLabel.Location = new System.Drawing.Point(542, 32);
+			this.EmpIdLabel.Name = "EmpIdLabel";
+			this.EmpIdLabel.Size = new System.Drawing.Size(103, 13);
+			this.EmpIdLabel.TabIndex = 12;
+			this.EmpIdLabel.Text = "Identifiant d\'employé";
 			// 
-			// HistResetButton
+			// ResetButton
 			// 
-			this.HistResetButton.Location = new System.Drawing.Point(110, 89);
-			this.HistResetButton.Name = "HistResetButton";
-			this.HistResetButton.Size = new System.Drawing.Size(75, 23);
-			this.HistResetButton.TabIndex = 11;
-			this.HistResetButton.Text = "Réinitialiser";
-			this.HistResetButton.UseVisualStyleBackColor = true;
-			this.HistResetButton.Click += new System.EventHandler(this.HistResetButton_Click);
+			this.ResetButton.Location = new System.Drawing.Point(98, 89);
+			this.ResetButton.Name = "ResetButton";
+			this.ResetButton.Size = new System.Drawing.Size(84, 23);
+			this.ResetButton.TabIndex = 11;
+			this.ResetButton.Text = "Réinitialiser";
+			this.ResetButton.UseVisualStyleBackColor = true;
+			this.ResetButton.Click += new System.EventHandler(this.HistResetButton_Click);
 			// 
-			// HistSearchButton
+			// SearchButton
 			// 
-			this.HistSearchButton.Location = new System.Drawing.Point(28, 89);
-			this.HistSearchButton.Name = "HistSearchButton";
-			this.HistSearchButton.Size = new System.Drawing.Size(75, 23);
-			this.HistSearchButton.TabIndex = 10;
-			this.HistSearchButton.Text = "Rechercher";
-			this.HistSearchButton.UseVisualStyleBackColor = true;
-			this.HistSearchButton.Click += new System.EventHandler(this.HistSearchButton_Click);
+			this.SearchButton.Location = new System.Drawing.Point(9, 89);
+			this.SearchButton.Name = "SearchButton";
+			this.SearchButton.Size = new System.Drawing.Size(83, 23);
+			this.SearchButton.TabIndex = 10;
+			this.SearchButton.Text = "Rechercher";
+			this.SearchButton.UseVisualStyleBackColor = true;
+			this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
 			// 
-			// HistEndDateCheckBox
+			// EndDateCheckBox
 			// 
-			this.HistEndDateCheckBox.AutoSize = true;
-			this.HistEndDateCheckBox.Location = new System.Drawing.Point(347, 54);
-			this.HistEndDateCheckBox.Name = "HistEndDateCheckBox";
-			this.HistEndDateCheckBox.Size = new System.Drawing.Size(15, 14);
-			this.HistEndDateCheckBox.TabIndex = 9;
-			this.HistEndDateCheckBox.UseVisualStyleBackColor = true;
+			this.EndDateCheckBox.AutoSize = true;
+			this.EndDateCheckBox.Location = new System.Drawing.Point(347, 54);
+			this.EndDateCheckBox.Name = "EndDateCheckBox";
+			this.EndDateCheckBox.Size = new System.Drawing.Size(15, 14);
+			this.EndDateCheckBox.TabIndex = 9;
+			this.EndDateCheckBox.UseVisualStyleBackColor = true;
 			// 
-			// HistStartDateCheckBox
+			// StartDateCheckBox
 			// 
-			this.HistStartDateCheckBox.AutoSize = true;
-			this.HistStartDateCheckBox.Location = new System.Drawing.Point(170, 53);
-			this.HistStartDateCheckBox.Name = "HistStartDateCheckBox";
-			this.HistStartDateCheckBox.Size = new System.Drawing.Size(15, 14);
-			this.HistStartDateCheckBox.TabIndex = 8;
-			this.HistStartDateCheckBox.UseVisualStyleBackColor = true;
+			this.StartDateCheckBox.AutoSize = true;
+			this.StartDateCheckBox.Location = new System.Drawing.Point(170, 53);
+			this.StartDateCheckBox.Name = "StartDateCheckBox";
+			this.StartDateCheckBox.Size = new System.Drawing.Size(15, 14);
+			this.StartDateCheckBox.TabIndex = 8;
+			this.StartDateCheckBox.UseVisualStyleBackColor = true;
 			// 
-			// HistProjetIdCheckBox
+			// ProjetIdCheckBox
 			// 
-			this.HistProjetIdCheckBox.AutoSize = true;
-			this.HistProjetIdCheckBox.Location = new System.Drawing.Point(9, 53);
-			this.HistProjetIdCheckBox.Name = "HistProjetIdCheckBox";
-			this.HistProjetIdCheckBox.Size = new System.Drawing.Size(15, 14);
-			this.HistProjetIdCheckBox.TabIndex = 7;
-			this.HistProjetIdCheckBox.UseVisualStyleBackColor = true;
+			this.ProjetIdCheckBox.AutoSize = true;
+			this.ProjetIdCheckBox.Location = new System.Drawing.Point(9, 53);
+			this.ProjetIdCheckBox.Name = "ProjetIdCheckBox";
+			this.ProjetIdCheckBox.Size = new System.Drawing.Size(15, 14);
+			this.ProjetIdCheckBox.TabIndex = 7;
+			this.ProjetIdCheckBox.UseVisualStyleBackColor = true;
 			// 
-			// HistEndDatePicker
+			// EndDatePicker
 			// 
-			this.HistEndDatePicker.Location = new System.Drawing.Point(368, 52);
-			this.HistEndDatePicker.Name = "HistEndDatePicker";
-			this.HistEndDatePicker.Size = new System.Drawing.Size(134, 20);
-			this.HistEndDatePicker.TabIndex = 6;
-			this.HistEndDatePicker.Value = new System.DateTime(2022, 11, 29, 10, 59, 46, 0);
+			this.EndDatePicker.Location = new System.Drawing.Point(368, 52);
+			this.EndDatePicker.Name = "EndDatePicker";
+			this.EndDatePicker.Size = new System.Drawing.Size(134, 20);
+			this.EndDatePicker.TabIndex = 6;
+			this.EndDatePicker.Value = new System.DateTime(2022, 11, 29, 10, 59, 46, 0);
 			// 
-			// HistEndDatePickerLabel
+			// EndDatePickerLabel
 			// 
-			this.HistEndDatePickerLabel.AutoSize = true;
-			this.HistEndDatePickerLabel.Location = new System.Drawing.Point(365, 32);
-			this.HistEndDatePickerLabel.Name = "HistEndDatePickerLabel";
-			this.HistEndDatePickerLabel.Size = new System.Drawing.Size(59, 13);
-			this.HistEndDatePickerLabel.TabIndex = 5;
-			this.HistEndDatePickerLabel.Text = "Date de fin";
+			this.EndDatePickerLabel.AutoSize = true;
+			this.EndDatePickerLabel.Location = new System.Drawing.Point(365, 32);
+			this.EndDatePickerLabel.Name = "EndDatePickerLabel";
+			this.EndDatePickerLabel.Size = new System.Drawing.Size(59, 13);
+			this.EndDatePickerLabel.TabIndex = 5;
+			this.EndDatePickerLabel.Text = "Date de fin";
 			// 
-			// HistStartDatePicker
+			// StartDatePicker
 			// 
-			this.HistStartDatePicker.Location = new System.Drawing.Point(191, 51);
-			this.HistStartDatePicker.Name = "HistStartDatePicker";
-			this.HistStartDatePicker.Size = new System.Drawing.Size(134, 20);
-			this.HistStartDatePicker.TabIndex = 4;
-			this.HistStartDatePicker.Value = new System.DateTime(2022, 11, 29, 10, 59, 40, 0);
+			this.StartDatePicker.Location = new System.Drawing.Point(191, 51);
+			this.StartDatePicker.Name = "StartDatePicker";
+			this.StartDatePicker.Size = new System.Drawing.Size(134, 20);
+			this.StartDatePicker.TabIndex = 4;
+			this.StartDatePicker.Value = new System.DateTime(2022, 11, 29, 10, 59, 40, 0);
 			// 
-			// HistStartDatePickerLabel
+			// StartDatePickerLabel
 			// 
-			this.HistStartDatePickerLabel.AutoSize = true;
-			this.HistStartDatePickerLabel.Location = new System.Drawing.Point(188, 31);
-			this.HistStartDatePickerLabel.Name = "HistStartDatePickerLabel";
-			this.HistStartDatePickerLabel.Size = new System.Drawing.Size(75, 13);
-			this.HistStartDatePickerLabel.TabIndex = 3;
-			this.HistStartDatePickerLabel.Text = "Date de début";
+			this.StartDatePickerLabel.AutoSize = true;
+			this.StartDatePickerLabel.Location = new System.Drawing.Point(188, 31);
+			this.StartDatePickerLabel.Name = "StartDatePickerLabel";
+			this.StartDatePickerLabel.Size = new System.Drawing.Size(75, 13);
+			this.StartDatePickerLabel.TabIndex = 3;
+			this.StartDatePickerLabel.Text = "Date de début";
 			// 
-			// HistProjetIdLabel
+			// ProjetIdLabel
 			// 
-			this.HistProjetIdLabel.AutoSize = true;
-			this.HistProjetIdLabel.Location = new System.Drawing.Point(29, 32);
-			this.HistProjetIdLabel.Name = "HistProjetIdLabel";
-			this.HistProjetIdLabel.Size = new System.Drawing.Size(97, 13);
-			this.HistProjetIdLabel.TabIndex = 1;
-			this.HistProjetIdLabel.Text = "Identifiant de projet";
+			this.ProjetIdLabel.AutoSize = true;
+			this.ProjetIdLabel.Location = new System.Drawing.Point(29, 32);
+			this.ProjetIdLabel.Name = "ProjetIdLabel";
+			this.ProjetIdLabel.Size = new System.Drawing.Size(97, 13);
+			this.ProjetIdLabel.TabIndex = 1;
+			this.ProjetIdLabel.Text = "Identifiant de projet";
 			// 
-			// HistProjetIdComboBox
+			// ProjetIdComboBox
 			// 
-			this.HistProjetIdComboBox.DataSource = this.projetsBindingSource;
-			this.HistProjetIdComboBox.DisplayMember = "projetId";
-			this.HistProjetIdComboBox.FormattingEnabled = true;
-			this.HistProjetIdComboBox.Location = new System.Drawing.Point(28, 51);
-			this.HistProjetIdComboBox.Name = "HistProjetIdComboBox";
-			this.HistProjetIdComboBox.Size = new System.Drawing.Size(121, 21);
-			this.HistProjetIdComboBox.TabIndex = 0;
+			this.ProjetIdComboBox.DataSource = this.projetsBindingSource;
+			this.ProjetIdComboBox.DisplayMember = "projetId";
+			this.ProjetIdComboBox.FormattingEnabled = true;
+			this.ProjetIdComboBox.Location = new System.Drawing.Point(28, 51);
+			this.ProjetIdComboBox.Name = "ProjetIdComboBox";
+			this.ProjetIdComboBox.Size = new System.Drawing.Size(121, 21);
+			this.ProjetIdComboBox.TabIndex = 0;
 			// 
 			// projetsBindingSource
 			// 
@@ -562,14 +609,6 @@
 		}
 
 		#endregion
-
-		private System.Windows.Forms.DataGridView dataGridView1;
-		private System.Windows.Forms.BindingSource employesBindingSource;
-		private System.Windows.Forms.DataGridViewTextBoxColumn empIdDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn fnameDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn lnameDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn jobDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn telDataGridViewTextBoxColumn;
 		private System.Windows.Forms.TabControl MainScreenTabControl;
 		private System.Windows.Forms.TabPage HistTabPage;
 		private System.Windows.Forms.TabPage AddDeleteTabPage;
@@ -581,23 +620,23 @@
 		private System.Windows.Forms.BindingSource bindingSource1;
 		private fdtDataSetTableAdapters.EmployesTableAdapter employesTableAdapter;
 		private System.Windows.Forms.GroupBox rechercheGroupBox;
-		private System.Windows.Forms.ComboBox HistProjetIdComboBox;
+		private System.Windows.Forms.ComboBox ProjetIdComboBox;
 		private System.Windows.Forms.BindingSource projetsBindingSource;
 		private fdtDataSetTableAdapters.ProjetsTableAdapter projetsTableAdapter;
-		private System.Windows.Forms.Label HistStartDatePickerLabel;
-		private System.Windows.Forms.Label HistProjetIdLabel;
-		private System.Windows.Forms.DateTimePicker HistStartDatePicker;
-		private System.Windows.Forms.DateTimePicker HistEndDatePicker;
-		private System.Windows.Forms.Label HistEndDatePickerLabel;
+		private System.Windows.Forms.Label StartDatePickerLabel;
+		private System.Windows.Forms.Label ProjetIdLabel;
+		private System.Windows.Forms.DateTimePicker StartDatePicker;
+		private System.Windows.Forms.DateTimePicker EndDatePicker;
+		private System.Windows.Forms.Label EndDatePickerLabel;
 		private System.Windows.Forms.Button LogoutButton;
-		private System.Windows.Forms.CheckBox HistProjetIdCheckBox;
-		private System.Windows.Forms.CheckBox HistEndDateCheckBox;
-		private System.Windows.Forms.CheckBox HistStartDateCheckBox;
-		private System.Windows.Forms.Button HistSearchButton;
-		private System.Windows.Forms.Button HistResetButton;
-		private System.Windows.Forms.CheckBox HistEmpIdCheckBox;
-		private System.Windows.Forms.Label HistEmpIdLabel;
-		private System.Windows.Forms.ComboBox HistEmpIdComboBox;
+		private System.Windows.Forms.CheckBox ProjetIdCheckBox;
+		private System.Windows.Forms.CheckBox EndDateCheckBox;
+		private System.Windows.Forms.CheckBox StartDateCheckBox;
+		private System.Windows.Forms.Button SearchButton;
+		private System.Windows.Forms.Button ResetButton;
+		private System.Windows.Forms.CheckBox EmpIdCheckBox;
+		private System.Windows.Forms.Label EmpIdLabel;
+		private System.Windows.Forms.ComboBox EmpIdComboBox;
 		private System.Windows.Forms.BindingSource bindingSource2;
 		private System.Windows.Forms.BindingSource bindingSource3;
 		private System.Windows.Forms.DataGridViewTextBoxColumn projetIdDataGridViewTextBoxColumn;
@@ -615,7 +654,6 @@
 		private System.Windows.Forms.BindingSource entreesHeuresBindingSource1;
 		private System.Windows.Forms.BindingSource horodateurBindingSource;
 		private fdtDataSetTableAdapters.HorodateurTableAdapter horodateurTableAdapter;
-		private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
@@ -623,5 +661,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+		private System.Windows.Forms.Button CreateModifyButton;
+		private System.Windows.Forms.Button SubmitButton;
 	}
 }
