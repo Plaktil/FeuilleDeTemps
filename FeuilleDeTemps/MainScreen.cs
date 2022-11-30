@@ -34,7 +34,7 @@ namespace FeuilleDeTemps
 		#region On Load
 		private void MainScreen_Load(object sender, EventArgs e)
 		{
-			// Loads the employes ids for the empId filter
+			// Loads the employes ids for the empId filter and sets checkboxes to their default state
 			if (CurrentUser.IsAdmin())
 			{
 				// Admins can see every employees punch time
@@ -118,7 +118,7 @@ namespace FeuilleDeTemps
 			this.currentSearchProjId = "%";
 			this.currentSearchEmpId = CurrentUser.IsAdmin() ? "%" : CurrentUser.id;
 			this.currentSearchStartDate = "1999-01-01";
-			this.currentSearchEndDate = DateTime.Today.ToLongDateString();
+			this.currentSearchEndDate = DateTime.Today.ToLongDateString();			
 
 			// Reset the controls values
 			HistProjetIdComboBox.SelectedIndex = 0;
@@ -138,13 +138,27 @@ namespace FeuilleDeTemps
 		/// </summary>
 		private void LaunchSearch()
 		{
-			this.entreesHeuresTableAdapter.FillByFilter(
-				this.fdtDataSet1.EntreesHeures,
-				this.currentSearchEmpId,
-				this.currentSearchProjId,
-				this.currentSearchStartDate,
-				this.currentSearchEndDate
-			);
+			String activeTab = MainScreenTabControl.SelectedTab.Name;
+			if (activeTab == "AddDeleteTabPage")
+			{
+				this.horodateurTableAdapter.FillByFilter(
+					this.fdtDataSet1.Horodateur,
+					this.currentSearchEmpId,
+					this.currentSearchProjId,
+					this.currentSearchStartDate,
+					this.currentSearchEndDate
+				);
+			}
+			else if (activeTab == "HistTabPage")
+			{
+				this.entreesHeuresTableAdapter.FillByFilter(
+					this.fdtDataSet1.EntreesHeures,
+					this.currentSearchEmpId,
+					this.currentSearchProjId,
+					this.currentSearchStartDate,
+					this.currentSearchEndDate
+				);
+			}
 		}
 		#endregion
 	}
