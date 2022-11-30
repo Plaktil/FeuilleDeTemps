@@ -4006,7 +4006,7 @@ SELECT projetId, empId, journee, heures, mins, soumis, dateModif, modifPar FROM 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT *\r\nFROM Horodateur";
@@ -4020,6 +4020,27 @@ SELECT projetId, empId, journee, heures, mins, soumis, dateModif, modifPar FROM 
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@projId", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "projetId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@startDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "journee", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@endDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "journee", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"UPDATE [Horodateur] SET [projetId] = @projetId, [empId] = @empId, [journee] = @journee, [heures] = @heures, [mins] = @mins, [soumis] = @soumis, [dateModif] = @dateModif, [modifPar] = @modifPar WHERE (([projetId] = @Original_projetId) AND ([empId] = @Original_empId) AND ([journee] = @Original_journee) AND ([heures] = @Original_heures) AND ([mins] = @Original_mins) AND ([soumis] = @Original_soumis) AND ([dateModif] = @Original_dateModif) AND ([modifPar] = @Original_modifPar));
+SELECT projetId, empId, journee, heures, mins, soumis, dateModif, modifPar FROM Horodateur WHERE (empId = @empId) AND (journee = @journee) AND (projetId = @projetId)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@projetId", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "projetId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@empId", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "empId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@journee", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "journee", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@heures", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "heures", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mins", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "mins", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@soumis", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "soumis", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateModif", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "dateModif", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@modifPar", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "modifPar", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_projetId", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "projetId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_empId", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "empId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_journee", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "journee", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_heures", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "heures", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_mins", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "mins", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_soumis", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "soumis", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateModif", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "dateModif", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_modifPar", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "modifPar", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4324,6 +4345,111 @@ SELECT projetId, empId, journee, heures, mins, soumis, dateModif, modifPar FROM 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(int heures, int mins, bool soumis, System.DateTime dateModif, string modifPar, string Original_projetId, string Original_empId, System.DateTime Original_journee, int Original_heures, int Original_mins, bool Original_soumis, System.DateTime Original_dateModif, string Original_modifPar) {
             return this.Update(Original_projetId, Original_empId, Original_journee, heures, mins, soumis, dateModif, modifPar, Original_projetId, Original_empId, Original_journee, Original_heures, Original_mins, Original_soumis, Original_dateModif, Original_modifPar);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateQuery(
+                    string projetId, 
+                    string empId, 
+                    string journee, 
+                    int heures, 
+                    int mins, 
+                    bool soumis, 
+                    string dateModif, 
+                    string modifPar, 
+                    string Original_projetId, 
+                    string Original_empId, 
+                    string Original_journee, 
+                    int Original_heures, 
+                    int Original_mins, 
+                    bool Original_soumis, 
+                    string Original_dateModif, 
+                    string Original_modifPar) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            if ((projetId == null)) {
+                throw new global::System.ArgumentNullException("projetId");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(projetId));
+            }
+            if ((empId == null)) {
+                throw new global::System.ArgumentNullException("empId");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(empId));
+            }
+            if ((journee == null)) {
+                throw new global::System.ArgumentNullException("journee");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(journee));
+            }
+            command.Parameters[3].Value = ((int)(heures));
+            command.Parameters[4].Value = ((int)(mins));
+            command.Parameters[5].Value = ((bool)(soumis));
+            if ((dateModif == null)) {
+                throw new global::System.ArgumentNullException("dateModif");
+            }
+            else {
+                command.Parameters[6].Value = ((string)(dateModif));
+            }
+            if ((modifPar == null)) {
+                throw new global::System.ArgumentNullException("modifPar");
+            }
+            else {
+                command.Parameters[7].Value = ((string)(modifPar));
+            }
+            if ((Original_projetId == null)) {
+                throw new global::System.ArgumentNullException("Original_projetId");
+            }
+            else {
+                command.Parameters[8].Value = ((string)(Original_projetId));
+            }
+            if ((Original_empId == null)) {
+                throw new global::System.ArgumentNullException("Original_empId");
+            }
+            else {
+                command.Parameters[9].Value = ((string)(Original_empId));
+            }
+            if ((Original_journee == null)) {
+                throw new global::System.ArgumentNullException("Original_journee");
+            }
+            else {
+                command.Parameters[10].Value = ((string)(Original_journee));
+            }
+            command.Parameters[11].Value = ((int)(Original_heures));
+            command.Parameters[12].Value = ((int)(Original_mins));
+            command.Parameters[13].Value = ((bool)(Original_soumis));
+            if ((Original_dateModif == null)) {
+                throw new global::System.ArgumentNullException("Original_dateModif");
+            }
+            else {
+                command.Parameters[14].Value = ((string)(Original_dateModif));
+            }
+            if ((Original_modifPar == null)) {
+                throw new global::System.ArgumentNullException("Original_modifPar");
+            }
+            else {
+                command.Parameters[15].Value = ((string)(Original_modifPar));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
