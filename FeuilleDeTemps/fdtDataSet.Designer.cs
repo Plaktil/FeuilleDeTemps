@@ -2120,18 +2120,23 @@ SELECT empId, fname, lname, job, tel, passwd FROM Employes WHERE (empId = @empId
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT *\r\nFROM Employes";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT *\r\nFROM Employes\r\nWHERE (empId = @loginId AND passwd = @loginPasswd COLLAT" +
-                "E Latin1_General_CS_AS)";
+            this._commandCollection[1].CommandText = "SELECT *\r\nFROM Employes\r\nWHERE (empId = @currentUserId)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loginId", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "empId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loginPasswd", global::System.Data.SqlDbType.VarChar, 24, global::System.Data.ParameterDirection.Input, 0, 0, "passwd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@currentUserId", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "empId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT *\r\nFROM Employes\r\nWHERE (empId = @loginId AND passwd = @loginPasswd COLLAT" +
+                "E Latin1_General_CS_AS)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loginId", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "empId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loginPasswd", global::System.Data.SqlDbType.VarChar, 24, global::System.Data.ParameterDirection.Input, 0, 0, "passwd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2162,8 +2167,44 @@ SELECT empId, fname, lname, job, tel, passwd FROM Employes WHERE (empId = @empId
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByLogin(fdtDataSet.EmployesDataTable dataTable, string loginId, string loginPasswd) {
+        public virtual int FillByCurrentUser(fdtDataSet.EmployesDataTable dataTable, string currentUserId) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((currentUserId == null)) {
+                throw new global::System.ArgumentNullException("currentUserId");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(currentUserId));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual fdtDataSet.EmployesDataTable GetDataByCurrentUser(string currentUserId) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((currentUserId == null)) {
+                throw new global::System.ArgumentNullException("currentUserId");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(currentUserId));
+            }
+            fdtDataSet.EmployesDataTable dataTable = new fdtDataSet.EmployesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByLogin(fdtDataSet.EmployesDataTable dataTable, string loginId, string loginPasswd) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((loginId == null)) {
                 throw new global::System.ArgumentNullException("loginId");
             }
@@ -2188,7 +2229,7 @@ SELECT empId, fname, lname, job, tel, passwd FROM Employes WHERE (empId = @empId
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual fdtDataSet.EmployesDataTable GetDataByLogin(string loginId, string loginPasswd) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((loginId == null)) {
                 throw new global::System.ArgumentNullException("loginId");
             }

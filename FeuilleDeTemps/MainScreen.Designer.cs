@@ -33,6 +33,9 @@
 			this.MainScreenTabControl = new System.Windows.Forms.TabControl();
 			this.HistoriqueTabPage = new System.Windows.Forms.TabPage();
 			this.rechercheGroupBox = new System.Windows.Forms.GroupBox();
+			this.HistEmpIdComboBox = new System.Windows.Forms.ComboBox();
+			this.bindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+			this.fdtDataSet1 = new FeuilleDeTemps.fdtDataSet();
 			this.HistEmpIdCheckBox = new System.Windows.Forms.CheckBox();
 			this.HistEmpIdLabel = new System.Windows.Forms.Label();
 			this.HistResetButton = new System.Windows.Forms.Button();
@@ -47,7 +50,6 @@
 			this.HistProjetIdComboLabel = new System.Windows.Forms.Label();
 			this.HistProjetIdComboBox = new System.Windows.Forms.ComboBox();
 			this.projetsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.fdtDataSet1 = new FeuilleDeTemps.fdtDataSet();
 			this.dataGridView2 = new System.Windows.Forms.DataGridView();
 			this.projetIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.cliNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,24 +63,24 @@
 			this.modifParDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.entreesHeuresBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
 			this.fdtDataSet = new FeuilleDeTemps.fdtDataSet();
 			this.entreesHeuresTableAdapter = new FeuilleDeTemps.fdtDataSetTableAdapters.EntreesHeuresTableAdapter();
 			this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
 			this.employesTableAdapter = new FeuilleDeTemps.fdtDataSetTableAdapters.EmployesTableAdapter();
 			this.projetsTableAdapter = new FeuilleDeTemps.fdtDataSetTableAdapters.ProjetsTableAdapter();
 			this.LogoutButton = new System.Windows.Forms.Button();
-			this.HistEmpIdComboBox = new System.Windows.Forms.ComboBox();
-			this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
 			this.MainScreenTabControl.SuspendLayout();
 			this.HistoriqueTabPage.SuspendLayout();
 			this.rechercheGroupBox.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.projetsBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.bindingSource3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.fdtDataSet1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.projetsBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.entreesHeuresBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.fdtDataSet)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// MainScreenTabControl
@@ -130,6 +132,26 @@
 			this.rechercheGroupBox.TabIndex = 2;
 			this.rechercheGroupBox.TabStop = false;
 			this.rechercheGroupBox.Text = "Critères de recherche";
+			// 
+			// HistEmpIdComboBox
+			// 
+			this.HistEmpIdComboBox.DataSource = this.bindingSource3;
+			this.HistEmpIdComboBox.DisplayMember = "empId";
+			this.HistEmpIdComboBox.FormattingEnabled = true;
+			this.HistEmpIdComboBox.Location = new System.Drawing.Point(545, 52);
+			this.HistEmpIdComboBox.Name = "HistEmpIdComboBox";
+			this.HistEmpIdComboBox.Size = new System.Drawing.Size(121, 21);
+			this.HistEmpIdComboBox.TabIndex = 15;
+			// 
+			// bindingSource3
+			// 
+			this.bindingSource3.DataMember = "Employes";
+			this.bindingSource3.DataSource = this.fdtDataSet1;
+			// 
+			// fdtDataSet1
+			// 
+			this.fdtDataSet1.DataSetName = "fdtDataSet";
+			this.fdtDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
 			// 
 			// HistEmpIdCheckBox
 			// 
@@ -256,11 +278,6 @@
 			this.projetsBindingSource.DataMember = "Projets";
 			this.projetsBindingSource.DataSource = this.fdtDataSet1;
 			// 
-			// fdtDataSet1
-			// 
-			this.fdtDataSet1.DataSetName = "fdtDataSet";
-			this.fdtDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-			// 
 			// dataGridView2
 			// 
 			this.dataGridView2.AllowUserToAddRows = false;
@@ -376,6 +393,11 @@
 			this.tabPage2.Text = "Modifier / Ajouter";
 			this.tabPage2.UseVisualStyleBackColor = true;
 			// 
+			// bindingSource2
+			// 
+			this.bindingSource2.DataMember = "Employes";
+			this.bindingSource2.DataSource = this.fdtDataSet1;
+			// 
 			// fdtDataSet
 			// 
 			this.fdtDataSet.DataSetName = "fdtDataSet";
@@ -409,21 +431,6 @@
 			this.LogoutButton.UseVisualStyleBackColor = true;
 			this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
 			// 
-			// HistEmpIdComboBox
-			// 
-			this.HistEmpIdComboBox.DataSource = this.bindingSource2;
-			this.HistEmpIdComboBox.DisplayMember = "empId";
-			this.HistEmpIdComboBox.FormattingEnabled = true;
-			this.HistEmpIdComboBox.Location = new System.Drawing.Point(545, 52);
-			this.HistEmpIdComboBox.Name = "HistEmpIdComboBox";
-			this.HistEmpIdComboBox.Size = new System.Drawing.Size(121, 21);
-			this.HistEmpIdComboBox.TabIndex = 15;
-			// 
-			// bindingSource2
-			// 
-			this.bindingSource2.DataMember = "Employes";
-			this.bindingSource2.DataSource = this.fdtDataSet1;
-			// 
 			// MainScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -441,13 +448,14 @@
 			this.HistoriqueTabPage.ResumeLayout(false);
 			this.rechercheGroupBox.ResumeLayout(false);
 			this.rechercheGroupBox.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.projetsBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.bindingSource3)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.fdtDataSet1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.projetsBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.entreesHeuresBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.fdtDataSet)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -500,5 +508,6 @@
 		private System.Windows.Forms.Label HistEmpIdLabel;
 		private System.Windows.Forms.ComboBox HistEmpIdComboBox;
 		private System.Windows.Forms.BindingSource bindingSource2;
+		private System.Windows.Forms.BindingSource bindingSource3;
 	}
 }
