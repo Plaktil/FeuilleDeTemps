@@ -34,8 +34,9 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
 			this.MainScreenTabControl = new System.Windows.Forms.TabControl();
 			this.AddDeleteTabPage = new System.Windows.Forms.TabPage();
+			this.ModifyButton = new System.Windows.Forms.Button();
 			this.SubmitButton = new System.Windows.Forms.Button();
-			this.CreateModifyButton = new System.Windows.Forms.Button();
+			this.CreateButton = new System.Windows.Forms.Button();
 			this.AddModifDGV = new System.Windows.Forms.DataGridView();
 			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,6 +87,7 @@
 			this.LogoutButton = new System.Windows.Forms.Button();
 			this.entreesHeuresBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
 			this.horodateurTableAdapter = new FeuilleDeTemps.fdtDataSetTableAdapters.HorodateurTableAdapter();
+			this.DeleteButton = new System.Windows.Forms.Button();
 			this.MainScreenTabControl.SuspendLayout();
 			this.AddDeleteTabPage.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.AddModifDGV)).BeginInit();
@@ -118,8 +120,10 @@
 			// 
 			// AddDeleteTabPage
 			// 
+			this.AddDeleteTabPage.Controls.Add(this.DeleteButton);
+			this.AddDeleteTabPage.Controls.Add(this.ModifyButton);
 			this.AddDeleteTabPage.Controls.Add(this.SubmitButton);
-			this.AddDeleteTabPage.Controls.Add(this.CreateModifyButton);
+			this.AddDeleteTabPage.Controls.Add(this.CreateButton);
 			this.AddDeleteTabPage.Controls.Add(this.AddModifDGV);
 			this.AddDeleteTabPage.Location = new System.Drawing.Point(4, 22);
 			this.AddDeleteTabPage.Name = "AddDeleteTabPage";
@@ -129,10 +133,21 @@
 			this.AddDeleteTabPage.Text = "Modifier / Ajouter";
 			this.AddDeleteTabPage.UseVisualStyleBackColor = true;
 			// 
+			// ModifyButton
+			// 
+			this.ModifyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.ModifyButton.Location = new System.Drawing.Point(98, 283);
+			this.ModifyButton.Name = "ModifyButton";
+			this.ModifyButton.Size = new System.Drawing.Size(84, 23);
+			this.ModifyButton.TabIndex = 5;
+			this.ModifyButton.Text = "Modifier";
+			this.ModifyButton.UseVisualStyleBackColor = true;
+			this.ModifyButton.Click += new System.EventHandler(this.ModifyButton_Click);
+			// 
 			// SubmitButton
 			// 
 			this.SubmitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.SubmitButton.Location = new System.Drawing.Point(98, 283);
+			this.SubmitButton.Location = new System.Drawing.Point(278, 283);
 			this.SubmitButton.Name = "SubmitButton";
 			this.SubmitButton.Size = new System.Drawing.Size(84, 23);
 			this.SubmitButton.TabIndex = 4;
@@ -140,16 +155,16 @@
 			this.SubmitButton.UseVisualStyleBackColor = true;
 			this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
 			// 
-			// CreateModifyButton
+			// CreateButton
 			// 
-			this.CreateModifyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.CreateModifyButton.Location = new System.Drawing.Point(9, 283);
-			this.CreateModifyButton.Name = "CreateModifyButton";
-			this.CreateModifyButton.Size = new System.Drawing.Size(83, 23);
-			this.CreateModifyButton.TabIndex = 3;
-			this.CreateModifyButton.Text = "Créer/Modifier";
-			this.CreateModifyButton.UseVisualStyleBackColor = true;
-			this.CreateModifyButton.Click += new System.EventHandler(this.CreateModifyButton_Click);
+			this.CreateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.CreateButton.Location = new System.Drawing.Point(9, 283);
+			this.CreateButton.Name = "CreateButton";
+			this.CreateButton.Size = new System.Drawing.Size(83, 23);
+			this.CreateButton.TabIndex = 3;
+			this.CreateButton.Text = "Ajouter";
+			this.CreateButton.UseVisualStyleBackColor = true;
+			this.CreateButton.Click += new System.EventHandler(this.AddButton_Click);
 			// 
 			// AddModifDGV
 			// 
@@ -574,6 +589,17 @@
 			// 
 			this.horodateurTableAdapter.ClearBeforeFill = true;
 			// 
+			// DeleteButton
+			// 
+			this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.DeleteButton.Location = new System.Drawing.Point(188, 283);
+			this.DeleteButton.Name = "DeleteButton";
+			this.DeleteButton.Size = new System.Drawing.Size(84, 23);
+			this.DeleteButton.TabIndex = 6;
+			this.DeleteButton.Text = "Supprimer";
+			this.DeleteButton.UseVisualStyleBackColor = true;
+			this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+			// 
 			// MainScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -661,7 +687,9 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-		private System.Windows.Forms.Button CreateModifyButton;
+		private System.Windows.Forms.Button CreateButton;
 		private System.Windows.Forms.Button SubmitButton;
+		private System.Windows.Forms.Button ModifyButton;
+		private System.Windows.Forms.Button DeleteButton;
 	}
 }

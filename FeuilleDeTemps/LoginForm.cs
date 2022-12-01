@@ -45,6 +45,7 @@ namespace FeuilleDeTemps
 			else
 			{
 				MessageBox.Show("Identifiant / Mot de passe invalide", "System.Login");
+				pwdTextBox.Text = String.Empty;
 			}
 		}
 	}

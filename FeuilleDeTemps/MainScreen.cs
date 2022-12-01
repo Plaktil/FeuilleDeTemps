@@ -101,9 +101,25 @@ namespace FeuilleDeTemps
 			LaunchSearch(MainScreenTabControl.SelectedTab);
 		}
 
-		private void CreateModifyButton_Click(object sender, EventArgs e)
+		private void AddButton_Click(object sender, EventArgs e)
+		{
+			AddModifPopUp addPopUp = new AddModifPopUp();
+			// TODO: Pass the mainscreen to the popup to re-enable it (and the default values to use)
+			addPopUp.Show();
+			this.Enabled = false;
+		}
+
+		private void ModifyButton_Click(object sender, EventArgs e)
 		{
 			// TODO: Create a pop-up form to allow user to create/modify an entry
+			// use cells 0, 1, 2 to construct a primary key and pass it to the new form
+			MessageBox.Show(AddModifDGV.SelectedRows[0].Cells[0].Value.ToString());
+			// TODO: handle case when only a cell is highlighted (get the row)
+		}
+
+		private void DeleteButton_Click(object sender, EventArgs e)
+		{
+			// TODO: Create a dialog box that shows what will be deleted and asks to confirm the deletion.
 		}
 
 		private void SubmitButton_Click(object sender, EventArgs e)
@@ -178,5 +194,7 @@ namespace FeuilleDeTemps
 			}
 		}
 		#endregion
+
+		
 	}
 }
