@@ -43,7 +43,7 @@
 			this.SaveAndSubmitButton = new System.Windows.Forms.Button();
 			this.SaveButton = new System.Windows.Forms.Button();
 			this.AddModifWorkHoursLabel = new System.Windows.Forms.Label();
-			this.AddModifStartDatePicker = new System.Windows.Forms.DateTimePicker();
+			this.AddModifDatePicker = new System.Windows.Forms.DateTimePicker();
 			this.AddModifDateLabel = new System.Windows.Forms.Label();
 			this.AddModifProjetIdLabel = new System.Windows.Forms.Label();
 			this.AddModifProjetIdComboBox = new System.Windows.Forms.ComboBox();
@@ -68,7 +68,7 @@
 			this.AddModifGroupBox.Controls.Add(this.SaveAndSubmitButton);
 			this.AddModifGroupBox.Controls.Add(this.SaveButton);
 			this.AddModifGroupBox.Controls.Add(this.AddModifWorkHoursLabel);
-			this.AddModifGroupBox.Controls.Add(this.AddModifStartDatePicker);
+			this.AddModifGroupBox.Controls.Add(this.AddModifDatePicker);
 			this.AddModifGroupBox.Controls.Add(this.AddModifDateLabel);
 			this.AddModifGroupBox.Controls.Add(this.AddModifProjetIdLabel);
 			this.AddModifGroupBox.Controls.Add(this.AddModifProjetIdComboBox);
@@ -203,13 +203,14 @@
 			this.AddModifWorkHoursLabel.TabIndex = 5;
 			this.AddModifWorkHoursLabel.Text = "Heures Travaillées";
 			// 
-			// AddModifStartDatePicker
+			// AddModifDatePicker
 			// 
-			this.AddModifStartDatePicker.Location = new System.Drawing.Point(169, 51);
-			this.AddModifStartDatePicker.Name = "AddModifStartDatePicker";
-			this.AddModifStartDatePicker.Size = new System.Drawing.Size(134, 20);
-			this.AddModifStartDatePicker.TabIndex = 4;
-			this.AddModifStartDatePicker.Value = new System.DateTime(2022, 11, 29, 10, 59, 40, 0);
+			this.AddModifDatePicker.Location = new System.Drawing.Point(169, 51);
+			this.AddModifDatePicker.Name = "AddModifDatePicker";
+			this.AddModifDatePicker.Size = new System.Drawing.Size(134, 20);
+			this.AddModifDatePicker.TabIndex = 4;
+			this.AddModifDatePicker.Value = new System.DateTime(2022, 11, 29, 10, 59, 40, 0);
+			this.AddModifDatePicker.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddModifDatePicker_KeyDown);
 			// 
 			// AddModifDateLabel
 			// 
@@ -260,7 +261,9 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(393, 238);
 			this.Controls.Add(this.AddModifGroupBox);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MinimizeBox = false;
 			this.Name = "AddModifPopUp";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Feuille De Temps";
@@ -283,7 +286,7 @@
 		private System.Windows.Forms.Button SaveAndSubmitButton;
 		private System.Windows.Forms.Button SaveButton;
 		private System.Windows.Forms.Label AddModifWorkHoursLabel;
-		private System.Windows.Forms.DateTimePicker AddModifStartDatePicker;
+		private System.Windows.Forms.DateTimePicker AddModifDatePicker;
 		private System.Windows.Forms.Label AddModifDateLabel;
 		private System.Windows.Forms.Label AddModifProjetIdLabel;
 		private System.Windows.Forms.ComboBox AddModifProjetIdComboBox;

@@ -33,7 +33,7 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
 			this.MainScreenTabControl = new System.Windows.Forms.TabControl();
-			this.AddDeleteTabPage = new System.Windows.Forms.TabPage();
+			this.AddModifTabPage = new System.Windows.Forms.TabPage();
 			this.DeleteButton = new System.Windows.Forms.Button();
 			this.ModifyButton = new System.Windows.Forms.Button();
 			this.SubmitButton = new System.Windows.Forms.Button();
@@ -89,7 +89,7 @@
 			this.entreesHeuresBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
 			this.horodateurTableAdapter = new FeuilleDeTemps.fdtDataSetTableAdapters.HorodateurTableAdapter();
 			this.MainScreenTabControl.SuspendLayout();
-			this.AddDeleteTabPage.SuspendLayout();
+			this.AddModifTabPage.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.AddModifDGV)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.horodateurBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.fdtDataSet1)).BeginInit();
@@ -110,7 +110,7 @@
 			this.MainScreenTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.MainScreenTabControl.Controls.Add(this.AddDeleteTabPage);
+			this.MainScreenTabControl.Controls.Add(this.AddModifTabPage);
 			this.MainScreenTabControl.Controls.Add(this.HistTabPage);
 			this.MainScreenTabControl.Location = new System.Drawing.Point(12, 168);
 			this.MainScreenTabControl.Name = "MainScreenTabControl";
@@ -118,20 +118,22 @@
 			this.MainScreenTabControl.Size = new System.Drawing.Size(831, 343);
 			this.MainScreenTabControl.TabIndex = 0;
 			// 
-			// AddDeleteTabPage
+			// AddModifTabPage
 			// 
-			this.AddDeleteTabPage.Controls.Add(this.DeleteButton);
-			this.AddDeleteTabPage.Controls.Add(this.ModifyButton);
-			this.AddDeleteTabPage.Controls.Add(this.SubmitButton);
-			this.AddDeleteTabPage.Controls.Add(this.CreateButton);
-			this.AddDeleteTabPage.Controls.Add(this.AddModifDGV);
-			this.AddDeleteTabPage.Location = new System.Drawing.Point(4, 22);
-			this.AddDeleteTabPage.Name = "AddDeleteTabPage";
-			this.AddDeleteTabPage.Padding = new System.Windows.Forms.Padding(3);
-			this.AddDeleteTabPage.Size = new System.Drawing.Size(823, 317);
-			this.AddDeleteTabPage.TabIndex = 1;
-			this.AddDeleteTabPage.Text = "Modifier / Ajouter";
-			this.AddDeleteTabPage.UseVisualStyleBackColor = true;
+			this.AddModifTabPage.Controls.Add(this.DeleteButton);
+			this.AddModifTabPage.Controls.Add(this.ModifyButton);
+			this.AddModifTabPage.Controls.Add(this.SubmitButton);
+			this.AddModifTabPage.Controls.Add(this.CreateButton);
+			this.AddModifTabPage.Controls.Add(this.AddModifDGV);
+			this.AddModifTabPage.Location = new System.Drawing.Point(4, 22);
+			this.AddModifTabPage.Name = "AddModifTabPage";
+			this.AddModifTabPage.Padding = new System.Windows.Forms.Padding(3);
+			this.AddModifTabPage.Size = new System.Drawing.Size(823, 317);
+			this.AddModifTabPage.TabIndex = 1;
+			this.AddModifTabPage.Text = "Ajouter / Modifier";
+			this.AddModifTabPage.ToolTipText = "Ajouter des entrées à l\'horodateur et modifier, supprimer ou soumettre des entrée" +
+    "s existantes.";
+			this.AddModifTabPage.UseVisualStyleBackColor = true;
 			// 
 			// DeleteButton
 			// 
@@ -277,6 +279,7 @@
 			this.HistTabPage.Size = new System.Drawing.Size(823, 317);
 			this.HistTabPage.TabIndex = 0;
 			this.HistTabPage.Text = "Historique";
+			this.HistTabPage.ToolTipText = "Voir l\'historique des entrées à l\'horodateur, soumises ou non";
 			this.HistTabPage.UseVisualStyleBackColor = true;
 			// 
 			// HistDGV
@@ -617,7 +620,7 @@
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainScreen_FormClosed);
 			this.Load += new System.EventHandler(this.MainScreen_Load);
 			this.MainScreenTabControl.ResumeLayout(false);
-			this.AddDeleteTabPage.ResumeLayout(false);
+			this.AddModifTabPage.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.AddModifDGV)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.horodateurBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.fdtDataSet1)).EndInit();
@@ -639,7 +642,7 @@
 		#endregion
 		private System.Windows.Forms.TabControl MainScreenTabControl;
 		private System.Windows.Forms.TabPage HistTabPage;
-		private System.Windows.Forms.TabPage AddDeleteTabPage;
+		private System.Windows.Forms.TabPage AddModifTabPage;
 		private fdtDataSet fdtDataSet;
 		private fdtDataSet fdtDataSet1;
 		private System.Windows.Forms.BindingSource entreesHeuresBindingSource;
@@ -681,7 +684,8 @@
 		private System.Windows.Forms.DataGridView AddModifDGV;
 		private System.Windows.Forms.BindingSource entreesHeuresBindingSource1;
 		private System.Windows.Forms.BindingSource horodateurBindingSource;
-		private fdtDataSetTableAdapters.HorodateurTableAdapter horodateurTableAdapter;
+		// Needs to be modified by another form, made public.
+		public fdtDataSetTableAdapters.HorodateurTableAdapter horodateurTableAdapter;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Text;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -19,6 +20,7 @@ namespace FeuilleDeTemps
 		private String currentSearchEmpId;
 		private String currentSearchStartDate;
 		private String currentSearchEndDate;
+		private AddModifPopUp[] pendingPopUps;
 		#endregion
 		#region Constructor
 		/// <summary>
@@ -29,6 +31,9 @@ namespace FeuilleDeTemps
 		{
 			InitializeComponent();
 			this.loginForm = loginForm;
+
+			// Allows delete button to call popUpHandler to refresh the search results
+			this.pendingPopUps = new AddModifPopUp[0];
 		}
 		#endregion
 		#region On Load
@@ -56,7 +61,7 @@ namespace FeuilleDeTemps
 			this.DefaultSearchParams();
 
 			// Get all the existing unsubmitted punch clock data for the current user (unless admin)
-			LaunchSearch(AddDeleteTabPage);
+			LaunchSearch(AddModifTabPage);
 
 			// Get all the existing unsubmitted punch clock data for the current user (unless admin)
 			LaunchSearch(HistTabPage);
@@ -80,7 +85,7 @@ namespace FeuilleDeTemps
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void SearchButton_Click(object sender, EventArgs e)
+		public void SearchButton_Click(object sender, EventArgs e)
 		{
 			this.currentSearchProjId = SearchProjetIdCheckBox.Checked ? SearchProjetIdComboBox.Text : "%";
 			this.currentSearchEmpId = SearchEmpIdCheckBox.Checked ? SearchEmpIdComboBox.Text : "%";
@@ -104,37 +109,83 @@ namespace FeuilleDeTemps
 		private void AddButton_Click(object sender, EventArgs e)
 		{
 			AddModifPopUp addPopUp = new AddModifPopUp(this);
-			addPopUp.Show();
-			this.Enabled = false;
+			this.pendingPopUps = new AddModifPopUp[1];
+			this.pendingPopUps[0] = addPopUp;
+			popUpHandler();
 		}
 
 		private void ModifyButton_Click(object sender, EventArgs e)
 		{
 			DataGridViewSelectedRowCollection selectedRows = AddModifDGV.SelectedRows;
 
-			// Reverse the counter since the first item in the selected collection is the last
-			// one selected by the user. In short, for the UX.
+			// Create a list of popups for the selected rows
+			this.pendingPopUps = new AddModifPopUp[selectedRows.Count];
+
 			for (int i = selectedRows.Count - 1; i >= 0; i--)
 			{
 				DataGridViewCellCollection currentCells = selectedRows[i].Cells;
-				AddModifPopUp addPopUp = new AddModifPopUp(
+				AddModifPopUp addModifPopUp = new AddModifPopUp(
 					this,
 					currentCells[0].Value.ToString(), 
+					currentCells[1].Value.ToString(),
 					Convert.ToDateTime(currentCells[2].Value)
 				);
-				addPopUp.Show();
-				this.Enabled = false;
+				this.pendingPopUps[i] = addModifPopUp;
 			}
+
+			// Lock the screen while the popups are dealt with by the user
+			this.Enabled = false;
+
+			// Call the PopUps handler to serve them one by one
+			popUpHandler();
 		}
 
 		private void DeleteButton_Click(object sender, EventArgs e)
 		{
-			// TODO: Create a dialog box that shows what will be deleted and asks to confirm the deletion.
+			DataGridViewSelectedRowCollection selectedRows = AddModifDGV.SelectedRows;
+			if (selectedRows.Count > 0)
+			{
+				var dialogResult = MessageBox.Show("Voulez vous vraiment supprimer les entrées sélectionnées?", "Feuille De Temps", MessageBoxButtons.OKCancel);
+
+				if (dialogResult.ToString() == "OK")
+				{
+
+					for (int i = selectedRows.Count - 1; i >= 0; i--)
+					{
+						DataGridViewCellCollection currentCells = selectedRows[i].Cells;
+						horodateurTableAdapter.DeleteByPK(
+							currentCells[0].Value.ToString(),
+							currentCells[1].Value.ToString(),
+							currentCells[2].Value.ToString()
+						);
+					}
+				}
+			}
+			popUpHandler();
 		}
 
 		private void SubmitButton_Click(object sender, EventArgs e)
 		{
-			// TODO: Create a dialog box that shows what will be submitted and asks to confirm the submission
+			DataGridViewSelectedRowCollection selectedRows = AddModifDGV.SelectedRows;
+			if (selectedRows.Count > 0)
+			{
+				var dialogResult = MessageBox.Show("Voulez vous vraiment soumettre les entrées sélectionnées?", "Feuille De Temps", MessageBoxButtons.OKCancel);
+
+				if (dialogResult.ToString() == "OK")
+				{
+					for (int i = selectedRows.Count - 1; i >= 0; i--)
+					{
+						DataGridViewCellCollection currentCells = selectedRows[i].Cells;
+						horodateurTableAdapter.UpdateSoumisByPK(
+							true,
+							currentCells[0].Value.ToString(),
+							currentCells[1].Value.ToString(),
+							currentCells[2].Value.ToString()
+						);
+					}
+				}
+			}
+			popUpHandler();
 		}
 
 		/// <summary>
@@ -157,30 +208,30 @@ namespace FeuilleDeTemps
 			// Reset the query parameters
 			this.currentSearchProjId = "%";
 			this.currentSearchEmpId = CurrentUser.IsAdmin() ? "%" : CurrentUser.id;
-			this.currentSearchStartDate = "1999-01-01";
+			this.currentSearchStartDate = DateTime.Today.AddDays(-7).ToLongDateString();
 			this.currentSearchEndDate = DateTime.Today.ToLongDateString();			
 
 			// Reset the search controls values
 			SearchProjetIdComboBox.SelectedIndex = 0;
-			SearchStartDatePicker.Value = DateTime.Today;
+			SearchStartDatePicker.Value = DateTime.Today.AddDays(-7);
 			SearchEndDatePicker.Value = DateTime.Today;
 			SearchEmpIdComboBox.SelectedIndex = 0;
 
 			// Reset the checkbox states
 			SearchProjetIdCheckBox.Checked = false;
-			SearchStartDateCheckBox.Checked = false;
-			SearchEndDateCheckBox.Checked = false;
+			SearchStartDateCheckBox.Checked = true;
+			SearchEndDateCheckBox.Checked = true;
 			SearchEmpIdCheckBox.Checked = !CurrentUser.IsAdmin();
 		}
 
 		/// <summary>
-		/// Launches the query with the current search filters into the right tab
+		/// Launches the query with the current search filters into the specified tab
 		/// </summary>
-		private void LaunchSearch(TabPage activeTab)
+		private void LaunchSearch(TabPage targetTab)
 		{
 			// TOOD: This repetition can be dealt with by implementing the LaunchSearch method in
 			// each tab's respective class.
-			if (activeTab.Name == "AddDeleteTabPage")
+			if (targetTab.Name == "AddModifTabPage")
 			{
 				this.horodateurTableAdapter.FillByFilter(
 					this.fdtDataSet1.Horodateur,
@@ -190,7 +241,7 @@ namespace FeuilleDeTemps
 					this.currentSearchEndDate
 				);
 			}
-			else if (activeTab.Name == "HistTabPage")
+			else if (targetTab.Name == "HistTabPage")
 			{
 				this.entreesHeuresTableAdapter.FillByFilter(
 					this.fdtDataSet1.EntreesHeures,
@@ -201,8 +252,29 @@ namespace FeuilleDeTemps
 				);
 			}
 		}
-		#endregion
 
-		
+		public void popUpHandler()
+		{
+			if (pendingPopUps.Length > 0)
+			{
+				// Show the next window
+				this.pendingPopUps[0].Show();
+
+				// Remove the shown window from the pending array
+				AddModifPopUp[] tmpArray = new AddModifPopUp[this.pendingPopUps.Length - 1];
+				Array.Copy(this.pendingPopUps, 1, tmpArray, 0, tmpArray.Length);
+				this.pendingPopUps = tmpArray;
+
+			}
+			else
+			{
+				// When they are all processed, re-enable the MainScreen.
+				this.Enabled = true;
+				// Refresh the search results in each tabs using the current filters
+				LaunchSearch(HistTabPage);
+				LaunchSearch(AddModifTabPage);
+			}
+		}
+		#endregion
 	}
 }
