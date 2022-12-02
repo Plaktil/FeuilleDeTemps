@@ -87,6 +87,7 @@
 			this.AddModifCancelButton.TabIndex = 20;
 			this.AddModifCancelButton.Text = "Annuler";
 			this.AddModifCancelButton.UseVisualStyleBackColor = true;
+			this.AddModifCancelButton.Click += new System.EventHandler(this.AddModifCancelButton_Click);
 			// 
 			// AddModifMinutesLabel
 			// 
@@ -108,6 +109,7 @@
 			// 
 			// AddModifMinutesComboBox
 			// 
+			this.AddModifMinutesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.AddModifMinutesComboBox.FormattingEnabled = true;
 			this.AddModifMinutesComboBox.Items.AddRange(new object[] {
             "00",
@@ -121,6 +123,7 @@
 			// 
 			// AddModifHoursComboBox
 			// 
+			this.AddModifHoursComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.AddModifHoursComboBox.FormattingEnabled = true;
 			this.AddModifHoursComboBox.Items.AddRange(new object[] {
             "0",
@@ -145,6 +148,7 @@
 			// 
 			this.AddModifEmpIdComboBox.DataSource = this.employesBindingSource;
 			this.AddModifEmpIdComboBox.DisplayMember = "empId";
+			this.AddModifEmpIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.AddModifEmpIdComboBox.FormattingEnabled = true;
 			this.AddModifEmpIdComboBox.Location = new System.Drawing.Point(28, 104);
 			this.AddModifEmpIdComboBox.Name = "AddModifEmpIdComboBox";
@@ -178,6 +182,7 @@
 			this.SaveAndSubmitButton.TabIndex = 11;
 			this.SaveAndSubmitButton.Text = "Enregistrer et soumettre";
 			this.SaveAndSubmitButton.UseVisualStyleBackColor = true;
+			this.SaveAndSubmitButton.Click += new System.EventHandler(this.SaveAndSubmitButton_Click);
 			// 
 			// SaveButton
 			// 
@@ -187,6 +192,7 @@
 			this.SaveButton.TabIndex = 10;
 			this.SaveButton.Text = "Enregistrer";
 			this.SaveButton.UseVisualStyleBackColor = true;
+			this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
 			// 
 			// AddModifWorkHoursLabel
 			// 
@@ -227,6 +233,7 @@
 			// 
 			this.AddModifProjetIdComboBox.DataSource = this.projetsBindingSource;
 			this.AddModifProjetIdComboBox.DisplayMember = "projetId";
+			this.AddModifProjetIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.AddModifProjetIdComboBox.FormattingEnabled = true;
 			this.AddModifProjetIdComboBox.Location = new System.Drawing.Point(28, 51);
 			this.AddModifProjetIdComboBox.Name = "AddModifProjetIdComboBox";

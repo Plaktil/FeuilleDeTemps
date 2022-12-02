@@ -419,6 +419,7 @@
 			// 
 			this.SearchEmpIdComboBox.DataSource = this.bindingSource3;
 			this.SearchEmpIdComboBox.DisplayMember = "empId";
+			this.SearchEmpIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.SearchEmpIdComboBox.FormattingEnabled = true;
 			this.SearchEmpIdComboBox.Location = new System.Drawing.Point(545, 52);
 			this.SearchEmpIdComboBox.Name = "SearchEmpIdComboBox";
@@ -542,6 +543,7 @@
 			// 
 			this.SearchProjetIdComboBox.DataSource = this.projetsBindingSource;
 			this.SearchProjetIdComboBox.DisplayMember = "projetId";
+			this.SearchProjetIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.SearchProjetIdComboBox.FormattingEnabled = true;
 			this.SearchProjetIdComboBox.Location = new System.Drawing.Point(28, 51);
 			this.SearchProjetIdComboBox.Name = "SearchProjetIdComboBox";

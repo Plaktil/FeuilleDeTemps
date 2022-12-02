@@ -80,9 +80,9 @@ namespace FeuilleDeTemps
 				// Stops normal employees from selecting another id
 				AddModifEmpIdComboBox.Enabled = false;
 			}
-			// TODO: This line of code loads data into the 'fdtDataSet.Employes' table. You can move, or remove it, as needed.
+			// Load the available users selection for the combo box
 			this.employesTableAdapter.FillByUser(this.fdtDataSet.Employes, this.empId);
-			// TODO: This line of code loads data into the 'fdtDataSet.Projets' table. You can move, or remove it, as needed.
+			// Load the available project selection for the combo box
 			this.projetsTableAdapter.FillByProjetId(this.fdtDataSet.Projets, this.projetId);
 		}
 		#endregion
@@ -136,5 +136,20 @@ namespace FeuilleDeTemps
 			mainScreen.Enabled = true;
 		}
 		#endregion
+
+		private void SaveButton_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void SaveAndSubmitButton_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void AddModifCancelButton_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }
