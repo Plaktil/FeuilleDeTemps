@@ -227,7 +227,7 @@ namespace FeuilleDeTemps
 			}
 			catch (System.Data.SqlClient.SqlException)
 			{
-				MessageBox.Show($"Erreur: L'horodateur contient déjà une entrée avec les informations suivantes: Projet: {this.projetId} Employé: {this.originalEmpId} Date: {this.workDate.ToLongDateString()}");
+				MessageBox.Show($"Erreur: L'horodateur contient déjà une entrée avec les informations suivantes: Projet: {this.projetId} Employé: {this.originalEmpId} Date: {this.workDate.ToLongDateString()}", "System.Horodateur");
 			}
 		}
 		/// <summary>

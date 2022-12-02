@@ -145,7 +145,7 @@ namespace FeuilleDeTemps
 			DataGridViewSelectedRowCollection selectedRows = AddModifDGV.SelectedRows;
 			if (selectedRows.Count > 0)
 			{
-				var dialogResult = MessageBox.Show("Voulez vous vraiment supprimer les entrées sélectionnées?", "Feuille De Temps", MessageBoxButtons.OKCancel);
+				var dialogResult = MessageBox.Show("Voulez vous vraiment supprimer les entrées sélectionnées?", "System.Horodateur", MessageBoxButtons.OKCancel);
 
 				if (dialogResult.ToString() == "OK")
 				{
@@ -169,7 +169,7 @@ namespace FeuilleDeTemps
 			DataGridViewSelectedRowCollection selectedRows = AddModifDGV.SelectedRows;
 			if (selectedRows.Count > 0)
 			{
-				var dialogResult = MessageBox.Show("Voulez vous vraiment soumettre les entrées sélectionnées?", "Feuille De Temps", MessageBoxButtons.OKCancel);
+				var dialogResult = MessageBox.Show("Voulez vous vraiment soumettre les entrées sélectionnées?", "System.Horodateur", MessageBoxButtons.OKCancel);
 
 				if (dialogResult.ToString() == "OK")
 				{
