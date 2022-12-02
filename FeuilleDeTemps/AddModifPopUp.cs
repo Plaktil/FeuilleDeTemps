@@ -29,7 +29,9 @@ namespace FeuilleDeTemps
 
 			this.mainScreen = mainScreen;
 			
+			// Set the query parameters to their default
 			this.projetId = "%";
+			this.empId = CurrentUser.id;
 
 			// Set the last modification date and modified by fields to their new values
 			this.modifDate = DateTime.Today.ToLongDateString();
