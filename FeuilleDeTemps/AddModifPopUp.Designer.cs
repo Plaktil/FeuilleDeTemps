@@ -28,13 +28,17 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddModifPopUp));
 			this.AddModifGroupBox = new System.Windows.Forms.GroupBox();
+			this.AddModifCancelButton = new System.Windows.Forms.Button();
 			this.AddModifMinutesLabel = new System.Windows.Forms.Label();
 			this.AddModifHourLabel = new System.Windows.Forms.Label();
 			this.AddModifMinutesComboBox = new System.Windows.Forms.ComboBox();
 			this.AddModifHoursComboBox = new System.Windows.Forms.ComboBox();
 			this.AddModifEmpIdComboBox = new System.Windows.Forms.ComboBox();
+			this.employesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.fdtDataSet = new FeuilleDeTemps.fdtDataSet();
 			this.AddModifEmpIdLabel = new System.Windows.Forms.Label();
 			this.SaveAndSubmitButton = new System.Windows.Forms.Button();
 			this.SaveButton = new System.Windows.Forms.Button();
@@ -43,8 +47,13 @@
 			this.AddModifDateLabel = new System.Windows.Forms.Label();
 			this.AddModifProjetIdLabel = new System.Windows.Forms.Label();
 			this.AddModifProjetIdComboBox = new System.Windows.Forms.ComboBox();
-			this.AddModifCancelButton = new System.Windows.Forms.Button();
+			this.projetsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.projetsTableAdapter = new FeuilleDeTemps.fdtDataSetTableAdapters.ProjetsTableAdapter();
+			this.employesTableAdapter = new FeuilleDeTemps.fdtDataSetTableAdapters.EmployesTableAdapter();
 			this.AddModifGroupBox.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.employesBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.fdtDataSet)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.projetsBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// AddModifGroupBox
@@ -70,6 +79,15 @@
 			this.AddModifGroupBox.TabStop = false;
 			this.AddModifGroupBox.Text = "Ajouter / Modifier";
 			// 
+			// AddModifCancelButton
+			// 
+			this.AddModifCancelButton.Location = new System.Drawing.Point(258, 181);
+			this.AddModifCancelButton.Name = "AddModifCancelButton";
+			this.AddModifCancelButton.Size = new System.Drawing.Size(83, 23);
+			this.AddModifCancelButton.TabIndex = 20;
+			this.AddModifCancelButton.Text = "Annuler";
+			this.AddModifCancelButton.UseVisualStyleBackColor = true;
+			// 
 			// AddModifMinutesLabel
 			// 
 			this.AddModifMinutesLabel.AutoSize = true;
@@ -91,6 +109,11 @@
 			// AddModifMinutesComboBox
 			// 
 			this.AddModifMinutesComboBox.FormattingEnabled = true;
+			this.AddModifMinutesComboBox.Items.AddRange(new object[] {
+            "00",
+            "15",
+            "30",
+            "45"});
 			this.AddModifMinutesComboBox.Location = new System.Drawing.Point(230, 104);
 			this.AddModifMinutesComboBox.Name = "AddModifMinutesComboBox";
 			this.AddModifMinutesComboBox.Size = new System.Drawing.Size(37, 21);
@@ -99,6 +122,20 @@
 			// AddModifHoursComboBox
 			// 
 			this.AddModifHoursComboBox.FormattingEnabled = true;
+			this.AddModifHoursComboBox.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
 			this.AddModifHoursComboBox.Location = new System.Drawing.Point(169, 103);
 			this.AddModifHoursComboBox.Name = "AddModifHoursComboBox";
 			this.AddModifHoursComboBox.Size = new System.Drawing.Size(36, 21);
@@ -106,12 +143,23 @@
 			// 
 			// AddModifEmpIdComboBox
 			// 
+			this.AddModifEmpIdComboBox.DataSource = this.employesBindingSource;
 			this.AddModifEmpIdComboBox.DisplayMember = "empId";
 			this.AddModifEmpIdComboBox.FormattingEnabled = true;
 			this.AddModifEmpIdComboBox.Location = new System.Drawing.Point(28, 104);
 			this.AddModifEmpIdComboBox.Name = "AddModifEmpIdComboBox";
 			this.AddModifEmpIdComboBox.Size = new System.Drawing.Size(121, 21);
 			this.AddModifEmpIdComboBox.TabIndex = 15;
+			// 
+			// employesBindingSource
+			// 
+			this.employesBindingSource.DataMember = "Employes";
+			this.employesBindingSource.DataSource = this.fdtDataSet;
+			// 
+			// fdtDataSet
+			// 
+			this.fdtDataSet.DataSetName = "fdtDataSet";
+			this.fdtDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
 			// 
 			// AddModifEmpIdLabel
 			// 
@@ -177,21 +225,27 @@
 			// 
 			// AddModifProjetIdComboBox
 			// 
+			this.AddModifProjetIdComboBox.DataSource = this.projetsBindingSource;
 			this.AddModifProjetIdComboBox.DisplayMember = "projetId";
 			this.AddModifProjetIdComboBox.FormattingEnabled = true;
 			this.AddModifProjetIdComboBox.Location = new System.Drawing.Point(28, 51);
 			this.AddModifProjetIdComboBox.Name = "AddModifProjetIdComboBox";
 			this.AddModifProjetIdComboBox.Size = new System.Drawing.Size(121, 21);
 			this.AddModifProjetIdComboBox.TabIndex = 0;
+			this.AddModifProjetIdComboBox.SelectedIndexChanged += new System.EventHandler(this.AddModifProjetIdComboBox_SelectedIndexChanged);
 			// 
-			// AddModifCancelButton
+			// projetsBindingSource
 			// 
-			this.AddModifCancelButton.Location = new System.Drawing.Point(258, 181);
-			this.AddModifCancelButton.Name = "AddModifCancelButton";
-			this.AddModifCancelButton.Size = new System.Drawing.Size(83, 23);
-			this.AddModifCancelButton.TabIndex = 20;
-			this.AddModifCancelButton.Text = "Annuler";
-			this.AddModifCancelButton.UseVisualStyleBackColor = true;
+			this.projetsBindingSource.DataMember = "Projets";
+			this.projetsBindingSource.DataSource = this.fdtDataSet;
+			// 
+			// projetsTableAdapter
+			// 
+			this.projetsTableAdapter.ClearBeforeFill = true;
+			// 
+			// employesTableAdapter
+			// 
+			this.employesTableAdapter.ClearBeforeFill = true;
 			// 
 			// AddModifPopUp
 			// 
@@ -203,8 +257,13 @@
 			this.Name = "AddModifPopUp";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Feuille De Temps";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddModifPopUp_FormClosed);
+			this.Load += new System.EventHandler(this.AddModifPopUp_Load);
 			this.AddModifGroupBox.ResumeLayout(false);
 			this.AddModifGroupBox.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.employesBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.fdtDataSet)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.projetsBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -226,5 +285,10 @@
 		private System.Windows.Forms.Label AddModifHourLabel;
 		private System.Windows.Forms.ComboBox AddModifMinutesComboBox;
 		private System.Windows.Forms.Button AddModifCancelButton;
+		private fdtDataSet fdtDataSet;
+		private System.Windows.Forms.BindingSource projetsBindingSource;
+		private fdtDataSetTableAdapters.ProjetsTableAdapter projetsTableAdapter;
+		private System.Windows.Forms.BindingSource employesBindingSource;
+		private fdtDataSetTableAdapters.EmployesTableAdapter employesTableAdapter;
 	}
 }

@@ -43,10 +43,10 @@ namespace FeuilleDeTemps
 			else
 			{
 				// Normal users can only see their own punch time
-				this.employesTableAdapter.FillByCurrentUser(this.fdtDataSet1.Employes, CurrentUser.id);
-				EmpIdCheckBox.Checked = true;
-				EmpIdCheckBox.Enabled = false;
-				EmpIdComboBox.Enabled = false;
+				this.employesTableAdapter.FillByUser(this.fdtDataSet1.Employes, CurrentUser.id);
+				SearchEmpIdCheckBox.Checked = true;
+				SearchEmpIdCheckBox.Enabled = false;
+				SearchEmpIdComboBox.Enabled = false;
 			}
 
 			// Loads the existing project Ids for the Project Id filter
@@ -82,10 +82,10 @@ namespace FeuilleDeTemps
 		/// <param name="e"></param>
 		private void SearchButton_Click(object sender, EventArgs e)
 		{
-			this.currentSearchProjId = ProjetIdCheckBox.Checked ? ProjetIdComboBox.Text : "%";
-			this.currentSearchEmpId = EmpIdCheckBox.Checked ? EmpIdComboBox.Text : "%";
-			this.currentSearchStartDate = StartDateCheckBox.Checked ? StartDatePicker.Text : "1999-01-01";
-			this.currentSearchEndDate = EndDateCheckBox.Checked ? EndDatePicker.Text : DateTime.Today.ToLongDateString();
+			this.currentSearchProjId = SearchProjetIdCheckBox.Checked ? SearchProjetIdComboBox.Text : "%";
+			this.currentSearchEmpId = SearchEmpIdCheckBox.Checked ? SearchEmpIdComboBox.Text : "%";
+			this.currentSearchStartDate = SearchStartDateCheckBox.Checked ? SearchStartDatePicker.Text : "1999-01-01";
+			this.currentSearchEndDate = SearchEndDateCheckBox.Checked ? SearchEndDatePicker.Text : DateTime.Today.ToLongDateString();
 
 			LaunchSearch(MainScreenTabControl.SelectedTab);
 		}
@@ -103,18 +103,28 @@ namespace FeuilleDeTemps
 
 		private void AddButton_Click(object sender, EventArgs e)
 		{
-			AddModifPopUp addPopUp = new AddModifPopUp();
-			// TODO: Pass the mainscreen to the popup to re-enable it (and the default values to use)
+			AddModifPopUp addPopUp = new AddModifPopUp(this);
 			addPopUp.Show();
 			this.Enabled = false;
 		}
 
 		private void ModifyButton_Click(object sender, EventArgs e)
 		{
-			// TODO: Create a pop-up form to allow user to create/modify an entry
-			// use cells 0, 1, 2 to construct a primary key and pass it to the new form
-			MessageBox.Show(AddModifDGV.SelectedRows[0].Cells[0].Value.ToString());
-			// TODO: handle case when only a cell is highlighted (get the row)
+			DataGridViewSelectedRowCollection selectedRows = AddModifDGV.SelectedRows;
+
+			// Reverse the counter since the first item in the selected collection is the last
+			// one selected by the user. In short, for the UX.
+			for (int i = selectedRows.Count - 1; i >= 0; i--)
+			{
+				DataGridViewCellCollection currentCells = selectedRows[i].Cells;
+				AddModifPopUp addPopUp = new AddModifPopUp(
+					this,
+					currentCells[0].Value.ToString(), 
+					Convert.ToDateTime(currentCells[2].Value)
+				);
+				addPopUp.Show();
+				this.Enabled = false;
+			}
 		}
 
 		private void DeleteButton_Click(object sender, EventArgs e)
@@ -137,8 +147,6 @@ namespace FeuilleDeTemps
 			CurrentUser.Logout();
 			this.loginForm.Show();
 		}
-
-
 		#endregion
 		#region Helper Methods
 		/// <summary>
@@ -153,16 +161,16 @@ namespace FeuilleDeTemps
 			this.currentSearchEndDate = DateTime.Today.ToLongDateString();			
 
 			// Reset the search controls values
-			ProjetIdComboBox.SelectedIndex = 0;
-			StartDatePicker.Value = DateTime.Today;
-			EndDatePicker.Value = DateTime.Today;
-			EmpIdComboBox.SelectedIndex = 0;
+			SearchProjetIdComboBox.SelectedIndex = 0;
+			SearchStartDatePicker.Value = DateTime.Today;
+			SearchEndDatePicker.Value = DateTime.Today;
+			SearchEmpIdComboBox.SelectedIndex = 0;
 
 			// Reset the checkbox states
-			ProjetIdCheckBox.Checked = false;
-			StartDateCheckBox.Checked = false;
-			EndDateCheckBox.Checked = false;
-			EmpIdCheckBox.Checked = !CurrentUser.IsAdmin();
+			SearchProjetIdCheckBox.Checked = false;
+			SearchStartDateCheckBox.Checked = false;
+			SearchEndDateCheckBox.Checked = false;
+			SearchEmpIdCheckBox.Checked = !CurrentUser.IsAdmin();
 		}
 
 		/// <summary>

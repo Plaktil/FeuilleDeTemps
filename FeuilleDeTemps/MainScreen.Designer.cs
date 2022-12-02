@@ -34,6 +34,7 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
 			this.MainScreenTabControl = new System.Windows.Forms.TabControl();
 			this.AddDeleteTabPage = new System.Windows.Forms.TabPage();
+			this.DeleteButton = new System.Windows.Forms.Button();
 			this.ModifyButton = new System.Windows.Forms.Button();
 			this.SubmitButton = new System.Windows.Forms.Button();
 			this.CreateButton = new System.Windows.Forms.Button();
@@ -62,21 +63,21 @@
 			this.modifParDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.entreesHeuresBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.rechercheGroupBox = new System.Windows.Forms.GroupBox();
-			this.EmpIdComboBox = new System.Windows.Forms.ComboBox();
+			this.SearchEmpIdComboBox = new System.Windows.Forms.ComboBox();
 			this.bindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-			this.EmpIdCheckBox = new System.Windows.Forms.CheckBox();
-			this.EmpIdLabel = new System.Windows.Forms.Label();
+			this.SearchEmpIdCheckBox = new System.Windows.Forms.CheckBox();
+			this.SearchEmpIdLabel = new System.Windows.Forms.Label();
 			this.ResetButton = new System.Windows.Forms.Button();
 			this.SearchButton = new System.Windows.Forms.Button();
-			this.EndDateCheckBox = new System.Windows.Forms.CheckBox();
-			this.StartDateCheckBox = new System.Windows.Forms.CheckBox();
-			this.ProjetIdCheckBox = new System.Windows.Forms.CheckBox();
-			this.EndDatePicker = new System.Windows.Forms.DateTimePicker();
-			this.EndDatePickerLabel = new System.Windows.Forms.Label();
-			this.StartDatePicker = new System.Windows.Forms.DateTimePicker();
-			this.StartDatePickerLabel = new System.Windows.Forms.Label();
-			this.ProjetIdLabel = new System.Windows.Forms.Label();
-			this.ProjetIdComboBox = new System.Windows.Forms.ComboBox();
+			this.SearchEndDateCheckBox = new System.Windows.Forms.CheckBox();
+			this.SearchStartDateCheckBox = new System.Windows.Forms.CheckBox();
+			this.SearchProjetIdCheckBox = new System.Windows.Forms.CheckBox();
+			this.SearchEndDatePicker = new System.Windows.Forms.DateTimePicker();
+			this.SearchEndDatePickerLabel = new System.Windows.Forms.Label();
+			this.SearchStartDatePicker = new System.Windows.Forms.DateTimePicker();
+			this.SearchStartDatePickerLabel = new System.Windows.Forms.Label();
+			this.SearchProjetIdLabel = new System.Windows.Forms.Label();
+			this.SearchProjetIdComboBox = new System.Windows.Forms.ComboBox();
 			this.projetsBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
 			this.fdtDataSet = new FeuilleDeTemps.fdtDataSet();
@@ -87,7 +88,6 @@
 			this.LogoutButton = new System.Windows.Forms.Button();
 			this.entreesHeuresBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
 			this.horodateurTableAdapter = new FeuilleDeTemps.fdtDataSetTableAdapters.HorodateurTableAdapter();
-			this.DeleteButton = new System.Windows.Forms.Button();
 			this.MainScreenTabControl.SuspendLayout();
 			this.AddDeleteTabPage.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.AddModifDGV)).BeginInit();
@@ -132,6 +132,17 @@
 			this.AddDeleteTabPage.TabIndex = 1;
 			this.AddDeleteTabPage.Text = "Modifier / Ajouter";
 			this.AddDeleteTabPage.UseVisualStyleBackColor = true;
+			// 
+			// DeleteButton
+			// 
+			this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.DeleteButton.Location = new System.Drawing.Point(188, 283);
+			this.DeleteButton.Name = "DeleteButton";
+			this.DeleteButton.Size = new System.Drawing.Size(84, 23);
+			this.DeleteButton.TabIndex = 6;
+			this.DeleteButton.Text = "Supprimer";
+			this.DeleteButton.UseVisualStyleBackColor = true;
+			this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
 			// 
 			// ModifyButton
 			// 
@@ -383,20 +394,20 @@
 			// 
 			// rechercheGroupBox
 			// 
-			this.rechercheGroupBox.Controls.Add(this.EmpIdComboBox);
-			this.rechercheGroupBox.Controls.Add(this.EmpIdCheckBox);
-			this.rechercheGroupBox.Controls.Add(this.EmpIdLabel);
+			this.rechercheGroupBox.Controls.Add(this.SearchEmpIdComboBox);
+			this.rechercheGroupBox.Controls.Add(this.SearchEmpIdCheckBox);
+			this.rechercheGroupBox.Controls.Add(this.SearchEmpIdLabel);
 			this.rechercheGroupBox.Controls.Add(this.ResetButton);
 			this.rechercheGroupBox.Controls.Add(this.SearchButton);
-			this.rechercheGroupBox.Controls.Add(this.EndDateCheckBox);
-			this.rechercheGroupBox.Controls.Add(this.StartDateCheckBox);
-			this.rechercheGroupBox.Controls.Add(this.ProjetIdCheckBox);
-			this.rechercheGroupBox.Controls.Add(this.EndDatePicker);
-			this.rechercheGroupBox.Controls.Add(this.EndDatePickerLabel);
-			this.rechercheGroupBox.Controls.Add(this.StartDatePicker);
-			this.rechercheGroupBox.Controls.Add(this.StartDatePickerLabel);
-			this.rechercheGroupBox.Controls.Add(this.ProjetIdLabel);
-			this.rechercheGroupBox.Controls.Add(this.ProjetIdComboBox);
+			this.rechercheGroupBox.Controls.Add(this.SearchEndDateCheckBox);
+			this.rechercheGroupBox.Controls.Add(this.SearchStartDateCheckBox);
+			this.rechercheGroupBox.Controls.Add(this.SearchProjetIdCheckBox);
+			this.rechercheGroupBox.Controls.Add(this.SearchEndDatePicker);
+			this.rechercheGroupBox.Controls.Add(this.SearchEndDatePickerLabel);
+			this.rechercheGroupBox.Controls.Add(this.SearchStartDatePicker);
+			this.rechercheGroupBox.Controls.Add(this.SearchStartDatePickerLabel);
+			this.rechercheGroupBox.Controls.Add(this.SearchProjetIdLabel);
+			this.rechercheGroupBox.Controls.Add(this.SearchProjetIdComboBox);
 			this.rechercheGroupBox.Location = new System.Drawing.Point(16, 48);
 			this.rechercheGroupBox.Name = "rechercheGroupBox";
 			this.rechercheGroupBox.Size = new System.Drawing.Size(823, 118);
@@ -404,38 +415,38 @@
 			this.rechercheGroupBox.TabStop = false;
 			this.rechercheGroupBox.Text = "Critères de recherche";
 			// 
-			// EmpIdComboBox
+			// SearchEmpIdComboBox
 			// 
-			this.EmpIdComboBox.DataSource = this.bindingSource3;
-			this.EmpIdComboBox.DisplayMember = "empId";
-			this.EmpIdComboBox.FormattingEnabled = true;
-			this.EmpIdComboBox.Location = new System.Drawing.Point(545, 52);
-			this.EmpIdComboBox.Name = "EmpIdComboBox";
-			this.EmpIdComboBox.Size = new System.Drawing.Size(121, 21);
-			this.EmpIdComboBox.TabIndex = 15;
+			this.SearchEmpIdComboBox.DataSource = this.bindingSource3;
+			this.SearchEmpIdComboBox.DisplayMember = "empId";
+			this.SearchEmpIdComboBox.FormattingEnabled = true;
+			this.SearchEmpIdComboBox.Location = new System.Drawing.Point(545, 52);
+			this.SearchEmpIdComboBox.Name = "SearchEmpIdComboBox";
+			this.SearchEmpIdComboBox.Size = new System.Drawing.Size(121, 21);
+			this.SearchEmpIdComboBox.TabIndex = 15;
 			// 
 			// bindingSource3
 			// 
 			this.bindingSource3.DataMember = "Employes";
 			this.bindingSource3.DataSource = this.fdtDataSet1;
 			// 
-			// EmpIdCheckBox
+			// SearchEmpIdCheckBox
 			// 
-			this.EmpIdCheckBox.AutoSize = true;
-			this.EmpIdCheckBox.Location = new System.Drawing.Point(524, 54);
-			this.EmpIdCheckBox.Name = "EmpIdCheckBox";
-			this.EmpIdCheckBox.Size = new System.Drawing.Size(15, 14);
-			this.EmpIdCheckBox.TabIndex = 14;
-			this.EmpIdCheckBox.UseVisualStyleBackColor = true;
+			this.SearchEmpIdCheckBox.AutoSize = true;
+			this.SearchEmpIdCheckBox.Location = new System.Drawing.Point(524, 54);
+			this.SearchEmpIdCheckBox.Name = "SearchEmpIdCheckBox";
+			this.SearchEmpIdCheckBox.Size = new System.Drawing.Size(15, 14);
+			this.SearchEmpIdCheckBox.TabIndex = 14;
+			this.SearchEmpIdCheckBox.UseVisualStyleBackColor = true;
 			// 
-			// EmpIdLabel
+			// SearchEmpIdLabel
 			// 
-			this.EmpIdLabel.AutoSize = true;
-			this.EmpIdLabel.Location = new System.Drawing.Point(542, 32);
-			this.EmpIdLabel.Name = "EmpIdLabel";
-			this.EmpIdLabel.Size = new System.Drawing.Size(103, 13);
-			this.EmpIdLabel.TabIndex = 12;
-			this.EmpIdLabel.Text = "Identifiant d\'employé";
+			this.SearchEmpIdLabel.AutoSize = true;
+			this.SearchEmpIdLabel.Location = new System.Drawing.Point(542, 32);
+			this.SearchEmpIdLabel.Name = "SearchEmpIdLabel";
+			this.SearchEmpIdLabel.Size = new System.Drawing.Size(103, 13);
+			this.SearchEmpIdLabel.TabIndex = 12;
+			this.SearchEmpIdLabel.Text = "Identifiant d\'employé";
 			// 
 			// ResetButton
 			// 
@@ -457,85 +468,85 @@
 			this.SearchButton.UseVisualStyleBackColor = true;
 			this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
 			// 
-			// EndDateCheckBox
+			// SearchEndDateCheckBox
 			// 
-			this.EndDateCheckBox.AutoSize = true;
-			this.EndDateCheckBox.Location = new System.Drawing.Point(347, 54);
-			this.EndDateCheckBox.Name = "EndDateCheckBox";
-			this.EndDateCheckBox.Size = new System.Drawing.Size(15, 14);
-			this.EndDateCheckBox.TabIndex = 9;
-			this.EndDateCheckBox.UseVisualStyleBackColor = true;
+			this.SearchEndDateCheckBox.AutoSize = true;
+			this.SearchEndDateCheckBox.Location = new System.Drawing.Point(347, 54);
+			this.SearchEndDateCheckBox.Name = "SearchEndDateCheckBox";
+			this.SearchEndDateCheckBox.Size = new System.Drawing.Size(15, 14);
+			this.SearchEndDateCheckBox.TabIndex = 9;
+			this.SearchEndDateCheckBox.UseVisualStyleBackColor = true;
 			// 
-			// StartDateCheckBox
+			// SearchStartDateCheckBox
 			// 
-			this.StartDateCheckBox.AutoSize = true;
-			this.StartDateCheckBox.Location = new System.Drawing.Point(170, 53);
-			this.StartDateCheckBox.Name = "StartDateCheckBox";
-			this.StartDateCheckBox.Size = new System.Drawing.Size(15, 14);
-			this.StartDateCheckBox.TabIndex = 8;
-			this.StartDateCheckBox.UseVisualStyleBackColor = true;
+			this.SearchStartDateCheckBox.AutoSize = true;
+			this.SearchStartDateCheckBox.Location = new System.Drawing.Point(170, 53);
+			this.SearchStartDateCheckBox.Name = "SearchStartDateCheckBox";
+			this.SearchStartDateCheckBox.Size = new System.Drawing.Size(15, 14);
+			this.SearchStartDateCheckBox.TabIndex = 8;
+			this.SearchStartDateCheckBox.UseVisualStyleBackColor = true;
 			// 
-			// ProjetIdCheckBox
+			// SearchProjetIdCheckBox
 			// 
-			this.ProjetIdCheckBox.AutoSize = true;
-			this.ProjetIdCheckBox.Location = new System.Drawing.Point(9, 53);
-			this.ProjetIdCheckBox.Name = "ProjetIdCheckBox";
-			this.ProjetIdCheckBox.Size = new System.Drawing.Size(15, 14);
-			this.ProjetIdCheckBox.TabIndex = 7;
-			this.ProjetIdCheckBox.UseVisualStyleBackColor = true;
+			this.SearchProjetIdCheckBox.AutoSize = true;
+			this.SearchProjetIdCheckBox.Location = new System.Drawing.Point(9, 53);
+			this.SearchProjetIdCheckBox.Name = "SearchProjetIdCheckBox";
+			this.SearchProjetIdCheckBox.Size = new System.Drawing.Size(15, 14);
+			this.SearchProjetIdCheckBox.TabIndex = 7;
+			this.SearchProjetIdCheckBox.UseVisualStyleBackColor = true;
 			// 
-			// EndDatePicker
+			// SearchEndDatePicker
 			// 
-			this.EndDatePicker.Location = new System.Drawing.Point(368, 52);
-			this.EndDatePicker.Name = "EndDatePicker";
-			this.EndDatePicker.Size = new System.Drawing.Size(134, 20);
-			this.EndDatePicker.TabIndex = 6;
-			this.EndDatePicker.Value = new System.DateTime(2022, 11, 29, 10, 59, 46, 0);
+			this.SearchEndDatePicker.Location = new System.Drawing.Point(368, 52);
+			this.SearchEndDatePicker.Name = "SearchEndDatePicker";
+			this.SearchEndDatePicker.Size = new System.Drawing.Size(134, 20);
+			this.SearchEndDatePicker.TabIndex = 6;
+			this.SearchEndDatePicker.Value = new System.DateTime(2022, 11, 29, 10, 59, 46, 0);
 			// 
-			// EndDatePickerLabel
+			// SearchEndDatePickerLabel
 			// 
-			this.EndDatePickerLabel.AutoSize = true;
-			this.EndDatePickerLabel.Location = new System.Drawing.Point(365, 32);
-			this.EndDatePickerLabel.Name = "EndDatePickerLabel";
-			this.EndDatePickerLabel.Size = new System.Drawing.Size(59, 13);
-			this.EndDatePickerLabel.TabIndex = 5;
-			this.EndDatePickerLabel.Text = "Date de fin";
+			this.SearchEndDatePickerLabel.AutoSize = true;
+			this.SearchEndDatePickerLabel.Location = new System.Drawing.Point(365, 32);
+			this.SearchEndDatePickerLabel.Name = "SearchEndDatePickerLabel";
+			this.SearchEndDatePickerLabel.Size = new System.Drawing.Size(59, 13);
+			this.SearchEndDatePickerLabel.TabIndex = 5;
+			this.SearchEndDatePickerLabel.Text = "Date de fin";
 			// 
-			// StartDatePicker
+			// SearchStartDatePicker
 			// 
-			this.StartDatePicker.Location = new System.Drawing.Point(191, 51);
-			this.StartDatePicker.Name = "StartDatePicker";
-			this.StartDatePicker.Size = new System.Drawing.Size(134, 20);
-			this.StartDatePicker.TabIndex = 4;
-			this.StartDatePicker.Value = new System.DateTime(2022, 11, 29, 10, 59, 40, 0);
+			this.SearchStartDatePicker.Location = new System.Drawing.Point(191, 51);
+			this.SearchStartDatePicker.Name = "SearchStartDatePicker";
+			this.SearchStartDatePicker.Size = new System.Drawing.Size(134, 20);
+			this.SearchStartDatePicker.TabIndex = 4;
+			this.SearchStartDatePicker.Value = new System.DateTime(2022, 11, 29, 10, 59, 40, 0);
 			// 
-			// StartDatePickerLabel
+			// SearchStartDatePickerLabel
 			// 
-			this.StartDatePickerLabel.AutoSize = true;
-			this.StartDatePickerLabel.Location = new System.Drawing.Point(188, 31);
-			this.StartDatePickerLabel.Name = "StartDatePickerLabel";
-			this.StartDatePickerLabel.Size = new System.Drawing.Size(75, 13);
-			this.StartDatePickerLabel.TabIndex = 3;
-			this.StartDatePickerLabel.Text = "Date de début";
+			this.SearchStartDatePickerLabel.AutoSize = true;
+			this.SearchStartDatePickerLabel.Location = new System.Drawing.Point(188, 31);
+			this.SearchStartDatePickerLabel.Name = "SearchStartDatePickerLabel";
+			this.SearchStartDatePickerLabel.Size = new System.Drawing.Size(75, 13);
+			this.SearchStartDatePickerLabel.TabIndex = 3;
+			this.SearchStartDatePickerLabel.Text = "Date de début";
 			// 
-			// ProjetIdLabel
+			// SearchProjetIdLabel
 			// 
-			this.ProjetIdLabel.AutoSize = true;
-			this.ProjetIdLabel.Location = new System.Drawing.Point(29, 32);
-			this.ProjetIdLabel.Name = "ProjetIdLabel";
-			this.ProjetIdLabel.Size = new System.Drawing.Size(97, 13);
-			this.ProjetIdLabel.TabIndex = 1;
-			this.ProjetIdLabel.Text = "Identifiant de projet";
+			this.SearchProjetIdLabel.AutoSize = true;
+			this.SearchProjetIdLabel.Location = new System.Drawing.Point(29, 32);
+			this.SearchProjetIdLabel.Name = "SearchProjetIdLabel";
+			this.SearchProjetIdLabel.Size = new System.Drawing.Size(97, 13);
+			this.SearchProjetIdLabel.TabIndex = 1;
+			this.SearchProjetIdLabel.Text = "Identifiant de projet";
 			// 
-			// ProjetIdComboBox
+			// SearchProjetIdComboBox
 			// 
-			this.ProjetIdComboBox.DataSource = this.projetsBindingSource;
-			this.ProjetIdComboBox.DisplayMember = "projetId";
-			this.ProjetIdComboBox.FormattingEnabled = true;
-			this.ProjetIdComboBox.Location = new System.Drawing.Point(28, 51);
-			this.ProjetIdComboBox.Name = "ProjetIdComboBox";
-			this.ProjetIdComboBox.Size = new System.Drawing.Size(121, 21);
-			this.ProjetIdComboBox.TabIndex = 0;
+			this.SearchProjetIdComboBox.DataSource = this.projetsBindingSource;
+			this.SearchProjetIdComboBox.DisplayMember = "projetId";
+			this.SearchProjetIdComboBox.FormattingEnabled = true;
+			this.SearchProjetIdComboBox.Location = new System.Drawing.Point(28, 51);
+			this.SearchProjetIdComboBox.Name = "SearchProjetIdComboBox";
+			this.SearchProjetIdComboBox.Size = new System.Drawing.Size(121, 21);
+			this.SearchProjetIdComboBox.TabIndex = 0;
 			// 
 			// projetsBindingSource
 			// 
@@ -589,17 +600,6 @@
 			// 
 			this.horodateurTableAdapter.ClearBeforeFill = true;
 			// 
-			// DeleteButton
-			// 
-			this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.DeleteButton.Location = new System.Drawing.Point(188, 283);
-			this.DeleteButton.Name = "DeleteButton";
-			this.DeleteButton.Size = new System.Drawing.Size(84, 23);
-			this.DeleteButton.TabIndex = 6;
-			this.DeleteButton.Text = "Supprimer";
-			this.DeleteButton.UseVisualStyleBackColor = true;
-			this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
-			// 
 			// MainScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -646,23 +646,23 @@
 		private System.Windows.Forms.BindingSource bindingSource1;
 		private fdtDataSetTableAdapters.EmployesTableAdapter employesTableAdapter;
 		private System.Windows.Forms.GroupBox rechercheGroupBox;
-		private System.Windows.Forms.ComboBox ProjetIdComboBox;
+		private System.Windows.Forms.ComboBox SearchProjetIdComboBox;
 		private System.Windows.Forms.BindingSource projetsBindingSource;
 		private fdtDataSetTableAdapters.ProjetsTableAdapter projetsTableAdapter;
-		private System.Windows.Forms.Label StartDatePickerLabel;
-		private System.Windows.Forms.Label ProjetIdLabel;
-		private System.Windows.Forms.DateTimePicker StartDatePicker;
-		private System.Windows.Forms.DateTimePicker EndDatePicker;
-		private System.Windows.Forms.Label EndDatePickerLabel;
+		private System.Windows.Forms.Label SearchStartDatePickerLabel;
+		private System.Windows.Forms.Label SearchProjetIdLabel;
+		private System.Windows.Forms.DateTimePicker SearchStartDatePicker;
+		private System.Windows.Forms.DateTimePicker SearchEndDatePicker;
+		private System.Windows.Forms.Label SearchEndDatePickerLabel;
 		private System.Windows.Forms.Button LogoutButton;
-		private System.Windows.Forms.CheckBox ProjetIdCheckBox;
-		private System.Windows.Forms.CheckBox EndDateCheckBox;
-		private System.Windows.Forms.CheckBox StartDateCheckBox;
+		private System.Windows.Forms.CheckBox SearchProjetIdCheckBox;
+		private System.Windows.Forms.CheckBox SearchEndDateCheckBox;
+		private System.Windows.Forms.CheckBox SearchStartDateCheckBox;
 		private System.Windows.Forms.Button SearchButton;
 		private System.Windows.Forms.Button ResetButton;
-		private System.Windows.Forms.CheckBox EmpIdCheckBox;
-		private System.Windows.Forms.Label EmpIdLabel;
-		private System.Windows.Forms.ComboBox EmpIdComboBox;
+		private System.Windows.Forms.CheckBox SearchEmpIdCheckBox;
+		private System.Windows.Forms.Label SearchEmpIdLabel;
+		private System.Windows.Forms.ComboBox SearchEmpIdComboBox;
 		private System.Windows.Forms.BindingSource bindingSource2;
 		private System.Windows.Forms.BindingSource bindingSource3;
 		private System.Windows.Forms.DataGridViewTextBoxColumn projetIdDataGridViewTextBoxColumn;

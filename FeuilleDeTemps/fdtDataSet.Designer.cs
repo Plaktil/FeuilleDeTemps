@@ -2764,16 +2764,16 @@ SELECT empId, fname, lname, job, tel, passwd FROM Employes WHERE (empId = @empId
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT *\r\nFROM Employes\r\nWHERE (empId = @currentUserId)";
+            this._commandCollection[1].CommandText = "SELECT *\r\nFROM Employes\r\nWHERE (empId = @loginId AND passwd = @loginPasswd COLLAT" +
+                "E Latin1_General_CS_AS)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@currentUserId", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "empId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loginId", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "empId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loginPasswd", global::System.Data.SqlDbType.VarChar, 24, global::System.Data.ParameterDirection.Input, 0, 0, "passwd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT *\r\nFROM Employes\r\nWHERE (empId = @loginId AND passwd = @loginPasswd COLLAT" +
-                "E Latin1_General_CS_AS)";
+            this._commandCollection[2].CommandText = "SELECT *\r\nFROM Employes\r\nWHERE (empId LIKE @userId)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loginId", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "empId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@loginPasswd", global::System.Data.SqlDbType.VarChar, 24, global::System.Data.ParameterDirection.Input, 0, 0, "passwd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userId", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "empId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2804,44 +2804,8 @@ SELECT empId, fname, lname, job, tel, passwd FROM Employes WHERE (empId = @empId
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByCurrentUser(fdtDataSet.EmployesDataTable dataTable, string currentUserId) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((currentUserId == null)) {
-                throw new global::System.ArgumentNullException("currentUserId");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(currentUserId));
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual fdtDataSet.EmployesDataTable GetDataByCurrentUser(string currentUserId) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((currentUserId == null)) {
-                throw new global::System.ArgumentNullException("currentUserId");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(currentUserId));
-            }
-            fdtDataSet.EmployesDataTable dataTable = new fdtDataSet.EmployesDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByLogin(fdtDataSet.EmployesDataTable dataTable, string loginId, string loginPasswd) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((loginId == null)) {
                 throw new global::System.ArgumentNullException("loginId");
             }
@@ -2866,7 +2830,7 @@ SELECT empId, fname, lname, job, tel, passwd FROM Employes WHERE (empId = @empId
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual fdtDataSet.EmployesDataTable GetDataByLogin(string loginId, string loginPasswd) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((loginId == null)) {
                 throw new global::System.ArgumentNullException("loginId");
             }
@@ -2878,6 +2842,42 @@ SELECT empId, fname, lname, job, tel, passwd FROM Employes WHERE (empId = @empId
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(loginPasswd));
+            }
+            fdtDataSet.EmployesDataTable dataTable = new fdtDataSet.EmployesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByUser(fdtDataSet.EmployesDataTable dataTable, string userId) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((userId == null)) {
+                throw new global::System.ArgumentNullException("userId");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(userId));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual fdtDataSet.EmployesDataTable GetDataByUser(string userId) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((userId == null)) {
+                throw new global::System.ArgumentNullException("userId");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(userId));
             }
             fdtDataSet.EmployesDataTable dataTable = new fdtDataSet.EmployesDataTable();
             this.Adapter.Fill(dataTable);
@@ -3578,11 +3578,21 @@ SELECT projetId, projInfo, clientId, debut, fin FROM Projets WHERE (projetId = @
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT * from Projets";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT * \r\nFROM Projets\r\nWHERE (projetId = @selectedProjetId)\r\n";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@selectedProjetId", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "projetId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT * from Projets\r\nWHERE (projetId LIKE @currentProjetId)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@currentProjetId", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "projetId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3604,6 +3614,78 @@ SELECT projetId, projInfo, clientId, debut, fin FROM Projets WHERE (projetId = @
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual fdtDataSet.ProjetsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            fdtDataSet.ProjetsDataTable dataTable = new fdtDataSet.ProjetsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByProjet(fdtDataSet.ProjetsDataTable dataTable, string selectedProjetId) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((selectedProjetId == null)) {
+                throw new global::System.ArgumentNullException("selectedProjetId");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(selectedProjetId));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual fdtDataSet.ProjetsDataTable GetDataByProjet(string selectedProjetId) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((selectedProjetId == null)) {
+                throw new global::System.ArgumentNullException("selectedProjetId");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(selectedProjetId));
+            }
+            fdtDataSet.ProjetsDataTable dataTable = new fdtDataSet.ProjetsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByProjetId(fdtDataSet.ProjetsDataTable dataTable, string currentProjetId) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((currentProjetId == null)) {
+                throw new global::System.ArgumentNullException("currentProjetId");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(currentProjetId));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual fdtDataSet.ProjetsDataTable GetDataByProjetId(string currentProjetId) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((currentProjetId == null)) {
+                throw new global::System.ArgumentNullException("currentProjetId");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(currentProjetId));
+            }
             fdtDataSet.ProjetsDataTable dataTable = new fdtDataSet.ProjetsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
