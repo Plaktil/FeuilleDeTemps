@@ -121,7 +121,7 @@ namespace FeuilleDeTemps
 			// Create a list of popups for the selected rows
 			this.pendingPopUps = new AddModifPopUp[selectedRows.Count];
 
-			for (int i = selectedRows.Count - 1; i >= 0; i--)
+			for (int i = 0; i < selectedRows.Count; i++)
 			{
 				DataGridViewCellCollection currentCells = selectedRows[i].Cells;
 				AddModifPopUp addModifPopUp = new AddModifPopUp(
@@ -258,11 +258,12 @@ namespace FeuilleDeTemps
 			if (pendingPopUps.Length > 0)
 			{
 				// Show the next window
-				this.pendingPopUps[0].Show();
+				// Last in the array since the last selected item is first in the array
+				this.pendingPopUps[this.pendingPopUps.Length - 1].Show();
 
 				// Remove the shown window from the pending array
 				AddModifPopUp[] tmpArray = new AddModifPopUp[this.pendingPopUps.Length - 1];
-				Array.Copy(this.pendingPopUps, 1, tmpArray, 0, tmpArray.Length);
+				Array.Copy(this.pendingPopUps, 0, tmpArray, 0, tmpArray.Length);
 				this.pendingPopUps = tmpArray;
 
 			}

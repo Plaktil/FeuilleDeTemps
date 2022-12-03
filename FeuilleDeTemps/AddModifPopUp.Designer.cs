@@ -265,7 +265,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MinimizeBox = false;
 			this.Name = "AddModifPopUp";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Feuille De Temps";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddModifPopUp_FormClosed);
 			this.Load += new System.EventHandler(this.AddModifPopUp_Load);
