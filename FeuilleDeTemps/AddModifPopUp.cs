@@ -25,11 +25,13 @@ namespace FeuilleDeTemps
 		private DateTime modifDate;
 		private String modifBy;
 		private String mode;
-
-		MainScreen mainScreen;
+		private MainScreen mainScreen;
 		#endregion
 		#region Constructors
-
+		/// <summary>
+		/// Constructor for the "add" action with a reference to the calling form
+		/// </summary>
+		/// <param name="mainScreen">The calling form</param>
 		public AddModifPopUp(MainScreen mainScreen)
 		{
 			InitializeComponent();
@@ -48,6 +50,13 @@ namespace FeuilleDeTemps
 			this.mode = "ADD";
 		}
 
+		/// <summary>
+		/// Constructor for the "modify" action with a reference to the calling form
+		/// </summary>
+		/// <param name="mainScreen">The calling form</param>
+		/// <param name="projetId">The selected row's projetId</param>
+		/// <param name="empId">The selected row's empId</param>
+		/// <param name="workDate">The selected row's date</param>
 		public AddModifPopUp(MainScreen mainScreen, String projetId, String empId, DateTime workDate)
 		{
 			InitializeComponent();
@@ -58,16 +67,15 @@ namespace FeuilleDeTemps
 			this.currentUserId = empId;
 			this.originalEmpId = empId;
 
-
-			// Lock the controls that should not be modified
+			// Lock the controls that should not be modified (only the hours, minute should be modified)
 			AddModifProjetIdComboBox.Enabled = false;
 			AddModifEmpIdComboBox.Enabled = false;
 			AddModifDatePicker.Enabled = false;
 
-			// Set the work date currently in the selected row
+			// Set the date picker to the selected row's value
 			AddModifDatePicker.Value = this.workDate;
 
-			// Set the last modification date and modified by fields to their new values
+			// Set the last modification date and modified by query parameters to their new values
 			this.modifDate = DateTime.Today;
 			this.modifBy = CurrentUser.id;
 
@@ -77,6 +85,12 @@ namespace FeuilleDeTemps
 		}
 		#endregion
 		#region On Load
+		/// <summary>
+		/// Set the interface according to the context and the privilege 
+		/// level of the current user
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void AddModifPopUp_Load(object sender, EventArgs e)
 		{
 			if (CurrentUser.IsAdmin())
@@ -99,16 +113,23 @@ namespace FeuilleDeTemps
 			{
 				this.employesTableAdapter.FillByUser(this.fdtDataSet.Employes, this.originalEmpId);
 			}
-			// Load the available project selection for the combo box
+
+			// Set hours and minutes to default values (otherwise "", causes error
+			// when unchanged by the user)
+			AddModifHoursComboBox.SelectedIndex= 0;
+			AddModifMinutesComboBox.SelectedIndex= 0;
+
+			// Load the existing projects selection for the combo box
 			this.projetsTableAdapter.FillByProjetId(this.fdtDataSet.Projets, this.projetId);
 
-			// Trigger the selected index changed
+			// Trigger the selected index changed to set the min / max dates
 			AddModifProjetIdComboBox_SelectedIndexChanged(sender, e);
 		}
 		#endregion
 		#region Controls Behaviours
 		/// <summary>
-		/// Sets the min and max dates of the date picker according to the project selected
+		/// Sets the min and max dates of the date picker according to the selected project's
+		/// begin and end dates.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -127,19 +148,20 @@ namespace FeuilleDeTemps
 				AddModifDatePicker.MinDate = DateTimePicker.MinimumDateTime;
 				AddModifDatePicker.MaxDate = DateTimePicker.MaximumDateTime;
 
-				// This function throws an exception when the form closes since the index changes
-				// but the control is already cleaned up before it sends it's updated index.
+				// This function throws an exception when the form closes because the text value in
+				// the combo box is now null, therefore the fetch returns null.
 				if (projInfos != null)
 				{
 					// Set the new value / min / max
 					AddModifDatePicker.Value = Convert.ToDateTime(projInfos["debut"]);
 					AddModifDatePicker.MinDate = Convert.ToDateTime(projInfos["debut"]);
+
 					// The database contains the value NULL when the project is not yet closed
-					try
+					if (projInfos["fin"].ToString() != String.Empty)
 					{
 						AddModifDatePicker.MaxDate = Convert.ToDateTime(projInfos["fin"]);
 					}
-					catch (System.InvalidCastException)
+					else
 					{
 						AddModifDatePicker.MaxDate = DateTime.Today;
 					}
@@ -148,16 +170,20 @@ namespace FeuilleDeTemps
 		}
 
 		/// <summary>
-		/// Additionnal behaviour when the form closes
+		/// Calls the main screen's popup handler
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void AddModifPopUp_FormClosed(object sender, FormClosedEventArgs e)
 		{
-			// Call the function that shows the next popup or re-enables the mainscreen
 			mainScreen.popUpHandler();
 		}
 
+		/// <summary>
+		/// Save the current entry
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void SaveButton_Click(object sender, EventArgs e)
 		{
 			// Set query params to current user input
@@ -169,6 +195,11 @@ namespace FeuilleDeTemps
 			this.Close();
 		}
 
+		/// <summary>
+		/// Save and submit the current entry
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void SaveAndSubmitButton_Click(object sender, EventArgs e)
 		{
 			// Set query params to current user input
@@ -180,12 +211,20 @@ namespace FeuilleDeTemps
 			this.Close();
 		}
 
+		/// <summary>
+		/// Simply close the form without saving any modifications
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void AddModifCancelButton_Click(object sender, EventArgs e)
 		{
 			this.Close();
 		}
 		#endregion
 		#region Helper Methods
+		/// <summary>
+		/// Sets the query parameters to the values in the input fields
+		/// </summary>
 		private void GetUserInputParameters()
 		{
 			this.projetId = AddModifProjetIdComboBox.Text;
@@ -195,11 +234,16 @@ namespace FeuilleDeTemps
 			this.minutes = Convert.ToInt32(AddModifMinutesComboBox.Text);
 		}
 
+		/// <summary>
+		/// Does an insert or an update, dependin on the context,
+		/// with the current query parameters
+		/// </summary>
 		private void InsertOrUpdate()
 		{
-			try
+			
+			if (this.mode == "ADD")
 			{
-				if (this.mode == "ADD")
+				try
 				{
 					mainScreen.horodateurTableAdapter.Insert(
 						this.projetId,
@@ -212,27 +256,29 @@ namespace FeuilleDeTemps
 						this.modifBy
 						);
 				}
-				else if (this.mode == "MODIFY")
+				// The db will throw an error if there is already an entry for the
+				// PK (projetId, empId, journee)
+				catch (System.Data.SqlClient.SqlException)
 				{
-					mainScreen.horodateurTableAdapter.UpdateByPK(
-						this.hours,
-						this.minutes,
-						this.submitted,
-						this.modifDate.ToLongDateString(),
-						this.modifBy,
-						this.projetId,
-						this.originalEmpId,
-						this.workDate.ToLongDateString()
-					);
+					MessageBox.Show($"Erreur: L'horodateur contient déjà une entrée avec les informations suivantes: Projet: {this.projetId} Employé: {this.originalEmpId} Date: {this.workDate.ToLongDateString()}", "System.Horodateur");
 				}
 			}
-			catch (System.Data.SqlClient.SqlException)
+			else if (this.mode == "MODIFY")
 			{
-				MessageBox.Show($"Erreur: L'horodateur contient déjà une entrée avec les informations suivantes: Projet: {this.projetId} Employé: {this.originalEmpId} Date: {this.workDate.ToLongDateString()}", "System.Horodateur");
-			}
+				mainScreen.horodateurTableAdapter.UpdateByPK(
+					this.hours,
+					this.minutes,
+					this.submitted,
+					this.modifDate.ToLongDateString(),
+					this.modifBy,
+					this.projetId,
+					this.originalEmpId,
+					this.workDate.ToLongDateString()
+				);
+			}			
 		}
 		/// <summary>
-		/// Blocks the user from typing a date in the date picker
+		/// Stops the user from typing a date in the date picker
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>

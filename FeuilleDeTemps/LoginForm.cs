@@ -12,41 +12,48 @@ namespace FeuilleDeTemps
 {
 	public partial class LoginForm : Form
 	{
+		#region Constructors
 		public LoginForm()
 		{
 			InitializeComponent();
 		}
-
+		#endregion
+		#region Controls Behaviours
 		/// <summary>
-		/// Fonction qui valide les informations entrees avec celles contenues dans la base de donnees apres
-		/// avoir appuye sur le bouton connection
+		/// Basic login function comparing the entered credentials with the database entries of known users
 		/// </summary>
 		/// <param name="sender">L'element qui appelle la fonction</param>
 		/// <param name="e">L'evenement qui declenche la fonction</param>
 		private void loginButton_Click(object sender, EventArgs e)
 		{
+			// Try to fetch a match in the DB
 			var currentUser = new fdtDataSetTableAdapters.EmployesTableAdapter().GetDataByLogin(idTextBox.Text, pwdTextBox.Text).FirstOrDefault();
 
 			if (currentUser != null )
 			{
+				// Set th ecurrent user profile
 				CurrentUser.fullName = currentUser.fname + " " + currentUser.lname;
 				CurrentUser.id = currentUser.empId.ToString();
 				CurrentUser.role = currentUser.job;
 
+				// Clear the form
 				idTextBox.Text = String.Empty;
 				pwdTextBox.Text = String.Empty;
 				idTextBox.Focus();
 
+				// Launch the main form
 				MainScreen mainScreen = new MainScreen(this);
 				mainScreen.Show();
 
-				this.Hide(); // Ne pas oublier de fermer cette fenetre quand on quitte l'application par le MainScreen
+				this.Hide();
 			}
 			else
 			{
+				// The login failed, try again
 				MessageBox.Show("Identifiant / Mot de passe invalide", "System.Login");
 				pwdTextBox.Text = String.Empty;
 			}
 		}
+		#endregion
 	}
 }

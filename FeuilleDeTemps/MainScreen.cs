@@ -10,12 +10,9 @@ namespace FeuilleDeTemps
 	public partial class MainScreen : Form
 	{
 		#region Private Members
-		/// <summary>
-		/// Refference to the caller form in order to return to it after logout
-		/// </summary>
+		// Refference to the caller form in order to return to it after logout
 		private LoginForm loginForm;
 
-		// Private 
 		private String currentSearchProjId;
 		private String currentSearchEmpId;
 		private String currentSearchStartDate;
@@ -37,8 +34,15 @@ namespace FeuilleDeTemps
 		}
 		#endregion
 		#region On Load
+		/// <summary>
+		/// Loads DGVs and other controls dependent on the user privileges and IDs
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void MainScreen_Load(object sender, EventArgs e)
 		{
+			//Greets the user
+			WelcomeLabel.Text = $"Bonjour {CurrentUser.fullName}";
 			// Loads the employes ids for the empId filter and sets checkboxes to their default state
 			if (CurrentUser.IsAdmin())
 			{
@@ -76,7 +80,6 @@ namespace FeuilleDeTemps
 		/// <param name="e"></param>
 		private void LogoutButton_Click(object sender, EventArgs e)
 		{
-			// TODO: Prompt to save or submit unsaved entries
 			this.Close();
 		}
 
@@ -106,6 +109,11 @@ namespace FeuilleDeTemps
 			LaunchSearch(MainScreenTabControl.SelectedTab);
 		}
 
+		/// <summary>
+		/// Opens a form to create a new work entry
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void AddButton_Click(object sender, EventArgs e)
 		{
 			AddModifPopUp addPopUp = new AddModifPopUp(this);
@@ -114,6 +122,11 @@ namespace FeuilleDeTemps
 			popUpHandler();
 		}
 
+		/// <summary>
+		/// Opens a form(s) to modify the time values entered in the selected row(s)
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void ModifyButton_Click(object sender, EventArgs e)
 		{
 			DataGridViewSelectedRowCollection selectedRows = AddModifDGV.SelectedRows;
@@ -123,11 +136,16 @@ namespace FeuilleDeTemps
 
 			for (int i = 0; i < selectedRows.Count; i++)
 			{
+				// TODO: Find out how to get the cells by column name to de-obfuscate code
+				// Instantiate the popups and store them in the array
 				DataGridViewCellCollection currentCells = selectedRows[i].Cells;
 				AddModifPopUp addModifPopUp = new AddModifPopUp(
 					this,
+					// projetId
 					currentCells[0].Value.ToString(), 
+					// empId
 					currentCells[1].Value.ToString(),
+					// journee
 					Convert.ToDateTime(currentCells[2].Value)
 				);
 				this.pendingPopUps[i] = addModifPopUp;
@@ -140,6 +158,12 @@ namespace FeuilleDeTemps
 			popUpHandler();
 		}
 
+		/// <summary>
+		/// Opens a dialog box asking the user to confirm deletion of the selected rows, 
+		/// then deletes them from the DB
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void DeleteButton_Click(object sender, EventArgs e)
 		{
 			DataGridViewSelectedRowCollection selectedRows = AddModifDGV.SelectedRows;
@@ -149,7 +173,8 @@ namespace FeuilleDeTemps
 
 				if (dialogResult.ToString() == "OK")
 				{
-
+					// TODO: Find out how to get the cells by column name to de-obfuscate code
+					// Deletion all the selected rows
 					for (int i = selectedRows.Count - 1; i >= 0; i--)
 					{
 						DataGridViewCellCollection currentCells = selectedRows[i].Cells;
@@ -161,9 +186,16 @@ namespace FeuilleDeTemps
 					}
 				}
 			}
+			// Since the popup array is empty, will refresh the DGV
 			popUpHandler();
 		}
 
+		/// <summary>
+		/// Opens a dialog box asking the user to confirm submission of the selected rows, 
+		/// then submits all selected opened punch clock entries
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void SubmitButton_Click(object sender, EventArgs e)
 		{
 			DataGridViewSelectedRowCollection selectedRows = AddModifDGV.SelectedRows;
@@ -173,7 +205,9 @@ namespace FeuilleDeTemps
 
 				if (dialogResult.ToString() == "OK")
 				{
-					for (int i = selectedRows.Count - 1; i >= 0; i--)
+					// TODO: Find out how to get the cells by column name to de-obfuscate code
+					// Updates the "soumis" field of every selected entry
+					for (int i = 0; i < selectedRows.Count; i++)
 					{
 						DataGridViewCellCollection currentCells = selectedRows[i].Cells;
 						horodateurTableAdapter.UpdateSoumisByPK(
@@ -185,6 +219,7 @@ namespace FeuilleDeTemps
 					}
 				}
 			}
+			// Since the popup array is empty, will refresh the DGV
 			popUpHandler();
 		}
 
@@ -201,7 +236,8 @@ namespace FeuilleDeTemps
 		#endregion
 		#region Helper Methods
 		/// <summary>
-		/// Reset the default values (different for admin) in the search fields, launches the search with the default values.
+		/// Reset the default values (different for admin) in the search fields,
+		/// launches the search with the default values.
 		/// </summary>
 		private void DefaultSearchParams()
 		{
@@ -253,6 +289,10 @@ namespace FeuilleDeTemps
 			}
 		}
 
+		/// <summary>
+		/// Allows the addModifPopUp to be shown one by one. In the end, refreshes the DGV
+		/// in both tabs and re-enables the main form.
+		/// </summary>
 		public void popUpHandler()
 		{
 			if (pendingPopUps.Length > 0)
