@@ -33,6 +33,7 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
 			this.MainScreenTabControl = new System.Windows.Forms.TabControl();
 			this.AddModifTabPage = new System.Windows.Forms.TabPage();
@@ -41,28 +42,10 @@
 			this.SubmitButton = new System.Windows.Forms.Button();
 			this.CreateButton = new System.Windows.Forms.Button();
 			this.AddModifDGV = new System.Windows.Forms.DataGridView();
-			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.horodateurBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.fdtDataSet1 = new FeuilleDeTemps.fdtDataSet();
 			this.HistTabPage = new System.Windows.Forms.TabPage();
 			this.HistDGV = new System.Windows.Forms.DataGridView();
-			this.projetIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.cliNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.journeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.heuresDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.minsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.soumis = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-			this.dateModifDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.modifParDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.entreesHeuresBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.rechercheGroupBox = new System.Windows.Forms.GroupBox();
 			this.SearchEmpIdComboBox = new System.Windows.Forms.ComboBox();
@@ -91,6 +74,24 @@
 			this.entreesHeuresBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
 			this.horodateurTableAdapter = new FeuilleDeTemps.fdtDataSetTableAdapters.HorodateurTableAdapter();
 			this.WelcomeLabel = new System.Windows.Forms.Label();
+			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.projetIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.cliNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.journeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.heuresDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.minsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.soumis = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this.dateModifDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.modifParDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.MainScreenTabControl.SuspendLayout();
 			this.AddModifTabPage.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.AddModifDGV)).BeginInit();
@@ -208,61 +209,6 @@
 			this.AddModifDGV.Size = new System.Drawing.Size(811, 271);
 			this.AddModifDGV.TabIndex = 2;
 			// 
-			// dataGridViewTextBoxColumn4
-			// 
-			this.dataGridViewTextBoxColumn4.DataPropertyName = "projetId";
-			this.dataGridViewTextBoxColumn4.HeaderText = "Identifiant de projet";
-			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-			this.dataGridViewTextBoxColumn4.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn6
-			// 
-			this.dataGridViewTextBoxColumn6.DataPropertyName = "empId";
-			this.dataGridViewTextBoxColumn6.HeaderText = "Identifiant d\'employé";
-			this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-			this.dataGridViewTextBoxColumn6.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn9
-			// 
-			this.dataGridViewTextBoxColumn9.DataPropertyName = "journee";
-			dataGridViewCellStyle1.Format = "D";
-			dataGridViewCellStyle1.NullValue = null;
-			this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle1;
-			this.dataGridViewTextBoxColumn9.HeaderText = "Journée de travail";
-			this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-			this.dataGridViewTextBoxColumn9.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn10
-			// 
-			this.dataGridViewTextBoxColumn10.DataPropertyName = "heures";
-			this.dataGridViewTextBoxColumn10.HeaderText = "Heures travaillées";
-			this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-			this.dataGridViewTextBoxColumn10.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn11
-			// 
-			this.dataGridViewTextBoxColumn11.DataPropertyName = "mins";
-			this.dataGridViewTextBoxColumn11.HeaderText = "Minutes";
-			this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-			this.dataGridViewTextBoxColumn11.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn12
-			// 
-			this.dataGridViewTextBoxColumn12.DataPropertyName = "dateModif";
-			dataGridViewCellStyle2.Format = "F";
-			dataGridViewCellStyle2.NullValue = null;
-			this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle2;
-			this.dataGridViewTextBoxColumn12.HeaderText = "Dernière modification";
-			this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-			this.dataGridViewTextBoxColumn12.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn13
-			// 
-			this.dataGridViewTextBoxColumn13.DataPropertyName = "modifPar";
-			this.dataGridViewTextBoxColumn13.HeaderText = "Modifié par";
-			this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-			this.dataGridViewTextBoxColumn13.ReadOnly = true;
-			// 
 			// horodateurBindingSource
 			// 
 			this.horodateurBindingSource.DataMember = "Horodateur";
@@ -315,89 +261,6 @@
 			this.HistDGV.ReadOnly = true;
 			this.HistDGV.Size = new System.Drawing.Size(811, 305);
 			this.HistDGV.TabIndex = 1;
-			// 
-			// projetIdDataGridViewTextBoxColumn
-			// 
-			this.projetIdDataGridViewTextBoxColumn.DataPropertyName = "projetId";
-			this.projetIdDataGridViewTextBoxColumn.HeaderText = "Identifiant de projet";
-			this.projetIdDataGridViewTextBoxColumn.Name = "projetIdDataGridViewTextBoxColumn";
-			this.projetIdDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// cliNameDataGridViewTextBoxColumn
-			// 
-			this.cliNameDataGridViewTextBoxColumn.DataPropertyName = "cliName";
-			this.cliNameDataGridViewTextBoxColumn.HeaderText = "Client";
-			this.cliNameDataGridViewTextBoxColumn.Name = "cliNameDataGridViewTextBoxColumn";
-			this.cliNameDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn1
-			// 
-			this.dataGridViewTextBoxColumn1.DataPropertyName = "empId";
-			this.dataGridViewTextBoxColumn1.HeaderText = "Identifiant d\'employé";
-			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-			this.dataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn2
-			// 
-			this.dataGridViewTextBoxColumn2.DataPropertyName = "fname";
-			this.dataGridViewTextBoxColumn2.HeaderText = "Prénom";
-			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-			this.dataGridViewTextBoxColumn2.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn3
-			// 
-			this.dataGridViewTextBoxColumn3.DataPropertyName = "lname";
-			this.dataGridViewTextBoxColumn3.HeaderText = "Nom de famille";
-			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-			this.dataGridViewTextBoxColumn3.ReadOnly = true;
-			// 
-			// journeeDataGridViewTextBoxColumn
-			// 
-			this.journeeDataGridViewTextBoxColumn.DataPropertyName = "journee";
-			dataGridViewCellStyle3.Format = "D";
-			dataGridViewCellStyle3.NullValue = null;
-			this.journeeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-			this.journeeDataGridViewTextBoxColumn.HeaderText = "Journée de travail";
-			this.journeeDataGridViewTextBoxColumn.Name = "journeeDataGridViewTextBoxColumn";
-			this.journeeDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// heuresDataGridViewTextBoxColumn
-			// 
-			this.heuresDataGridViewTextBoxColumn.DataPropertyName = "heures";
-			this.heuresDataGridViewTextBoxColumn.HeaderText = "Heures travaillées";
-			this.heuresDataGridViewTextBoxColumn.Name = "heuresDataGridViewTextBoxColumn";
-			this.heuresDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// minsDataGridViewTextBoxColumn
-			// 
-			this.minsDataGridViewTextBoxColumn.DataPropertyName = "mins";
-			this.minsDataGridViewTextBoxColumn.HeaderText = "Minutes";
-			this.minsDataGridViewTextBoxColumn.Name = "minsDataGridViewTextBoxColumn";
-			this.minsDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// soumis
-			// 
-			this.soumis.DataPropertyName = "soumis";
-			this.soumis.HeaderText = "Soumis";
-			this.soumis.Name = "soumis";
-			this.soumis.ReadOnly = true;
-			// 
-			// dateModifDataGridViewTextBoxColumn
-			// 
-			this.dateModifDataGridViewTextBoxColumn.DataPropertyName = "dateModif";
-			this.dateModifDataGridViewTextBoxColumn.HeaderText = "Dernière modification";
-			this.dateModifDataGridViewTextBoxColumn.Name = "dateModifDataGridViewTextBoxColumn";
-			this.dateModifDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// modifParDataGridViewTextBoxColumn
-			// 
-			this.modifParDataGridViewTextBoxColumn.DataPropertyName = "modifPar";
-			dataGridViewCellStyle4.Format = "D";
-			dataGridViewCellStyle4.NullValue = null;
-			this.modifParDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-			this.modifParDataGridViewTextBoxColumn.HeaderText = "Modifié par";
-			this.modifParDataGridViewTextBoxColumn.Name = "modifParDataGridViewTextBoxColumn";
-			this.modifParDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// entreesHeuresBindingSource
 			// 
@@ -624,6 +487,147 @@
 			this.WelcomeLabel.TabIndex = 3;
 			this.WelcomeLabel.Text = "Bienvenue!";
 			// 
+			// dataGridViewTextBoxColumn4
+			// 
+			this.dataGridViewTextBoxColumn4.DataPropertyName = "projetId";
+			this.dataGridViewTextBoxColumn4.HeaderText = "Identifiant de projet";
+			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+			this.dataGridViewTextBoxColumn4.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn6
+			// 
+			this.dataGridViewTextBoxColumn6.DataPropertyName = "empId";
+			this.dataGridViewTextBoxColumn6.HeaderText = "Identifiant d\'employé";
+			this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+			this.dataGridViewTextBoxColumn6.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn9
+			// 
+			this.dataGridViewTextBoxColumn9.DataPropertyName = "journee";
+			dataGridViewCellStyle1.Format = "D";
+			dataGridViewCellStyle1.NullValue = null;
+			this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle1;
+			this.dataGridViewTextBoxColumn9.HeaderText = "Journée de travail";
+			this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+			this.dataGridViewTextBoxColumn9.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn10
+			// 
+			this.dataGridViewTextBoxColumn10.DataPropertyName = "heures";
+			this.dataGridViewTextBoxColumn10.HeaderText = "Heures travaillées";
+			this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+			this.dataGridViewTextBoxColumn10.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn11
+			// 
+			this.dataGridViewTextBoxColumn11.DataPropertyName = "mins";
+			this.dataGridViewTextBoxColumn11.HeaderText = "Minutes";
+			this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+			this.dataGridViewTextBoxColumn11.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn12
+			// 
+			this.dataGridViewTextBoxColumn12.DataPropertyName = "dateModif";
+			dataGridViewCellStyle2.Format = "D";
+			dataGridViewCellStyle2.NullValue = null;
+			this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle2;
+			this.dataGridViewTextBoxColumn12.HeaderText = "Dernière modification";
+			this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+			this.dataGridViewTextBoxColumn12.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn13
+			// 
+			this.dataGridViewTextBoxColumn13.DataPropertyName = "modifPar";
+			this.dataGridViewTextBoxColumn13.HeaderText = "Modifié par";
+			this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+			this.dataGridViewTextBoxColumn13.ReadOnly = true;
+			// 
+			// projetIdDataGridViewTextBoxColumn
+			// 
+			this.projetIdDataGridViewTextBoxColumn.DataPropertyName = "projetId";
+			this.projetIdDataGridViewTextBoxColumn.HeaderText = "Identifiant de projet";
+			this.projetIdDataGridViewTextBoxColumn.Name = "projetIdDataGridViewTextBoxColumn";
+			this.projetIdDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// cliNameDataGridViewTextBoxColumn
+			// 
+			this.cliNameDataGridViewTextBoxColumn.DataPropertyName = "cliName";
+			this.cliNameDataGridViewTextBoxColumn.HeaderText = "Client";
+			this.cliNameDataGridViewTextBoxColumn.Name = "cliNameDataGridViewTextBoxColumn";
+			this.cliNameDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn1
+			// 
+			this.dataGridViewTextBoxColumn1.DataPropertyName = "empId";
+			this.dataGridViewTextBoxColumn1.HeaderText = "Identifiant d\'employé";
+			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+			this.dataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn2
+			// 
+			this.dataGridViewTextBoxColumn2.DataPropertyName = "fname";
+			this.dataGridViewTextBoxColumn2.HeaderText = "Prénom";
+			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+			this.dataGridViewTextBoxColumn2.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn3
+			// 
+			this.dataGridViewTextBoxColumn3.DataPropertyName = "lname";
+			this.dataGridViewTextBoxColumn3.HeaderText = "Nom de famille";
+			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+			this.dataGridViewTextBoxColumn3.ReadOnly = true;
+			// 
+			// journeeDataGridViewTextBoxColumn
+			// 
+			this.journeeDataGridViewTextBoxColumn.DataPropertyName = "journee";
+			dataGridViewCellStyle3.Format = "D";
+			dataGridViewCellStyle3.NullValue = null;
+			this.journeeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+			this.journeeDataGridViewTextBoxColumn.HeaderText = "Journée de travail";
+			this.journeeDataGridViewTextBoxColumn.Name = "journeeDataGridViewTextBoxColumn";
+			this.journeeDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// heuresDataGridViewTextBoxColumn
+			// 
+			this.heuresDataGridViewTextBoxColumn.DataPropertyName = "heures";
+			this.heuresDataGridViewTextBoxColumn.HeaderText = "Heures travaillées";
+			this.heuresDataGridViewTextBoxColumn.Name = "heuresDataGridViewTextBoxColumn";
+			this.heuresDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// minsDataGridViewTextBoxColumn
+			// 
+			this.minsDataGridViewTextBoxColumn.DataPropertyName = "mins";
+			this.minsDataGridViewTextBoxColumn.HeaderText = "Minutes";
+			this.minsDataGridViewTextBoxColumn.Name = "minsDataGridViewTextBoxColumn";
+			this.minsDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// soumis
+			// 
+			this.soumis.DataPropertyName = "soumis";
+			this.soumis.HeaderText = "Soumis";
+			this.soumis.Name = "soumis";
+			this.soumis.ReadOnly = true;
+			// 
+			// dateModifDataGridViewTextBoxColumn
+			// 
+			this.dateModifDataGridViewTextBoxColumn.DataPropertyName = "dateModif";
+			dataGridViewCellStyle4.Format = "D";
+			dataGridViewCellStyle4.NullValue = null;
+			this.dateModifDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+			this.dateModifDataGridViewTextBoxColumn.HeaderText = "Dernière modification";
+			this.dateModifDataGridViewTextBoxColumn.Name = "dateModifDataGridViewTextBoxColumn";
+			this.dateModifDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// modifParDataGridViewTextBoxColumn
+			// 
+			this.modifParDataGridViewTextBoxColumn.DataPropertyName = "modifPar";
+			dataGridViewCellStyle5.Format = "D";
+			dataGridViewCellStyle5.NullValue = null;
+			this.modifParDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+			this.modifParDataGridViewTextBoxColumn.HeaderText = "Modifié par";
+			this.modifParDataGridViewTextBoxColumn.Name = "modifParDataGridViewTextBoxColumn";
+			this.modifParDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
 			// MainScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -696,6 +700,11 @@
 		private System.Windows.Forms.BindingSource horodateurBindingSource;
 		// Needs to be modified by another form, made public.
 		public fdtDataSetTableAdapters.HorodateurTableAdapter horodateurTableAdapter;
+		private System.Windows.Forms.Button CreateButton;
+		private System.Windows.Forms.Button SubmitButton;
+		private System.Windows.Forms.Button ModifyButton;
+		private System.Windows.Forms.Button DeleteButton;
+		private System.Windows.Forms.Label WelcomeLabel;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
@@ -703,10 +712,6 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-		private System.Windows.Forms.Button CreateButton;
-		private System.Windows.Forms.Button SubmitButton;
-		private System.Windows.Forms.Button ModifyButton;
-		private System.Windows.Forms.Button DeleteButton;
 		private System.Windows.Forms.DataGridViewTextBoxColumn projetIdDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn cliNameDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -718,6 +723,5 @@
 		private System.Windows.Forms.DataGridViewCheckBoxColumn soumis;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dateModifDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn modifParDataGridViewTextBoxColumn;
-		private System.Windows.Forms.Label WelcomeLabel;
 	}
 }
