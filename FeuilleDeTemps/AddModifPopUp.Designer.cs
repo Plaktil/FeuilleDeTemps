@@ -280,25 +280,25 @@
 
 		#endregion
 
-		private System.Windows.Forms.GroupBox AddModifGroupBox;
-		private System.Windows.Forms.ComboBox AddModifEmpIdComboBox;
-		private System.Windows.Forms.Label AddModifEmpIdLabel;
-		private System.Windows.Forms.Button SaveAndSubmitButton;
-		private System.Windows.Forms.Button SaveButton;
-		private System.Windows.Forms.Label AddModifWorkHoursLabel;
-		private System.Windows.Forms.DateTimePicker AddModifDatePicker;
-		private System.Windows.Forms.Label AddModifDateLabel;
-		private System.Windows.Forms.Label AddModifProjetIdLabel;
-		private System.Windows.Forms.ComboBox AddModifProjetIdComboBox;
-		private System.Windows.Forms.ComboBox AddModifHoursComboBox;
-		private System.Windows.Forms.Label AddModifMinutesLabel;
-		private System.Windows.Forms.Label AddModifHourLabel;
-		private System.Windows.Forms.ComboBox AddModifMinutesComboBox;
-		private System.Windows.Forms.Button AddModifCancelButton;
-		private fdtDataSet fdtDataSet;
-		private System.Windows.Forms.BindingSource projetsBindingSource;
-		private fdtDataSetTableAdapters.ProjetsTableAdapter projetsTableAdapter;
-		private System.Windows.Forms.BindingSource employesBindingSource;
-		private fdtDataSetTableAdapters.EmployesTableAdapter employesTableAdapter;
+		protected private System.Windows.Forms.GroupBox AddModifGroupBox;
+		protected private System.Windows.Forms.ComboBox AddModifEmpIdComboBox;
+		protected private System.Windows.Forms.Label AddModifEmpIdLabel;
+		protected private System.Windows.Forms.Button SaveAndSubmitButton;
+		protected private System.Windows.Forms.Button SaveButton;
+		protected private System.Windows.Forms.Label AddModifWorkHoursLabel;
+		protected private System.Windows.Forms.DateTimePicker AddModifDatePicker;
+		protected private System.Windows.Forms.Label AddModifDateLabel;
+		protected private System.Windows.Forms.Label AddModifProjetIdLabel;
+		protected private System.Windows.Forms.ComboBox AddModifProjetIdComboBox;
+		protected private System.Windows.Forms.ComboBox AddModifHoursComboBox;
+		protected private System.Windows.Forms.Label AddModifMinutesLabel;
+		protected private System.Windows.Forms.Label AddModifHourLabel;
+		protected private System.Windows.Forms.ComboBox AddModifMinutesComboBox;
+		protected private System.Windows.Forms.Button AddModifCancelButton;
+		protected private fdtDataSet fdtDataSet;
+		protected private System.Windows.Forms.BindingSource projetsBindingSource;
+		protected private fdtDataSetTableAdapters.ProjetsTableAdapter projetsTableAdapter;
+		protected private System.Windows.Forms.BindingSource employesBindingSource;
+		protected private fdtDataSetTableAdapters.EmployesTableAdapter employesTableAdapter;
 	}
 }

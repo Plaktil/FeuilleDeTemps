@@ -618,11 +618,11 @@
 			// 
 			this.WelcomeLabel.AutoSize = true;
 			this.WelcomeLabel.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.WelcomeLabel.Location = new System.Drawing.Point(25, 13);
+			this.WelcomeLabel.Location = new System.Drawing.Point(12, 12);
 			this.WelcomeLabel.Name = "WelcomeLabel";
-			this.WelcomeLabel.Size = new System.Drawing.Size(73, 28);
+			this.WelcomeLabel.Size = new System.Drawing.Size(124, 28);
 			this.WelcomeLabel.TabIndex = 3;
-			this.WelcomeLabel.Text = "label1";
+			this.WelcomeLabel.Text = "Bienvenue!";
 			// 
 			// MainScreen
 			// 

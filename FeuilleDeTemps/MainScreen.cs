@@ -116,7 +116,7 @@ namespace FeuilleDeTemps
 		/// <param name="e"></param>
 		private void AddButton_Click(object sender, EventArgs e)
 		{
-			AddModifPopUp addPopUp = new AddModifPopUp(this);
+			AddPopUp addPopUp = new AddPopUp(this);
 			this.pendingPopUps = new AddModifPopUp[1];
 			this.pendingPopUps[0] = addPopUp;
 			popUpHandler();
@@ -139,7 +139,7 @@ namespace FeuilleDeTemps
 				// TODO: Find out how to get the cells by column name to de-obfuscate code
 				// Instantiate the popups and store them in the array
 				DataGridViewCellCollection currentCells = selectedRows[i].Cells;
-				AddModifPopUp addModifPopUp = new AddModifPopUp(
+				ModifPopUp modifPopUp = new ModifPopUp(
 					this,
 					// projetId
 					currentCells[0].Value.ToString(), 
@@ -148,7 +148,7 @@ namespace FeuilleDeTemps
 					// journee
 					Convert.ToDateTime(currentCells[2].Value)
 				);
-				this.pendingPopUps[i] = addModifPopUp;
+				this.pendingPopUps[i] = modifPopUp;
 			}
 
 			// Lock the screen while the popups are dealt with by the user
