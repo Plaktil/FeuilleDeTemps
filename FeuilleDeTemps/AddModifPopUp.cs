@@ -11,22 +11,25 @@ using System.Windows.Forms;
 
 namespace FeuilleDeTemps
 {
-	// TOOD: This class could be split into 2 children (add and modify) to remove the 'mode' checks
+	/// <summary>
+	/// Base class of the Add and Modify popups. Do not implement directly!
+	/// </summary>
 	public partial class AddModifPopUp : Form
 	{
 		#region Private members
+
 		protected private String projetId;
 		protected private DateTime workDate;
 		protected private String currentUserId;
-		protected private String originalEmpId;
 		protected private int hours;
 		protected private int minutes;
 		protected private bool submitted;
-		protected private DateTime modifDate;
-		protected private String modifBy;
 		protected private MainScreen mainScreen;
+
 		#endregion
+
 		#region Constructors
+
 		/// <summary>
 		/// Empty constructor for the Designer tool
 		/// </summary>
@@ -34,8 +37,11 @@ namespace FeuilleDeTemps
 		{
 			InitializeComponent();
 		}
+
 		#endregion
+
 		#region On Load
+
 		/// <summary>
 		/// Set the interface according to the context and the privilege 
 		/// level of the current user
@@ -66,8 +72,11 @@ namespace FeuilleDeTemps
 			// Trigger the selected index changed to set the min / max dates
 			AddModifProjetIdComboBox_SelectedIndexChanged(sender, e);
 		}
+
 		#endregion
+
 		#region Controls Behaviours
+
 		/// <summary>
 		/// Sets the min and max dates of the date picker according to the selected project's
 		/// begin and end dates.
@@ -157,8 +166,11 @@ namespace FeuilleDeTemps
 		{
 			this.Close();
 		}
+
 		#endregion
+
 		#region Helper Methods
+
 		/// <summary>
 		/// Sets the query parameters to the values in the input fields
 		/// </summary>
@@ -189,6 +201,7 @@ namespace FeuilleDeTemps
 			e.SuppressKeyPress = true; 
 			e.Handled = true;
 		}
+
 		#endregion
 
 	}

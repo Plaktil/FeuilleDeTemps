@@ -8,12 +8,20 @@ using System.Windows.Forms;
 
 namespace FeuilleDeTemps
 {
+	/// <summary>
+	/// Implementable derived class of the base class AddModifPopUp
+	/// </summary>
 	public partial class ModifPopUp : FeuilleDeTemps.AddModifPopUp
 	{
-		public ModifPopUp()
-		{
-			InitializeComponent();
-		}
+		#region Private Members
+
+		private String originalEmpId;
+		private DateTime modifDate;
+		private String modifBy;
+
+		#endregion
+
+		#region Constructors
 
 		/// <summary>
 		/// Constructor for the "modify" action with a reference to the calling form
@@ -46,7 +54,17 @@ namespace FeuilleDeTemps
 
 			this.mainScreen = mainScreen;
 		}
+		
+		#endregion
 
+		#region On Load
+
+		/// <summary>
+		/// Set the interface according to the context and the privilege 
+		/// level of the current user
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		public override void AddModifPopUp_Load(object sender, EventArgs e)
 		{
 			base.AddModifPopUp_Load(sender, e);
@@ -54,6 +72,10 @@ namespace FeuilleDeTemps
 			// Load the available users selection for the combo box according to context
 			this.employesTableAdapter.FillByUser(this.fdtDataSet.Employes, this.originalEmpId);
 		}
+		
+		#endregion
+
+		#region Helper Methods
 
 		/// <summary>
 		/// Does an insert or an update, depending on the context,
@@ -72,5 +94,7 @@ namespace FeuilleDeTemps
 				this.workDate.ToLongDateString()
 			);
 		}
+		
+		#endregion
 	}
 }

@@ -17,8 +17,11 @@ namespace FeuilleDeTemps
 		{
 			InitializeComponent();
 		}
+
 		#endregion
+
 		#region Controls Behaviours
+
 		/// <summary>
 		/// Basic login function comparing the entered credentials with the database entries of known users
 		/// </summary>
@@ -54,6 +57,7 @@ namespace FeuilleDeTemps
 				pwdTextBox.Text = String.Empty;
 			}
 		}
+
 		#endregion
 	}
 }

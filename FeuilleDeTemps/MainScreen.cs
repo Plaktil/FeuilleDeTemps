@@ -10,6 +10,7 @@ namespace FeuilleDeTemps
 	public partial class MainScreen : Form
 	{
 		#region Private Members
+
 		// Refference to the caller form in order to return to it after logout
 		private LoginForm loginForm;
 
@@ -18,8 +19,11 @@ namespace FeuilleDeTemps
 		private String currentSearchStartDate;
 		private String currentSearchEndDate;
 		private AddModifPopUp[] pendingPopUps;
+
 		#endregion
+
 		#region Constructor
+
 		/// <summary>
 		/// MainScreen Constructor
 		/// </summary>
@@ -32,8 +36,11 @@ namespace FeuilleDeTemps
 			// Allows delete button to call popUpHandler to refresh the search results
 			this.pendingPopUps = new AddModifPopUp[0];
 		}
+
 		#endregion
+
 		#region On Load
+
 		/// <summary>
 		/// Loads DGVs and other controls dependent on the user privileges and IDs
 		/// </summary>
@@ -70,7 +77,9 @@ namespace FeuilleDeTemps
 			// Get all the existing unsubmitted punch clock data for the current user (unless admin)
 			LaunchSearch(HistTabPage);
 		}
+
 		#endregion
+
 		#region Controls Behaviours
 
 		/// <summary>
@@ -233,8 +242,11 @@ namespace FeuilleDeTemps
 			CurrentUser.Logout();
 			this.loginForm.Show();
 		}
+
 		#endregion
+
 		#region Helper Methods
+
 		/// <summary>
 		/// Reset the default values (different for admin) in the search fields,
 		/// launches the search with the default values.
@@ -316,6 +328,7 @@ namespace FeuilleDeTemps
 				LaunchSearch(AddModifTabPage);
 			}
 		}
+
 		#endregion
 	}
 }
